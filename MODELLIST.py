@@ -31,6 +31,11 @@ def list_tree(root, prefix=""):
 output_file = "model_tree.txt"
 root_dir = "save"
 
+print(root_dir)
+for line in list_tree(root_dir):
+    print(line)
+    
+
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(root_dir + "\n")
     for line in list_tree(root_dir):

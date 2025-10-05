@@ -1,3 +1,6 @@
+# 20251005
+python train_teacher.py --dataset cifar100 --model vgg16_bn --pretrained --freeze_layers --epoch 1
+
 # train teacher
 # resNet32x4
 python train_teacher.py --dataset cifar10 --epochs 240 --trial 0 --model resnet32x4

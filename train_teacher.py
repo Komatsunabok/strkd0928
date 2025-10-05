@@ -11,21 +11,15 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.backends.cudnn as cudnn
-# import tensorboard_logger as tb_logger
-# 変更後
 from torch.utils.tensorboard import SummaryWriter
 
-from models import model_dict
+# from models import model_dict, weight_class_dict
+from pytorch_models import model_dict, weight_class_dict
 from dataset.cifar100 import get_cifar100_dataloaders
 from dataset.cifar10 import get_cifar10_dataloaders
-from dataset.imagenet import get_imagenet_dataloader
 from dataset.cinic10 import get_cinic10_dataloaders
-# from dataset.imagenet_dali import get_dali_data_loader
 from helper.util import save_dict_to_json, reduce_tensor, adjust_learning_rate
 from helper.loops import train_vanilla as train, validate_vanilla
-
-import signal
-import sys
 
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
@@ -45,22 +39,38 @@ def parse_option():
     parser.add_argument('--lr_decay_rate', type=float, default=0.1, help='decay rate for learning rate')
     parser.add_argument('--weight_decay', type=float, default=5e-4, help='weight decay')
     parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
-
+    parser.add_argument('--lr_min', type=float, default=0.0, help='minimum learning rate for cosine annealing')
+    
     # dataset
-    parser.add_argument('--model', type=str, default='vgg16')
-    parser.add_argument('--dataset', type=str, default='cifar100', choices=['cifar100', 'imagenet', 'cifar10', 'cinic10'], help='dataset')
+    parser.add_argument('--dataset', type=str, default='cifar100', choices=['cifar100', 'cifar10', 'cinic10'], help='dataset')
+    parser.add_argument('--model', type=str, default='vgg16_bn')
     parser.add_argument('-t', '--trial', type=str, default='0', help='the experiment id')
 
+    # pretrained model
+    # https://docs.pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
+    parser.add_argument('--pretrained', action='store_true', help='Use pretrained weights if available') # default=False, --pretrainedでTrue
+    parser.add_argument('--pretrained_weights', type=str, default='IMAGENET1K_V1',
+                        help="Pretrained weight version (e.g. 'IMAGENET1K_V1', 'IMAGENET1K_V2')")
+    parser.add_argument('--freeze_layers', action='store_true', 
+                        help='Freeze the feature extraction layers and only train the classifier')
     opt = parser.parse_args()
 
     # set the path of model and tensorboard 
     opt.model_path = './save/teachers/models'
     opt.tb_path = './save/teachers/tensorboard'
 
-    # set the model name
+    # set the model name    
+    # 学習戦略を決定するタグを作成
+    if not opt.pretrained:
+        strategy_tag = 'scratch'
+    else:
+        if opt.freeze_layers:
+            strategy_tag = 'fe'  # Feature Extraction
+        else:
+            strategy_tag = 'ft'  # Fine-tuning
     now_str = datetime.now().strftime("%Y%m%d")
-    opt.model_name = '{}-vanilla-{}-trial_{}-epochs_{}-bs_{}-{}'.format(
-        opt.model, opt.dataset, opt.trial, opt.epochs, opt.batch_size, now_str
+    opt.model_name = '{}-{}-{}-trial_{}-epochs_{}-bs_{}-{}'.format(
+        opt.model, strategy_tag, opt.dataset, opt.trial, opt.epochs, opt.batch_size, now_str
     )
 
     opt.tb_folder = os.path.join(opt.tb_path, opt.model_name)
@@ -73,6 +83,56 @@ def parse_option():
 
     return opt
 
+def get_model(opt, n_cls):
+    """
+    公式モデルをロードまたは初期化する関数
+    - opt: コマンドライン引数
+    - n_cls: データセットのクラス数
+    """
+    # === 1. 事前学習済みモデルを使う場合 (`--pretrained` が指定された時) ===
+    if opt.pretrained:
+        print(f"Loading official pretrained model: {opt.model}")
+
+        # ---- (1) torchvisionから学習済み重みをダウンロード ----
+        if opt.model not in weight_class_dict:
+            raise ValueError(f"No pretrained weights class found for model {opt.model}")
+
+        weight_class = weight_class_dict[opt.model]
+        if not hasattr(weight_class, opt.pretrained_weights):
+            raise ValueError(f"Weight '{opt.pretrained_weights}' not found in {weight_class}")
+        
+        pretrained_weights = getattr(weight_class, opt.pretrained_weights)
+        model = model_dict[opt.model](weights=pretrained_weights)
+
+        # ---- (2) 必要であれば、特徴抽出層を凍結 ----
+        if opt.freeze_layers:
+            print("Freezing feature extraction layers...")
+            # VGG系のモデルの場合
+            if hasattr(model, 'features'):
+                for param in model.features.parameters():
+                    param.requires_grad = False
+            # ResNet系のモデルの場合 (fc層以外を凍結)
+            elif hasattr(model, 'layer1'):
+                for name, param in model.named_parameters():
+                    if not name.startswith('fc.'):
+                        param.requires_grad = False
+
+        # ---- (3) データセットに合わせて最終層を新しいものに置き換え ----
+        if 'vgg' in opt.model:
+            in_features = model.classifier[-1].in_features
+            model.classifier[-1] = nn.Linear(in_features, n_cls)
+        elif 'resnet' in opt.model:
+            in_features = model.fc.in_features
+            model.fc = nn.Linear(in_features, n_cls)
+        # 他のモデルアーキテクチャもここに追加可能
+        
+    # === 2. ゼロから学習させる場合 (scratch) ===
+    else:
+        print(f"Initializing model from scratch: {opt.model}")
+        # `weights=None` で学習済み重みを使わずに初期化
+        model = model_dict[opt.model](weights=None, num_classes=n_cls)
+
+    return model
 
 def main():
     opt = parse_option()
@@ -90,13 +150,15 @@ def main():
     # 単一GPU/CPU用のワーカーを呼ぶ
     main_worker(None if ngpus_per_node > 1 else opt.gpu_id, ngpus_per_node, opt)
 
-best_acc = 0
-total_time = time.time()
 def main_worker(gpu, ngpus_per_node, opt):
-    global best_acc, total_time
+    best_acc = 0
     total_time = time.time()
     opt.gpu = int(gpu) if gpu and gpu.isdigit() else None
     opt.gpu_id = int(gpu) if gpu and gpu.isdigit() else None    
+
+    # deviceオブジェクトを定義
+    device = torch.device(f'cuda:{opt.gpu}' if torch.cuda.is_available() and opt.gpu is not None else 'cpu')
+    print(f"Using device: {device}")
     
     if opt.gpu is not None:
         print("Use GPU: {} for training".format(opt.gpu))
@@ -113,13 +175,21 @@ def main_worker(gpu, ngpus_per_node, opt):
         'cinic10': 10,
     }.get(opt.dataset, None)
     
-    try:
-        model = model_dict[opt.model](num_classes=n_cls)
-    except KeyError:
-        print("This model is not supported.")
+    # modelの初期化
+    model = get_model(opt, n_cls).to(device) # .to(device) を使う
+    
+    criterion = nn.CrossEntropyLoss().to(device) # .to(device) を使う
+
+    # 学習させるパラメータを指定する
+    params_to_update = []
+    print("Parameters to train:")
+    for name, param in model.named_parameters():
+        if param.requires_grad:
+            params_to_update.append(param)
+            print(f"\t{name}")
 
     # optimizer
-    optimizer = optim.SGD(model.parameters(),
+    optimizer = optim.SGD(params_to_update,
                         lr=opt.learning_rate,
                         momentum=opt.momentum,
                         weight_decay=opt.weight_decay)
@@ -130,18 +200,6 @@ def main_worker(gpu, ngpus_per_node, opt):
         T_max=opt.epochs,
         eta_min=opt.lr_min if hasattr(opt, 'lr_min') else 0
     )
-
-    criterion = nn.CrossEntropyLoss()
-
-    if torch.cuda.is_available() and opt.gpu is not None:
-        # GPUが利用可能な場合
-        print("Using GPU for training.")
-        criterion = criterion.cuda()
-        model = model.cuda()
-    else:
-        # CPU環境の場合
-        print("Using CPU for training.")
-        model = model  # CPU上でそのまま使用
 
     cudnn.benchmark = True if torch.cuda.is_available() else False
 
@@ -174,7 +232,7 @@ def main_worker(gpu, ngpus_per_node, opt):
         print("==> training...")
 
         time1 = time.time()
-        train_acc, train_acc_top5, train_loss = train(epoch, train_loader, model, criterion, optimizer, opt)
+        train_acc, train_acc_top5, train_loss = train(epoch, train_loader, model, criterion, optimizer, opt, device)
         time2 = time.time()
 
         print(' * Epoch {}, Acc@1 {:.3f}, Acc@5 {:.3f}, Time {:.2f}'.format(epoch, train_acc, train_acc_top5, time2 - time1))
@@ -184,7 +242,7 @@ def main_worker(gpu, ngpus_per_node, opt):
         # train_accを記録
         train_acc_history.append(train_acc)
 
-        test_acc, test_acc_top5, test_loss = validate_vanilla(val_loader, model, criterion, opt)
+        test_acc, test_acc_top5, test_loss = validate_vanilla(val_loader, model, criterion, opt, device)
 
         print(' ** Acc@1 {:.3f}, Acc@5 {:.3f}'.format(test_acc, test_acc_top5))
 

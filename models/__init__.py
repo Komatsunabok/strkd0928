@@ -10,6 +10,8 @@ from .resnet_imagenet import wide_resnet10_2, wide_resnet18_2, wide_resnet34_2
 from .mobilenetv2_imagenet import mobilenet_v2
 from .shuffleNetv2_imagenet import shufflenet_v2_x1_0
 
+import torchvision.models as models
+
 model_dict = {
     'resnet38': resnet38,
     'resnet110': resnet110,
@@ -22,8 +24,11 @@ model_dict = {
     'resnet32x4': resnet32x4,
     'resnet38x4': resnet38x4,
     'vgg8': vgg8_bn,
+    'vgg8_bn': vgg8_bn,
     'vgg13': vgg13_bn,
+    'vgg13_bn': vgg13_bn,
     'vgg16': vgg16_bn,  # vgg16 is not defined, using vgg13_bn as a placeholder
+    'vgg16_bn': vgg16_bn,
     'MobileNetV2': mobile_half,
     'MobileNetV2_1_0': mobile_half_double,
     'ShuffleV1': ShuffleV1,
@@ -41,4 +46,24 @@ model_dict = {
     
     'MobileNetV2_Imagenet': mobilenet_v2,
     'ShuffleV2_Imagenet': shufflenet_v2_x1_0,
+}
+
+model_dict = {
+    'vgg11': models.vgg11,
+    'vgg13': models.vgg13,
+    'vgg16': models.vgg16,
+    'vgg19': models.vgg19,
+    'vgg11_bn': models.vgg11_bn,
+    'vgg13_bn': models.vgg13_bn,
+    'vgg16_bn': models.vgg16_bn,
+    'vgg19_bn': models.vgg19_bn,
+    'resnet18': models.resnet18,
+    'resnet34': models.resnet34,
+    'resnet50': models.resnet50,
+}
+
+# https://docs.pytorch.org/vision/main/models.html
+weight_class_dict = {
+    'vgg13_bn': models.VGG13_BN_Weights,
+    'vgg16_bn': models.VGG16_BN_Weights,
 }

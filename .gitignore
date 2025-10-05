@@ -195,4 +195,5 @@ visualize/image
 bin
 bin/archive
 
-save/download
+save/pretrained
+save/**/*.pth

@@ -112,7 +112,7 @@ def main_worker(gpu, ngpus_per_node, opt):
     
     # modelの初期化
     print(f"Initializing model from scratch: {opt.model}")
-    model = model_dict[opt.model](num_classes=n_cls)
+    model = model_dict[opt.model](num_classes=n_cls).to(device)
     
     criterion = nn.CrossEntropyLoss().to(device) # .to(device) を使う
 

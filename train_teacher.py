@@ -14,11 +14,11 @@ import torch.backends.cudnn as cudnn
 from torch.utils.tensorboard import SummaryWriter
 
 # from models import model_dict, weight_class_dict
-from pytorch_models import model_dict, weight_class_dict
+from models import model_dict
 from dataset.cifar100 import get_cifar100_dataloaders
 from dataset.cifar10 import get_cifar10_dataloaders
 from dataset.cinic10 import get_cinic10_dataloaders
-from helper.util import save_dict_to_json, reduce_tensor, adjust_learning_rate
+from helper.util import save_dict_to_json
 from helper.loops import train_vanilla as train, validate_vanilla
 
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
@@ -46,13 +46,6 @@ def parse_option():
     parser.add_argument('--model', type=str, default='vgg16_bn')
     parser.add_argument('-t', '--trial', type=str, default='0', help='the experiment id')
 
-    # pretrained model
-    # https://docs.pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
-    parser.add_argument('--pretrained', action='store_true', help='Use pretrained weights if available') # default=False, --pretrainedでTrue
-    parser.add_argument('--pretrained_weights', type=str, default='IMAGENET1K_V1',
-                        help="Pretrained weight version (e.g. 'IMAGENET1K_V1', 'IMAGENET1K_V2')")
-    parser.add_argument('--freeze_layers', action='store_true', 
-                        help='Freeze the feature extraction layers and only train the classifier')
     opt = parser.parse_args()
 
     # set the path of model and tensorboard 
@@ -60,17 +53,9 @@ def parse_option():
     opt.tb_path = './save/teachers/tensorboard'
 
     # set the model name    
-    # 学習戦略を決定するタグを作成
-    if not opt.pretrained:
-        strategy_tag = 'scratch'
-    else:
-        if opt.freeze_layers:
-            strategy_tag = 'fe'  # Feature Extraction
-        else:
-            strategy_tag = 'ft'  # Fine-tuning
     now_str = datetime.now().strftime("%Y%m%d")
-    opt.model_name = '{}-{}-{}-trial_{}-epochs_{}-bs_{}-{}'.format(
-        opt.model, strategy_tag, opt.dataset, opt.trial, opt.epochs, opt.batch_size, now_str
+    opt.model_name = '{}-{}-trial_{}-epochs_{}-bs_{}-{}'.format(
+        opt.model, opt.dataset, opt.trial, opt.epochs, opt.batch_size, now_str
     )
 
     opt.tb_folder = os.path.join(opt.tb_path, opt.model_name)
@@ -83,56 +68,6 @@ def parse_option():
 
     return opt
 
-def get_model(opt, n_cls):
-    """
-    公式モデルをロードまたは初期化する関数
-    - opt: コマンドライン引数
-    - n_cls: データセットのクラス数
-    """
-    # === 1. 事前学習済みモデルを使う場合 (`--pretrained` が指定された時) ===
-    if opt.pretrained:
-        print(f"Loading official pretrained model: {opt.model}")
-
-        # ---- (1) torchvisionから学習済み重みをダウンロード ----
-        if opt.model not in weight_class_dict:
-            raise ValueError(f"No pretrained weights class found for model {opt.model}")
-
-        weight_class = weight_class_dict[opt.model]
-        if not hasattr(weight_class, opt.pretrained_weights):
-            raise ValueError(f"Weight '{opt.pretrained_weights}' not found in {weight_class}")
-        
-        pretrained_weights = getattr(weight_class, opt.pretrained_weights)
-        model = model_dict[opt.model](weights=pretrained_weights)
-
-        # ---- (2) 必要であれば、特徴抽出層を凍結 ----
-        if opt.freeze_layers:
-            print("Freezing feature extraction layers...")
-            # VGG系のモデルの場合
-            if hasattr(model, 'features'):
-                for param in model.features.parameters():
-                    param.requires_grad = False
-            # ResNet系のモデルの場合 (fc層以外を凍結)
-            elif hasattr(model, 'layer1'):
-                for name, param in model.named_parameters():
-                    if not name.startswith('fc.'):
-                        param.requires_grad = False
-
-        # ---- (3) データセットに合わせて最終層を新しいものに置き換え ----
-        if 'vgg' in opt.model:
-            in_features = model.classifier[-1].in_features
-            model.classifier[-1] = nn.Linear(in_features, n_cls)
-        elif 'resnet' in opt.model:
-            in_features = model.fc.in_features
-            model.fc = nn.Linear(in_features, n_cls)
-        # 他のモデルアーキテクチャもここに追加可能
-        
-    # === 2. ゼロから学習させる場合 (scratch) ===
-    else:
-        print(f"Initializing model from scratch: {opt.model}")
-        # `weights=None` で学習済み重みを使わずに初期化
-        model = model_dict[opt.model](weights=None, num_classes=n_cls)
-
-    return model
 
 def main():
     opt = parse_option()
@@ -176,11 +111,13 @@ def main_worker(gpu, ngpus_per_node, opt):
     }.get(opt.dataset, None)
     
     # modelの初期化
-    model = get_model(opt, n_cls).to(device) # .to(device) を使う
+    print(f"Initializing model from scratch: {opt.model}")
+    model = model_dict[opt.model](num_classes=n_cls)
     
     criterion = nn.CrossEntropyLoss().to(device) # .to(device) を使う
 
     # 学習させるパラメータを指定する
+    # scratchの場合すべてTrue
     params_to_update = []
     print("Parameters to train:")
     for name, param in model.named_parameters():
@@ -205,10 +142,10 @@ def main_worker(gpu, ngpus_per_node, opt):
 
     # dataloader
     print(f"Loading dataset: {opt.dataset}...")
-    if opt.dataset == 'cifar100':
-        train_loader, val_loader = get_cifar100_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
-    elif opt.dataset == 'cifar10':
+    if opt.dataset == 'cifar10':
         train_loader, val_loader = get_cifar10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
+    elif opt.dataset == 'cifar100':
+        train_loader, val_loader = get_cifar100_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
     elif opt.dataset == 'cinic10':
         train_loader, val_loader = get_cinic10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
     else:

@@ -27,7 +27,7 @@ model_dict = {
     'vgg8_bn': vgg8_bn,
     'vgg13': vgg13_bn,
     'vgg13_bn': vgg13_bn,
-    'vgg16': vgg16_bn,  # vgg16 is not defined, using vgg13_bn as a placeholder
+    'vgg16': vgg16_bn,
     'vgg16_bn': vgg16_bn,
     'MobileNetV2': mobile_half,
     'MobileNetV2_1_0': mobile_half_double,
@@ -60,10 +60,4 @@ model_dict = {
     'resnet18': models.resnet18,
     'resnet34': models.resnet34,
     'resnet50': models.resnet50,
-}
-
-# https://docs.pytorch.org/vision/main/models.html
-weight_class_dict = {
-    'vgg13_bn': models.VGG13_BN_Weights,
-    'vgg16_bn': models.VGG16_BN_Weights,
 }

@@ -68,7 +68,6 @@ def parse_option():
 
     return opt
 
-
 def main():
     opt = parse_option()
 
@@ -102,13 +101,25 @@ def main_worker(gpu, ngpus_per_node, opt):
   
     print("Initializing model...")
 
-    # model
+    # dataset
     n_cls = {
         'cifar10': 10,
         'cifar100': 100,
         'imagenet': 1000,
         'cinic10': 10,
     }.get(opt.dataset, None)
+
+    # dataloader
+    print(f"Loading dataset: {opt.dataset}...")
+    if opt.dataset == 'cifar10':
+        train_loader, val_loader = get_cifar10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
+    elif opt.dataset == 'cifar100':
+        train_loader, val_loader = get_cifar100_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
+    elif opt.dataset == 'cinic10':
+        train_loader, val_loader = get_cinic10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
+    else:
+        raise NotImplementedError(opt.dataset)
+    print("Dataset loaded successfully!")
     
     # modelの初期化
     print(f"Initializing model from scratch: {opt.model}")
@@ -140,17 +151,6 @@ def main_worker(gpu, ngpus_per_node, opt):
 
     cudnn.benchmark = True if torch.cuda.is_available() else False
 
-    # dataloader
-    print(f"Loading dataset: {opt.dataset}...")
-    if opt.dataset == 'cifar10':
-        train_loader, val_loader = get_cifar10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
-    elif opt.dataset == 'cifar100':
-        train_loader, val_loader = get_cifar100_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
-    elif opt.dataset == 'cinic10':
-        train_loader, val_loader = get_cinic10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
-    else:
-        raise NotImplementedError(opt.dataset)
-    print("Dataset loaded successfully!")
 
     # tensorboard
     writer = SummaryWriter(log_dir=opt.tb_folder, flush_secs=2)

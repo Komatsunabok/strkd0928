@@ -4,7 +4,17 @@ save
 ├── students
 └── teachers
     ├── models
+    │   ├── vgg13_bn-cifar100-trial_0-epochs_1-bs_64-20251006
     │   ├── vgg16-fe-cifar100-trial_0-epochs_1-bs_64-20251005
+    │   ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251006
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_best.pth
+    │   ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251006
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
     │   ├── vgg16_bn-fe-cifar100-trial_0-epochs_1-bs_64-20251005
     │   │   ├── parameters.json
     │   │   ├── test_best_metrics.json
@@ -28,7 +38,14 @@ save
     │       ├── test_best_metrics.json
     │       └── training_history.json
     └── tensorboard
+        ├── vgg13_bn-cifar100-trial_0-epochs_1-bs_64-20251006
+        │   └── events.out.tfevents.1759739994.frontier.22000.0
         ├── vgg16-fe-cifar100-trial_0-epochs_1-bs_64-20251005
+        ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251006
+        │   ├── events.out.tfevents.1759739869.frontier.14152.0
+        │   └── events.out.tfevents.1759740138.frontier.6788.0
+        ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251006
+        │   └── events.out.tfevents.1759740711.rock9.1229392.0
         ├── vgg16_bn-fe-cifar100-trial_0-epochs_1-bs_64-20251005
         │   └── events.out.tfevents.1759653586.frontier.14684.0
         ├── vgg16_bn-fe-cifar100-trial_0-epochs_240-bs_64-20251005

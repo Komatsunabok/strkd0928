@@ -1,5 +1,5 @@
 # 20251006
-python train_teacher.py --dataset cifar100 --model vgg16_bn --epoch 1
+python train_teacher.py --dataset cifar100 --model vgg16_bn --epoch 240
 
 # 20251005
 python train_teacher_pytorch.py --dataset cifar100 --model vgg16_bn --pretrained --freeze_layers --epoch 1

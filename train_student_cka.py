@@ -20,15 +20,13 @@ import torch.backends.cudnn as cudnn
 from torch.utils.tensorboard import SummaryWriter
 
 from models import model_dict
-from models.util import ConvReg, SelfA, SRRL, SimKD
 
-from dataset.cifar10 import get_cifar10_dataloaders, get_cifar10_dataloaders_sample
-from dataset.cifar100 import get_cifar100_dataloaders, get_cifar100_dataloaders_sample
-from dataset.imagenet import get_imagenet_dataloader,  get_dataloader_sample
-from dataset.cinic10 import get_cinic10_dataloaders, get_cinic10_dataloaders_sample
+from dataset.cifar10 import get_cifar10_dataloaders
+from dataset.cifar100 import get_cifar100_dataloaders
+from dataset.cinic10 import get_cinic10_dataloaders
 
 from helper.loops import train_distill as train, validate_vanilla, validate_distill
-from helper.util import save_dict_to_json, reduce_tensor, adjust_learning_rate
+from helper.util import save_dict_to_json, reduce_tensor
 from helper.cka_mapper import CKAMapper
 
 from distiller_zoo.KD import DistillKL
@@ -36,6 +34,8 @@ from distiller_zoo.CKAD import CKADistillLoss
 
 from helper.hooks import register_hooks
 
+# ASSIGN CUDA_ID
+os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu_id
 
 split_symbol = '~' if os.name == 'nt' else ':'
 # nt:Windows
@@ -47,25 +47,26 @@ def parse_option():
 
     parser = argparse.ArgumentParser('argument for training')
     
-    # basic
-    
-    parser.add_argument('--print_freq', type=int, default=200, help='print frequency')
-    parser.add_argument('--batch_size', type=int, default=64, help='batch_size')
-    parser.add_argument('--num_workers', type=int, default=8, help='num of workers to use')
+    # baisc
+    parser.add_argument('--print_freq', type=int, default=200, help='print frequency') # トレーニング中にログ（進捗状況やメトリクス）を出力する頻度（バッチ）
+    parser.add_argument('--batch_size', type=int, default=64, help='batch_size') 
+    parser.add_argument('--num_workers', type=int, default=8, help='num_workers') # ワーカープロセスの数
     parser.add_argument('--epochs', type=int, default=240, help='number of training epochs')
-    parser.add_argument('--gpu_id', type=str, default='0', help='id(s) for CUDA_VISIBLE_DEVICES')
-
+    parser.add_argument('--gpu_id', type=str, default='0', help='id(s) for CUDA_VISIBLE_DEVICES') # GPUのID（0:最初のGPUを使用）
+    
     # optimization
     parser.add_argument('--learning_rate', type=float, default=0.01, help='learning rate')
-    parser.add_argument('--lr_decay_epochs', type=str, default='150,180,210', help='where to decay lr, can be a list')
     parser.add_argument('--lr_decay_rate', type=float, default=0.1, help='decay rate for learning rate')
-    parser.add_argument('--lr_scheduler', type=str, default='cosine',choices=['step', 'cosine'],help='learning rate scheduler: step or cosine')
     parser.add_argument('--weight_decay', type=float, default=5e-4, help='weight decay')
     parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    parser.add_argument('--lr_min', type=float, default=0.0, help='minimum learning rate for cosine annealing')
+    
+    # dataset
+    parser.add_argument('--dataset', type=str, default='cifar100', choices=['cifar100', 'cifar10', 'cinic10'], help='dataset')
+    parser.add_argument('--model', type=str, default='vgg16_bn')
+    parser.add_argument('-t', '--trial', type=str, default='0', help='the experiment id')
 
-    # dataset and model
-    parser.add_argument('--dataset', type=str, default='cifar10', choices=['cifar10', 'cifar100', 'imagenet', 'cinic10'], help='dataset')
-    parser.add_argument('--model_s', type=str, default='vgg13')
+    # teacher model
     parser.add_argument('--path_t', type=str, default=None, help='teacher model snapshot')
 
     # distillation
@@ -75,9 +76,6 @@ def parse_option():
     parser.add_argument('-c', '--cls', type=float, default=1.0, help='weight for classification')
     parser.add_argument('-d', '--div', type=float, default=1.0, help='weight balance for KD')
     parser.add_argument('-b', '--beta', type=float, default=0.0, help='weight balance for other losses')
-    parser.add_argument('--b_method', type=str, default='constant', choices=['constant', 'step', 'exp'])
-    parser.add_argument('--b_decay_epochs', type=str, default='120', help='where to decay b, can be a list')
-
 
     # hint layer
     parser.add_argument('--hint_layer', default=1, type=int, choices=[0, 1, 2, 3, 4])
@@ -95,23 +93,7 @@ def parse_option():
     parser.add_argument('--reduction', type=str, default='mean', choices=['sum', 'mean'], help='reduction method for CKA loss')
     parser.add_argument('--grouping', type=str, default='uniform', choices=['uniform', 'proportional'], help='grouping method for student layers')
     
-    # multiprocessing
-    parser.add_argument('--dali', type=str, choices=['cpu', 'gpu'], default=None)
-    parser.add_argument('--multiprocessing-distributed', action='store_true',
-                    help='Use multi-processing distributed training to launch '
-                         'N processes per node, which has N GPUs. This is the '
-                         'fastest way to use PyTorch for either single node or '
-                         'multi node data parallel training')
-    parser.add_argument('--dist-url', default='tcp://127.0.0.1:23451', type=str,
-                    help='url used to set up distributed training')
-    parser.add_argument('--deterministic', action='store_true', help='Make results reproducible')
-    parser.add_argument('--skip-validation', action='store_true', help='Skip validation of teacher')
-    
     opt = parser.parse_args()
-
-    # set different learning rates for these MobileNet/ShuffleNet models
-    if opt.model_s in ['MobileNetV2', 'MobileNetV2_1_0', 'ShuffleV1', 'ShuffleV2', 'ShuffleV2_1_5']:
-        opt.learning_rate = 0.01
 
     # set the path of model and tensorboard
     opt.model_path = './save/students/models'
@@ -124,25 +106,10 @@ def parse_option():
 
     opt.model_t = get_teacher_name(opt.path_t)
     now_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-    if opt.distill == 'kd':
-        opt.model_name = 'S_{}-T_{}-{}-{}-r_{}-a_{}-b_{}-b_method_{}-{}-{}'.format(
-            opt.model_s, opt.model_t, opt.dataset, opt.distill,
-            opt.cls, opt.div, opt.beta, opt.b_method,
-            opt.trial, now_str
-        )
-    elif opt.distill == 'ckad':
-        opt.model_name = 'S_{}-T_{}-{}-{}-r_{}-a_{}-b_{}-b_method_{}-{}-Distill_gn-{}-me_{}-red_{}-sgrp_{}-{}'.format(
-            opt.model_s, opt.model_t, opt.dataset, opt.distill,
-            opt.cls, opt.div, opt.beta, opt.b_method,
-            opt.trial,
-            opt.group_num, opt.method, opt.reduction, opt.grouping,
-            now_str            
-        )
-
-    opt.b_decay_epochs = int(opt.b_decay_epochs)
-
-    if opt.dali is not None:
-        opt.model_name += '_dali:' + opt.dali
+    opt.model_name = 'S_{}-T_{}-{}-trial_{}-epochs_{}-bs_{}-{}-cls_{}-div_{}-beta_{}-{}'.format(
+        opt.model, opt.path_t, opt.dataset, opt.trial, opt.epochs, opt.batch_size,
+        opt.distill, opt.cls, opt.div, opt.beta, now_str
+    )
 
     opt.tb_folder = os.path.join(opt.tb_path, opt.model_name)
     if not os.path.isdir(opt.tb_folder):
@@ -177,53 +144,32 @@ def load_teacher(model_path, n_cls, gpu=None, opt=None):
     print('==> done')
     return model
 
-
-best_acc = 0
-total_time = time.time()
 def main():
-    
     opt = parse_option()
-    
+
     # ASSIGN CUDA_ID
-    os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu_id
-    
+    if torch.cuda.is_available() and opt.gpu_id:
+        os.environ['CUDA_VISIBLE_DEVICES'] = opt.gpu_id
+        print(f"Using GPU: {opt.gpu_id}")
+    else:
+        print("No valid GPU ID provided or GPU not available. Using CPU.")
+
     ngpus_per_node = torch.cuda.device_count()
     opt.ngpus_per_node = ngpus_per_node
-    if opt.multiprocessing_distributed:
-        # Since we have ngpus_per_node processes per node, the total world_size
-        # needs to be adjusted accordingly
-        world_size = 1
-        opt.world_size = ngpus_per_node * world_size
-        # Use torch.multiprocessing.spawn to launch distributed processes: the
-        # main_worker process function
-        mp.spawn(main_worker, nprocs=ngpus_per_node, args=(ngpus_per_node, opt))
-    else:
-        main_worker(None if ngpus_per_node > 1 else opt.gpu_id, ngpus_per_node, opt)
+
+    # 単一GPU/CPU用のワーカーを呼ぶ
+    main_worker(None if ngpus_per_node > 1 else opt.gpu_id, ngpus_per_node, opt)
 
 def main_worker(gpu, ngpus_per_node, opt):
-    global best_acc, total_time
-    opt.gpu = int(gpu)
-    opt.gpu_id = int(gpu)
+    best_acc = 0
+    total_time = time.time()
+    opt.gpu = int(gpu) if gpu and gpu.isdigit() else None
+    opt.gpu_id = int(gpu) if gpu and gpu.isdigit() else None    
 
     if opt.gpu is not None:
         print("Use GPU: {} for training".format(opt.gpu))
 
-    if opt.multiprocessing_distributed:
-        # Only one node now.
-        opt.rank = gpu
-        dist_backend = 'nccl'
-        dist.init_process_group(backend=dist_backend, init_method=opt.dist_url,
-                                world_size=opt.world_size, rank=opt.rank)
-        opt.batch_size = int(opt.batch_size / ngpus_per_node)
-        opt.num_workers = int((opt.num_workers + ngpus_per_node - 1) / ngpus_per_node)
-
-    if opt.deterministic:
-        torch.manual_seed(12345)
-        cudnn.deterministic = True
-        cudnn.benchmark = False
-        numpy.random.seed(12345)
-
-    # model
+    # dataset
     n_cls = {
         'cifar10':10,
         'cifar100': 100,
@@ -231,23 +177,17 @@ def main_worker(gpu, ngpus_per_node, opt):
         'cinic10': 10
     }.get(opt.dataset, None)
 
-
     # dataloader
-    if opt.dataset == 'cifar100':
-        train_loader, val_loader = get_cifar100_dataloaders(batch_size=opt.batch_size,
-                                                                        num_workers=opt.num_workers)
-    elif opt.dataset == 'cifar10':
-        train_loader, val_loader = get_cifar10_dataloaders(batch_size=opt.batch_size,
-                                                                        num_workers=opt.num_workers)
-    elif opt.dataset == 'imagenet':
-        train_loader, val_loader, train_sampler = get_imagenet_dataloader(dataset=opt.dataset, batch_size=opt.batch_size,
-                                                                        num_workers=opt.num_workers,
-                                                                        multiprocessing_distributed=opt.multiprocessing_distributed)
+    print(f"Loading dataset: {opt.dataset}...")
+    if opt.dataset == 'cifar10':
+        train_loader, val_loader = get_cifar10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
+    elif opt.dataset == 'cifar100':
+        train_loader, val_loader = get_cifar100_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
     elif opt.dataset == 'cinic10':
-        train_loader, val_loader = get_cinic10_dataloaders(batch_size=opt.batch_size,
-                                                                        num_workers=opt.num_workers)
+        train_loader, val_loader = get_cinic10_dataloaders(batch_size=opt.batch_size, num_workers=opt.num_workers)
     else:
         raise NotImplementedError(opt.dataset)
+    print("Dataset loaded successfully!")
     
     
     model_t = load_teacher(opt.path_t, n_cls, opt.gpu, opt)
@@ -365,6 +305,8 @@ def main_worker(gpu, ngpus_per_node, opt):
         T_max=opt.epochs,
         eta_min=opt.lr_min if hasattr(opt, 'lr_min') else 0
     )
+
+    cudnn.benchmark = True if torch.cuda.is_available() else False
     
     if torch.cuda.is_available():
         # For multiprocessing distributed, DistributedDataParallel constructor

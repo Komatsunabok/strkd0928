@@ -48,16 +48,16 @@ model_dict = {
     'ShuffleV2_Imagenet': shufflenet_v2_x1_0,
 }
 
-model_dict = {
-    'vgg11': models.vgg11,
-    'vgg13': models.vgg13,
-    'vgg16': models.vgg16,
-    'vgg19': models.vgg19,
-    'vgg11_bn': models.vgg11_bn,
-    'vgg13_bn': models.vgg13_bn,
-    'vgg16_bn': models.vgg16_bn,
-    'vgg19_bn': models.vgg19_bn,
-    'resnet18': models.resnet18,
-    'resnet34': models.resnet34,
-    'resnet50': models.resnet50,
-}
+# model_dict = {
+#     'vgg11': models.vgg11,
+#     'vgg13': models.vgg13,
+#     'vgg16': models.vgg16,
+#     'vgg19': models.vgg19,
+#     'vgg11_bn': models.vgg11_bn,
+#     'vgg13_bn': models.vgg13_bn,
+#     'vgg16_bn': models.vgg16_bn,
+#     'vgg19_bn': models.vgg19_bn,
+#     'resnet18': models.resnet18,
+#     'resnet34': models.resnet34,
+#     'resnet50': models.resnet50,
+# }

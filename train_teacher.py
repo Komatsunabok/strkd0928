@@ -49,11 +49,10 @@ def parse_option():
     opt = parser.parse_args()
 
     # set the path of model and tensorboard 
-    opt.model_path = './save/teachers/models'
-    opt.tb_path = './save/teachers/tensorboard'
-
-    # set the model name    
-    now_str = datetime.now().strftime("%Y%m%d")
+    opt.model_path = os.path.join('save','teachers', 'models')
+    opt.tb_path = os.path.join('save','teachers', 'tensorboard')
+  
+    now_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     opt.model_name = '{}-{}-trial_{}-epochs_{}-bs_{}-{}'.format(
         opt.model, opt.dataset, opt.trial, opt.epochs, opt.batch_size, now_str
     )
@@ -151,7 +150,6 @@ def main_worker(gpu, ngpus_per_node, opt):
 
     cudnn.benchmark = True if torch.cuda.is_available() else False
 
-
     # tensorboard
     writer = SummaryWriter(log_dir=opt.tb_folder, flush_secs=2)
 
@@ -165,24 +163,21 @@ def main_worker(gpu, ngpus_per_node, opt):
     for epoch in range(1, opt.epochs + 1):
         print(f"Starting epoch {epoch}/{opt.epochs}...")
 
-        # adjust_learning_rate(epoch, opt, optimizer)
+        # train
         print("==> training...")
-
         time1 = time.time()
         train_acc, train_acc_top5, train_loss = train(epoch, train_loader, model, criterion, optimizer, opt, device)
         time2 = time.time()
-
         print(' * Epoch {}, Acc@1 {:.3f}, Acc@5 {:.3f}, Time {:.2f}'.format(epoch, train_acc, train_acc_top5, time2 - time1))
-        writer.add_scalar('train_acc', train_acc, epoch)
+        writer.add_scalar('train_acc', train_acc, epoch)    
         writer.add_scalar('train_loss', train_loss, epoch)
+        writer.add_scalar('train_acc_top5', train_acc_top5, epoch)
+        writer.add_scalar('learning_rate', optimizer.param_groups[0]['lr'], epoch)
 
-        # train_accを記録
-        train_acc_history.append(train_acc)
-
+        # evaluate
+        print("==> evaluating...")
         test_acc, test_acc_top5, test_loss = validate_vanilla(val_loader, model, criterion, opt, device)
-
         print(' ** Acc@1 {:.3f}, Acc@5 {:.3f}'.format(test_acc, test_acc_top5))
-
         writer.add_scalar('test_acc', test_acc, epoch)
         writer.add_scalar('test_acc_top5', test_acc_top5, epoch)
         writer.add_scalar('test_loss', test_loss, epoch)
@@ -205,6 +200,7 @@ def main_worker(gpu, ngpus_per_node, opt):
             torch.save(state, save_file)
 
         # 記録
+        train_acc_history.append(train_acc)
         test_acc_history.append(test_acc)
         test_loss_history.append(test_loss)
         lr_history.append(optimizer.param_groups[0]["lr"])
@@ -217,7 +213,7 @@ def main_worker(gpu, ngpus_per_node, opt):
 
     writer.close()
 
-    # train_accの履歴を保存
+    # historyを保存    
     hist_path = os.path.join(opt.save_folder, "training_history.json")
     history = {
         "train_acc": train_acc_history,
@@ -231,9 +227,14 @@ def main_worker(gpu, ngpus_per_node, opt):
     # This best accuracy is only for printing purpose.
     print('best accuracy:', best_acc)
 
+
+    now_str = datetime.now().strftime("%Y%m%d")
+    opt.model_name = '{}-{}-trial_{}-epochs_{}-bs_{}-{}'.format(
+        opt.model, opt.dataset, opt.trial, opt.epochs, opt.batch_size, now_str
+    )
+
     # save parameters
     state = {k: v for k, v in opt._get_kwargs()}
-
     # No. parameters(M)
     num_params = (sum(p.numel() for p in model.parameters())/1000000.0)
     state['Total params'] = num_params

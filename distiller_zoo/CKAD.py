@@ -10,52 +10,74 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from cka.LinearCKA import linear_CKA
 from helper.util import safe_flatten_and_mean
 
-
 class CKADistillLoss(nn.Module):
     """
     CKAベースの蒸留損失関数
-    ours
-    ckadと名付けた、とりあえず
     """
     def __init__(self, group_num=4, method_inner_group='mean', method_inter_group='mean'):
         super().__init__()
         self.group_num = group_num
-        self.method_inner_group = method_inner_group # グループ内のCKA計算方法
-        self.method_inter_group = method_inter_group # グループ間のCKA計算方法
+        self.method_inner_group = method_inner_group  # グループ内のCKA計算方法
+        self.method_inter_group = method_inter_group  # グループ間のCKA計算方法
 
     def forward(self, s_group_feats, t_group_feats):
         """
         入力
         s_group_feats, t_group_feats：選択した層の特徴量（なので全部計算に使ってよい）
         """
+        # 各グループ間でCKA損失を計算
+        inter_group_losses = []
+        for s_feats, t_feats in zip(s_group_feats, t_group_feats):
+            inner_loss = self._calc_inner_group_loss(s_feats, t_feats)
+            inter_group_losses.append(inner_loss)
 
-        total_loss = 0.0
-        
-        # グループ内のCKAを計算
-        cka_vals_inter = []
-        for s_feats, t_feats in zip(s_group_feats, t_group_feats): # 同じグループの特徴量をペアで取得
-            # あるグループについて
-            if self.method_inner_group == 'mean':
-                cka_vals_inner = []
-                # 各グループの特徴量のCKAを計算
-                for i, s in enumerate(s_feats):
-                    for j, t in enumerate(t_feats):
-                        # s.shape  # torch.Size([32, 128, 14, 14])
-                        # s.flatten(2)  # torch.Size([32, 128, 196])
-                        # s.flatten(2).mean(-1)  # torch.Size([32, 128])
-                        # [B, C, H, W] → [B, C, H×W] → [B, C間で各ピクセルの平均をとる]
-                        # ※そのまま渡すと[B, C, H, W] → [B, CxH×W]だが、これはデータ量がかなり大きい
-                        fs = safe_flatten_and_mean(s)
-                        ft = safe_flatten_and_mean(t)
-                        cka =  linear_CKA(fs, ft)
-                        loss = 1 - cka  # CKAは0から1の範囲なので、1から引くことで損失に変換
-                        cka_vals_inner.append(loss)
-                # グループ内のCKAを平均
-                mean_loss = torch.mean(torch.stack(cka_vals_inner))
-                cka_vals_inter.append(mean_loss)
-
-        # グループ間のCKAを計算
-        if self.method_inter_group == 'mean':
-            total_loss = torch.mean(torch.stack(cka_vals_inter))
+        # グループ間での集約
+        total_loss = self._aggregate_inter_group(inter_group_losses)
         return total_loss
 
+    # -------------------------------
+    # ▼ グループ内CKA計算部分
+    # -------------------------------
+    def _calc_inner_group_loss(self, s_feats, t_feats):
+        """
+        1つのグループ内で、層ごとの特徴マップ間のCKAを計算して平均化
+        """
+        if self.method_inner_group == 'mean':
+            cka_losses = []
+            for s in s_feats:
+                for t in t_feats:
+                    fs = safe_flatten_and_mean(s)
+                    ft = safe_flatten_and_mean(t)
+                    cka = linear_CKA(fs, ft)
+                    cka_losses.append(1 - cka)
+            return torch.mean(torch.stack(cka_losses))
+
+        elif self.method_inner_group == 'max':
+            # 最大損失を取る（最も類似していないペアを重視）
+            cka_losses = []
+            for s in s_feats:
+                for t in t_feats:
+                    fs = safe_flatten_and_mean(s)
+                    ft = safe_flatten_and_mean(t)
+                    cka = linear_CKA(fs, ft)
+                    cka_losses.append(1 - cka)
+            return torch.max(torch.stack(cka_losses))
+
+        else:
+            raise ValueError(f"Unknown inner group method: {self.method_inner_group}")
+
+    # -------------------------------
+    # ▼ グループ間CKA集約部分
+    # -------------------------------
+    def _aggregate_inter_group(self, inter_group_losses):
+        """
+        グループ間の損失のまとめ方
+        """
+        if self.method_inter_group == 'mean':
+            return torch.mean(torch.stack(inter_group_losses))
+        elif self.method_inter_group == 'sum':
+            return torch.sum(torch.stack(inter_group_losses))
+        elif self.method_inter_group == 'max':
+            return torch.max(torch.stack(inter_group_losses))
+        else:
+            raise ValueError(f"Unknown inter group method: {self.method_inter_group}")

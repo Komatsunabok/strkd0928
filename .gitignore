@@ -175,25 +175,5 @@ experiments/
 wandb/
 **/.DS_Store
 
-# database
-cka/CKA.pytorch/data
-cka/data
-cka/data/cifar-10-batches-py
-cka/data/cifar-10-python.tar.gz
-data
-**/*.tar.gz
-**/*data
-
-# image
-**/* image */
-**/*.jpg
-**/*.jpeg
-**/*.png
-visualize/image
-
-# bin
-bin
-bin/archive
-
-save/pretrained
-save/**/*.pth
+# Automatically added large files
+save/pretrained/vgg16_bn

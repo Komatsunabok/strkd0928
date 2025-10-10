@@ -4,57 +4,11 @@ save
 ├── students
 └── teachers
     ├── models
-    │   ├── vgg13_bn-cifar100-trial_0-epochs_1-bs_64-20251006
-    │   ├── vgg16-fe-cifar100-trial_0-epochs_1-bs_64-20251005
-    │   ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251006
-    │   │   ├── parameters.json
-    │   │   ├── test_best_metrics.json
-    │   │   ├── training_history.json
-    │   │   └── vgg16_bn_best.pth
-    │   ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251006
-    │   │   ├── parameters.json
-    │   │   ├── test_best_metrics.json
-    │   │   └── training_history.json
-    │   ├── vgg16_bn-fe-cifar100-trial_0-epochs_1-bs_64-20251005
-    │   │   ├── parameters.json
-    │   │   ├── test_best_metrics.json
-    │   │   ├── training_history.json
-    │   │   └── vgg16_bn_best.pth
-    │   ├── vgg16_bn-fe-cifar100-trial_0-epochs_240-bs_64-20251005
-    │   │   ├── parameters.json
-    │   │   ├── test_best_metrics.json
-    │   │   └── training_history.json
-    │   ├── vgg16_bn-ft-cifar100-trial_0-epochs_240-bs_64-20251006
-    │   │   ├── parameters.json
-    │   │   ├── test_best_metrics.json
-    │   │   └── training_history.json
-    │   ├── vgg16_bn-scratch-cifar100-trial_0-epochs_1-bs_64-20251005
-    │   │   ├── parameters.json
-    │   │   ├── test_best_metrics.json
-    │   │   ├── training_history.json
-    │   │   └── vgg16_bn_best.pth
-    │   └── vgg16_bn-scratch-cifar100-trial_0-epochs_240-bs_64-20251005
+    │   └── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
     │       ├── parameters.json
     │       ├── test_best_metrics.json
-    │       └── training_history.json
+    │       ├── training_history.json
+    │       └── vgg16_bn_best.pth
     └── tensorboard
-        ├── vgg13_bn-cifar100-trial_0-epochs_1-bs_64-20251006
-        │   └── events.out.tfevents.1759739994.frontier.22000.0
-        ├── vgg16-fe-cifar100-trial_0-epochs_1-bs_64-20251005
-        ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251006
-        │   ├── events.out.tfevents.1759739869.frontier.14152.0
-        │   └── events.out.tfevents.1759740138.frontier.6788.0
-        ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251006
-        │   └── events.out.tfevents.1759740711.rock9.1229392.0
-        ├── vgg16_bn-fe-cifar100-trial_0-epochs_1-bs_64-20251005
-        │   └── events.out.tfevents.1759653586.frontier.14684.0
-        ├── vgg16_bn-fe-cifar100-trial_0-epochs_240-bs_64-20251005
-        │   ├── events.out.tfevents.1759661409.rock9.496774.0
-        │   └── events.out.tfevents.1759665798.rock9.600840.0
-        ├── vgg16_bn-ft-cifar100-trial_0-epochs_240-bs_64-20251006
-        │   └── events.out.tfevents.1759710340.rock9.989247.0
-        ├── vgg16_bn-scratch-cifar100-trial_0-epochs_1-bs_64-20251005
-        │   ├── events.out.tfevents.1759652314.frontier.12092.0
-        │   └── events.out.tfevents.1759653327.frontier.27548.0
-        └── vgg16_bn-scratch-cifar100-trial_0-epochs_240-bs_64-20251005
-            └── events.out.tfevents.1759670593.rock9.703653.0
+        └── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
+            └── events.out.tfevents.1760065610.frontier.15956.0

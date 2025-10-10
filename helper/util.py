@@ -22,20 +22,6 @@ def adjust_learning_rate(epoch, opt, optimizer):
         for param_group in optimizer.param_groups:
             param_group['lr'] = new_lr
 
-# def adjust_learning_rate(optimizer, epoch, step, len_epoch, old_lr):
-#     """Sets the learning rate to the initial LR decayed by decay rate every steep step"""
-#     if epoch < 5:
-#         lr = old_lr*float(1 + step + epoch*len_epoch)/(5.*len_epoch)
-#     elif 5 <= epoch < 60: return
-#     else:
-#         factor = epoch // 30
-#         factor -= 1
-#         lr = old_lr*(0.1**factor)
-
-#     for param_group in optimizer.param_groups:
-#         param_group['lr'] = lr
-
-
 class AverageMeter(object):
     """Computes and stores the average and current value"""
     def __init__(self):

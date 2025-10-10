@@ -45,7 +45,6 @@ def train_vanilla(epoch, train_loader, model, criterion, optimizer, opt, device)
         # ===================backward=====================
         optimizer.zero_grad()
         loss.backward()
-        
         optimizer.step()
 
         # print info
@@ -109,11 +108,12 @@ def validate_vanilla(val_loader, model, criterion, opt, device):
     return top1.avg, top5.avg, losses.avg
 
 def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, opt, 
-                  feature_hook_t, feature_hook_s):
+                  feature_hook_t, feature_hook_s, device):
     """one epoch distillation"""
     # set modules as train()
     for module in module_list:
         module.train()
+
     # set teacher as eval()
     module_list[-1].eval()
 
@@ -124,8 +124,8 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
     model_s = module_list[0]
     model_t = module_list[-1]
 
-    # 確認のため10エポックごとにCKAを計算
-    if epoch % 10 == 1:
+    # 確認のため30エポックごとにCKAを計算
+    if epoch % 30 == 1:
         model_s.eval()
         with torch.no_grad():
             inputs, _ = next(iter(train_loader))
@@ -151,6 +151,7 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
             log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
             print("cka matrix was saved!")
 
+    # training
     model_s.train()
 
     batch_time = AverageMeter()
@@ -158,32 +159,24 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
     top1 = AverageMeter()
     top5 = AverageMeter()
 
-    n_batch = len(train_loader) if opt.dali is None else (train_loader._size + opt.batch_size - 1) // opt.batch_size
+    n_batch = len(train_loader)
 
     end = time.time()
     for idx, data in enumerate(train_loader):
-        if opt.dali is None:
-            images, labels = data
-        else:
-            images, labels = data[0]['data'], data[0]['label'].squeeze().long()
-        
-        if opt.gpu is not None:
-            images = images.cuda(opt.gpu if opt.multiprocessing_distributed else 0, non_blocking=True)
-        if torch.cuda.is_available():
-            labels = labels.cuda(opt.gpu if opt.multiprocessing_distributed else 0, non_blocking=True)
+        images, labels = data
 
+        images = images.to(device, non_blocking=True)
+        labels = labels.to(device, non_blocking=True)
 
         # ===================forward=====================
         feature_hook_t.outputs.clear()
         feature_hook_s.outputs.clear()
 
         feat_s, logit_s = model_s(images, is_feat=True)
-        with torch.no_grad():
+        with torch.no_grad(): # 勾配追跡しない
             feat_t, logit_t = model_t(images, is_feat=True)
             feat_t = [f.detach() for f in feat_t] # テンソルをグラフから切り離して、以降の計算で勾配を計算しないようにする
             # 教師モデルの特徴マップを使っても勾配が更新されないようにする
-
-        cls_t = model_t.module.get_feat_modules()[-1] if opt.multiprocessing_distributed else model_t.get_feat_modules()[-1]       
  
         loss_cls = criterion_cls(logit_s, labels)
         loss_div = criterion_div(logit_s, logit_t)
@@ -213,15 +206,8 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         else:
             raise NotImplementedError(opt.distill)
         
-        if opt.b_method == 'constant':
-            b = opt.beta
-        elif opt.b_method == 'step':
-            if epoch >= opt.b_decay_epochs:
-                b = opt.beta * 0.5
-            else:
-                b = opt.beta
-        elif opt.b_method == 'exp':
-            b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ←tじゃなくepochに統一
+
+        b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
             
         loss = opt.cls * loss_cls + opt.div * loss_div + b * loss_kd
         losses.update(loss.item(), images.size(0))
@@ -247,8 +233,8 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
                   'Loss {loss.avg:.4f}\t'
                   'Acc@1 {top1.avg:.3f}\t'
                   'Acc@5 {top5.avg:.3f}'.format(
-                epoch, idx, n_batch, opt.gpu, loss=losses, top1=top1, top5=top5,
-                batch_time=batch_time))
+                   epoch, idx, n_batch, opt.gpu, batch_time=batch_time,
+                   loss=losses, top1=top1, top5=top5))
             sys.stdout.flush()
     
     # キャッシュをクリア
@@ -257,45 +243,32 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
 
     return top1.avg, top5.avg, losses.avg
 
-def validate_distill(val_loader, module_list, criterion, opt):
+def validate_distill(val_loader, module_list, criterion, opt, device):
     """validation"""
+    # switch to evaluate mode
+    for module in module_list:
+        module.eval()
+    model_s = module_list[0]
+    model_t = module_list[-1]
     
     batch_time = AverageMeter()
     losses = AverageMeter()
     top1 = AverageMeter()
     top5 = AverageMeter()
     
-    # switch to evaluate mode
-    for module in module_list:
-        module.eval()
-    
-    model_s = module_list[0]
-    model_t = module_list[-1]
-    n_batch = len(val_loader) if opt.dali is None else (val_loader._size + opt.batch_size - 1) // opt.batch_size
+    n_batch = len(val_loader)
 
     with torch.no_grad():
         end = time.time()
         for idx, batch_data in enumerate(val_loader):
             
-            if opt.dali is None:
-                images, labels = batch_data
-            else:
-                images, labels = batch_data[0]['data'], batch_data[0]['label'].squeeze().long()
-
-            if opt.gpu is not None:
-                images = images.cuda(opt.gpu if opt.multiprocessing_distributed else 0, non_blocking=True)
-            if torch.cuda.is_available():
-                labels = labels.cuda(opt.gpu if opt.multiprocessing_distributed else 0, non_blocking=True)
+            images, labels = batch_data
+            
+            images = images.to(device, non_blocking=True)
+            labels = labels.to(device, non_blocking=True)
 
             # compute output
-            if opt.distill == 'simkd':
-                feat_s, _ = model_s(images, is_feat=True)
-                feat_t, _ = model_t(images, is_feat=True)
-                feat_t = [f.detach() for f in feat_t]
-                cls_t = model_t.module.get_feat_modules()[-1] if opt.multiprocessing_distributed else model_t.get_feat_modules()[-1]
-                _, _, output = module_list[1](feat_s[-2], feat_t[-2], cls_t)
-            else:
-                output = model_s(images)
+            output = model_s(images)
             loss = criterion(output, labels)
             losses.update(loss.item(), images.size(0))
 
@@ -303,7 +276,9 @@ def validate_distill(val_loader, module_list, criterion, opt):
             metrics = accuracy(output, labels, topk=(1, 5))
             top1.update(metrics[0].item(), images.size(0))
             top5.update(metrics[1].item(), images.size(0))
+            
             batch_time.update(time.time() - end)
+            end = time.time()
             
             if idx % opt.print_freq == 0:
                 print('Test: [{0}/{1}]\t'
@@ -314,17 +289,6 @@ def validate_distill(val_loader, module_list, criterion, opt):
                       'Acc@5 {top5.avg:.3f}'.format(
                        idx, n_batch, opt.gpu, batch_time=batch_time, loss=losses,
                        top1=top1, top5=top5))
-                
-    if opt.multiprocessing_distributed:
-        # Batch size may not be equal across multiple gpus
-        total_metrics = torch.tensor([top1.sum, top5.sum, losses.sum]).to(opt.gpu)
-        count_metrics = torch.tensor([top1.count, top5.count, losses.count]).to(opt.gpu)
-        total_metrics = reduce_tensor(total_metrics, 1) # here world_size=1, because they should be summed up
-        count_metrics = reduce_tensor(count_metrics, 1)
-        ret = []
-        for s, n in zip(total_metrics.tolist(), count_metrics.tolist()):
-            ret.append(s / (1.0 * n))
-        return ret
 
     return top1.avg, top5.avg, losses.avg
 

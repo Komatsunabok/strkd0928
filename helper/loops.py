@@ -129,7 +129,7 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         model_s.eval()
         with torch.no_grad():
             inputs, _ = next(iter(train_loader))
-            inputs = inputs.cuda(opt.gpu if opt.multiprocessing_distributed else 0, non_blocking=True)
+            inputs = inputs.cuda(0, non_blocking=True)
 
             feature_hook_s.outputs.clear()            
             feature_hook_t.outputs.clear()

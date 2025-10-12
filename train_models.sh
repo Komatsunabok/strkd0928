@@ -1,4 +1,4 @@
-python train_student.py --dataset cifar100 --model vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649 --epoch 1
+python train_student.py --dataset cifar100 --model vgg16_bn --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649 --epoch 1
 
 # 20251006
 python train_teacher.py --dataset cifar100 --model vgg16_bn --epoch 1

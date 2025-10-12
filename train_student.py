@@ -59,6 +59,7 @@ def parse_option():
     parser.add_argument('-t', '--trial', type=str, default='0', help='the experiment id')
 
     # teacher model
+    parser.add_argument('--model_t', type=str, default='vgg16_bn')
     parser.add_argument('--model_name_t', type=str, default=None, help='teacher model snapshot')
 
     # distillation
@@ -72,7 +73,7 @@ def parse_option():
     parser.add_argument('--hint_layer', default=1, type=int, choices=[0, 1, 2, 3, 4])
 
     # CKAD
-    parser.add_argument('--group_num', type=int, default=4, help='number of groups for CKA')
+    parser.add_argument('--group_num', type=int, default=1, help='number of groups for CKA')
     parser.add_argument('--method', type=str, default='mean', choices=['mean', 'max', 'min'], help='method for CKA')
     parser.add_argument('--reduction', type=str, default='mean', choices=['sum', 'mean'], help='reduction method for CKA loss')
     parser.add_argument('--grouping', type=str, default='proportional', choices=['uniform', 'proportional'], help='grouping method for student layers')
@@ -85,7 +86,7 @@ def parse_option():
 
     now_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     opt.model_name = 'S_{}-T_{}-{}-trial_{}-epochs_{}-bs_{}-{}-cls_{}-div_{}-beta_{}-{}'.format(
-        opt.model, opt.model_name_t, opt.dataset, opt.trial, opt.epochs, opt.batch_size,
+        opt.model, opt.model_t, opt.dataset, opt.trial, opt.epochs, opt.batch_size,
         opt.distill, opt.cls, opt.div, opt.beta, now_str
     )
 
@@ -238,11 +239,11 @@ def main_worker(gpu, ngpus_per_node, opt):
     #     torch.Size([2, 512, 2, 2]),
     #     ...
     # ]
-    # for images, labels in train_loader:
-    #     feat_t, _ = model_t(images, is_feat=True)
-    #     feat_s, _ = model_s(images, is_feat=True)
-    #     # ...CKA計算に使う...
-    #     break
+    for images, labels in train_loader:
+        feat_t, _ = model_t(images, is_feat=True)
+        feat_s, _ = model_s(images, is_feat=True)
+        # ...CKA計算に使う...
+        break
 
     # どの層の出力か確認
     # for i, (idx, name, _) in enumerate(hooks_t):
@@ -311,7 +312,7 @@ def main_worker(gpu, ngpus_per_node, opt):
     writer = SummaryWriter(log_dir=opt.tb_folder, flush_secs=2)
 
     # validate teacher accuracy
-    teacher_acc, _, _ = validate_vanilla(val_loader, model_t, criterion_cls, opt)
+    teacher_acc, _, _ = validate_vanilla(val_loader, model_t, criterion_cls, opt, device)
     print('teacher accuracy: ', teacher_acc)
 
     # 記録用リスト
@@ -357,7 +358,7 @@ def main_worker(gpu, ngpus_per_node, opt):
                 'model': model_s.state_dict(),
                 'best_acc': best_acc,
             }
-            save_file = os.path.join(opt.save_folder, '{}_best.pth'.format(opt.model_s))
+            save_file = os.path.join(opt.save_folder, '{}_best.pth'.format(opt.model))
             test_merics = {'test_loss': test_loss,
                             'test_acc': test_acc,
                             'test_acc_top5': test_acc_top5,

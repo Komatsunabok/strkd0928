@@ -41,7 +41,7 @@ def parse_option():
     
     # baisc
     parser.add_argument('--print_freq', type=int, default=200, help='print frequency') # トレーニング中にログ（進捗状況やメトリクス）を出力する頻度（バッチ）
-    parser.add_argument('--batch_size', type=int, default=64, help='batch_size') 
+    parser.add_argument('--batch_size', type=int, default=8, help='batch_size') 
     parser.add_argument('--num_workers', type=int, default=8, help='num_workers') # ワーカープロセスの数
     parser.add_argument('--epochs', type=int, default=240, help='number of training epochs')
     parser.add_argument('--gpu_id', type=str, default='0', help='id(s) for CUDA_VISIBLE_DEVICES') # GPUのID（0:最初のGPUを使用）

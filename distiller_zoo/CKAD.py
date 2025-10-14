@@ -28,6 +28,8 @@ class CKADistillLoss(nn.Module):
         # 各グループ間でCKA損失を計算
         inter_group_losses = []
         for s_feats, t_feats in zip(s_group_feats, t_group_feats):
+            print("s_feats shapes in CKADistillLoss", [f.size() for f in s_feats])
+            print("t_feats shapes in CKADistillLoss", [f.size() for f in t_feats])
             inner_loss = self._calc_inner_group_loss(s_feats, t_feats)
             inter_group_losses.append(inner_loss)
 

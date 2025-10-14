@@ -73,7 +73,7 @@ def parse_option():
     parser.add_argument('--hint_layer', default=1, type=int, choices=[0, 1, 2, 3, 4])
 
     # CKAD
-    parser.add_argument('--group_num', type=int, default=1, help='number of groups for CKA')
+    parser.add_argument('--group_num', type=int, default=2, help='number of groups for CKA')
     parser.add_argument('--method', type=str, default='mean', choices=['mean', 'max', 'min'], help='method for CKA')
     parser.add_argument('--reduction', type=str, default='mean', choices=['sum', 'mean'], help='reduction method for CKA loss')
     parser.add_argument('--grouping', type=str, default='proportional', choices=['uniform', 'proportional'], help='grouping method for student layers')
@@ -239,6 +239,7 @@ def main_worker(gpu, ngpus_per_node, opt):
     #     torch.Size([2, 512, 2, 2]),
     #     ...
     # ]
+    # torch.Size([バッチサイズ, チャンネル数, 高さ, 幅])
     for images, labels in train_loader:
         feat_t, _ = model_t(images, is_feat=True)
         feat_s, _ = model_s(images, is_feat=True)
@@ -246,9 +247,9 @@ def main_worker(gpu, ngpus_per_node, opt):
         break
 
     # どの層の出力か確認
-    # for i, (idx, name, _) in enumerate(hooks_t):
-    #     print(f"{i}: Hooked layer = {name}")
-    #     print(f"    Output shape: {feature_hook_t.outputs[i].shape}")
+    for i, (idx, name, _) in enumerate(hooks_t):
+        print(f"{i}: Hooked layer = {name}")
+        print(f"    Output shape: {feature_hook_t.outputs[i].shape}")
 
     # KD
     print(f"==> Setting up distillation method: {opt.distill}...")
@@ -267,7 +268,7 @@ def main_worker(gpu, ngpus_per_node, opt):
 
         # CKAグループ対応モジュール
         cka_mapper = CKAMapper(
-            t_shapes=t_shapes, s_shapes=s_shapes, 
+            s_shapes=s_shapes, t_shapes=t_shapes, 
             feat_t=feature_hook_t.outputs,
             group_num=opt.group_num, grouping=opt.grouping
         )

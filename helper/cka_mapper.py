@@ -12,10 +12,10 @@ class CKAMapper(nn.Module):
     """
     教師・生徒の特徴マップをグループ分けし、対応付けを管理するモジュール
     """
-    def __init__(self, t_shapes, s_shapes, feat_t, group_num=4, grouping='uniform'):
+    def __init__(self, s_shapes, t_shapes, feat_t, group_num=4, grouping='proportional'):
         super().__init__()
-        self.t_shapes = t_shapes
         self.s_shapes = s_shapes
+        self.t_shapes = t_shapes
         self.group_num = group_num
 
         # 与えられたデータすべてを使用
@@ -34,6 +34,37 @@ class CKAMapper(nn.Module):
             self.s_groups = self._split_groups(len(s_shapes), group_num)
         elif grouping == 'proportional':
             self.s_groups = self._map_groups_by_ratio(len(s_shapes), self.t_groups)
+        
+        # 各グループのキー層インデックス（グループの中心層）
+        self.s_key_layers = self._get_center_indices('student')
+        self.t_key_layers = self._get_center_indices('teacher')
+        print("student key layers", self.s_key_layers)
+        print("teacher key layers", self.t_key_layers)
+    
+    # def forward(self, feat_s, feat_t):
+    #     # 各グループごとに特徴マップリストを返す
+    #     # s_group_feats = [
+    #     #     [feat_s[0], feat_s[1]],  # グループ1
+    #     #     [feat_s[2], feat_s[3]],  # グループ2
+    #     #     [feat_s[4], feat_s[5]],  # グループ3
+    #     #     [feat_s[6], feat_s[7]],  # グループ4
+    #     # ]
+    #     s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_groups]
+    #     t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_groups]
+    #     return s_group_feats, t_group_feats
+
+    def forward(self, feat_s, feat_t):
+        # 各グループのキー層特徴マップのみを返す
+        # s_key_feats = [feat_s[1], feat_s[3], feat_s[5], feat_s[7], ... ]
+        s_key_feats = [feat_s[i] for i in self.s_key_layers]
+        t_key_feats = [feat_t[i] for i in self.t_key_layers]
+
+        # s_key_feats shapes [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
+        # t_key_feats shapes [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
+        print("s_key_feats shapes", [f.size() for f in s_key_feats]) #ok
+        print("t_key_feats shapes", [f.size() for f in t_key_feats]) #ok
+        
+        return s_key_feats, t_key_feats
     
     def _split_groups_by_cka(self, feat, group_num):
         # 1. CKA行列を計算（隣接層のみ）
@@ -127,16 +158,19 @@ class CKAMapper(nn.Module):
 
         print("student group", groups)
         return groups
+    
+    # 各グループのキー層インデックス（グループの中心をとる）
+    def _get_center_indices(self, who):
+        center_indices = []
+        if who == 'teacher':
+            groups = self.t_groups
+        elif who == 'student':
+            groups = self.s_groups
 
+        for idxs in groups:  # もしくは self.t_groups
+            if len(idxs) == 0:
+                continue
+            center = idxs[len(idxs)//2]
+            center_indices.append(center)
 
-    def forward(self, feat_s, feat_t):
-        # 各グループごとに特徴マップリストを返す
-        # s_group_feats = [
-        #     [feat_s[0], feat_s[1]],  # グループ1
-        #     [feat_s[2], feat_s[3]],  # グループ2
-        #     [feat_s[4], feat_s[5]],  # グループ3
-        #     [feat_s[6], feat_s[7]],  # グループ4
-        # ]
-        s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_groups]
-        t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_groups]
-        return s_group_feats, t_group_feats
+        return center_indices

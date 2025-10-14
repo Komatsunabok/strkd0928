@@ -7,6 +7,23 @@ import torch.nn as nn
 # CKAの代わりに線形CKAを用いることが多い
 # torchで計算するためpytorchで実装した知識蒸留の損失関数として使える
 
+def linear_CKA_(X: torch.Tensor, Y: torch.Tensor) -> torch.Tensor:
+    """
+    ダミー版 CKA（高速動作確認用）
+    実際のCKA計算を省略して、固定値またはランダム値を返す。
+    """
+    # 実際の処理をスキップして適当な値を返す
+    # （スカラーTensorを返す必要あり）
+    
+    # # ① 固定値（動作確認用に一定値）
+    # return torch.tensor(0.5, device=X.device)
+    
+    # ② またはランダム値（もう少しテストっぽくしたい場合）
+
+    # またはランダム値
+    return torch.rand((), device=X.device)  # ()で0次元テンソル
+
+
 def linear_CKA(X: torch.Tensor, Y: torch.Tensor) -> torch.Tensor:
     """
     入力

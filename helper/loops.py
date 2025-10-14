@@ -199,6 +199,11 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
             s_group_feats, t_group_feats = module_list[1](
                 feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs
                 )
+            
+            # s_group_feats in train_distill [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
+            # t_group_feats in train distill [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
+            print("s_group_feats in train_distill", [g.size() for g in s_group_feats])
+            print("t_group_feats in train distill", [g.size() for g in t_group_feats])
 
             # 損失計算
             loss_kd = criterion_kd(s_group_feats, t_group_feats)

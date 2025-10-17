@@ -197,21 +197,8 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
             #     [feat_s[6], feat_s[7]],  # グループ4
             # ]
             s_group_feats, t_group_feats = module_list[1](
-                feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs
-                )
-            
-            # s_group_feats in train_distill [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
-            # t_group_feats in train distill [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
-            # print("=== Student Feature Groups (Tensor Shapes) ===")
-            # for i, group in enumerate(s_group_feats):
-            #     print(f"\nGroup {i+1}:")
-            #     for j, feat in enumerate(group):
-            #         print(f"  feat_s[{j}] shape: {tuple(feat.shape)}")
-
-
-            # 損失計算
+                feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
             loss_kd = criterion_kd(s_group_feats, t_group_feats)
-
         else:
             raise NotImplementedError(opt.distill)
         

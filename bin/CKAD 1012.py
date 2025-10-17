@@ -16,7 +16,7 @@ class CKADistillLoss(nn.Module):
     """
     def __init__(self, group_num=4, method_inner_group='mean', method_inter_group='mean'):
         super().__init__()
-        self.group_num = group_num # <- 必要？
+        self.group_num = group_num
         self.method_inner_group = method_inner_group  # グループ内のCKA計算方法
         self.method_inter_group = method_inter_group  # グループ間のCKA計算方法
 

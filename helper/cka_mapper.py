@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 import numpy as np
 
@@ -12,15 +11,24 @@ class CKAMapper(nn.Module):
     """
     教師・生徒の特徴マップをグループ分けし、対応付けを管理するモジュール
     """
-    def __init__(self, s_shapes, t_shapes, feat_t, group_num=4, grouping='proportional'):
+    def __init__(self, s_shapes, t_shapes, feat_t, 
+                 group_num_method, group_num=4, 
+                 student_grouping='proportional', layer_usage='all'):
         super().__init__()
         self.s_shapes = s_shapes
         self.t_shapes = t_shapes
-        self.group_num = group_num
+
+        # グループ数
+        self.group_num_method = group_num_method
+        if group_num_method == 'custom':
+            self.group_num = group_num
+        elif group_num_method == 'auto':
+            self.group_num = group_num
 
         # 与えられたデータすべてを使用
-        # =ここに与えられるデータは計算されるべきものだけにする
+        # =ここに与えられるデータは計算されるものだけにする
 
+        # 教師のグループ分け
         # CKAベースのグループ分け
         # 層インデックスをグループ数で分割したリスト
         # 例: s_shapes の長さが8（生徒の対象層が8個）、group_num=4 の場合
@@ -30,42 +38,48 @@ class CKAMapper(nn.Module):
         # これはただのインデックスなので、これをもとのモデルに使うと層は取得できてしまう
         # しかしそれは意図した割り当てではないので注意
         self.t_groups = self._split_groups_by_cka(feat_t, group_num)
-        if grouping == 'uniform':
+
+        # 生徒のグループ分け
+        self.layer_usage = layer_usage
+        if student_grouping == 'uniform':
             self.s_groups = self._split_groups(len(s_shapes), group_num)
-        elif grouping == 'proportional':
+        elif student_grouping == 'proportional':
             self.s_groups = self._map_groups_by_ratio(len(s_shapes), self.t_groups)
         
         # 各グループのキー層インデックス（グループの中心層）
-        self.s_key_layers = self._get_center_indices('student')
-        self.t_key_layers = self._get_center_indices('teacher')
-        print("student key layers", self.s_key_layers)
-        print("teacher key layers", self.t_key_layers)
+        self.layer_usage = layer_usage
+        if layer_usage == 'key_layers':
+            self.s_key_layers = self._get_center_indices('student')
+            self.t_key_layers = self._get_center_indices('teacher')
+            print("student key layers", self.s_key_layers)
+            print("teacher key layers", self.t_key_layers)
     
     def forward(self, feat_s, feat_t):
-        # 各グループごとに特徴マップリストを返す
-        # s_group_feats = [
-        #     [feat_s[0], feat_s[1]],  # グループ1
-        #     [feat_s[2], feat_s[3]],  # グループ2
-        #     [feat_s[4], feat_s[5]],  # グループ3
-        #     [feat_s[6], feat_s[7]],  # グループ4
-        # ]
-        s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_groups]
-        t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_groups]
+        if self.layer_usage == 'key_layers':
+            # キーレイヤーだけを取り出して2次元リスト化
+            s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_key_layers]
+            t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_key_layers]
+        elif self.layer_usage == 'all':
+            # 各グループごとに特徴マップリストを返す
+            # s_group_feats = [
+            #     [feat_s[0], feat_s[1]],  # グループ1
+            #     [feat_s[2], feat_s[3]],  # グループ2
+            #     [feat_s[4], feat_s[5]],  # グループ3
+            #     [feat_s[6], feat_s[7]],  # グループ4
+            # ]
+            s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_groups]
+            t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_groups]
         return s_group_feats, t_group_feats
 
-    # def forward(self, feat_s, feat_t):
-    #     # 各グループのキー層特徴マップのみを返す
-    #     # s_key_feats = [feat_s[1], feat_s[3], feat_s[5], feat_s[7], ... ]
-    #     s_key_feats = [feat_s[i] for i in self.s_key_layers]
-    #     t_key_feats = [feat_t[i] for i in self.t_key_layers]
+    def get_key_features(self, feat_s, feat_t):
+        """
+        キー層（代表層）だけを抽出して返す
+        """
+        s_key_feats = [feat_s[i] for i in self.s_key_layers]
+        t_key_feats = [feat_t[i] for i in self.t_key_layers]
 
-    #     # s_key_feats shapes [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
-    #     # t_key_feats shapes [torch.Size([64, 64, 32, 32]), torch.Size([64, 512, 4, 4])]
-    #     print("s_key_feats shapes", [f.size() for f in s_key_feats]) #ok
-    #     print("t_key_feats shapes", [f.size() for f in t_key_feats]) #ok
-        
-    #     return s_key_feats, t_key_feats
-    
+        return s_key_feats, t_key_feats
+
     def _split_groups_by_cka(self, feat, group_num):
         # 1. CKA行列を計算（隣接層のみ）
         n = len(feat)

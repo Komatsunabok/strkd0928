@@ -73,22 +73,17 @@ def parse_option():
     parser.add_argument('--hint_layer', default=1, type=int, choices=[0, 1, 2, 3, 4])
 
     # CKA-based Knowledge Distillation (CKAD)
-    parser.add_argument('--group_num_method', type=str, default='custom',
-                        choices=['custom', 'auto'],
+    parser.add_argument('--group_num_method', type=str, default='custom', choices=['custom', 'auto'],
                         help='method to determine the number of groups for CKA-based loss')
-    parser.add_argument('--group_num', type=int, default=2,
+    parser.add_argument('--group_num', type=int, default=4,
                         help='number of groups for CKA-based loss (if group_num_method is custom)')
-    parser.add_argument('--layer_usage', type=str, default='key_layer',
-                        choices=['all', 'key_layer'],
+    parser.add_argument('--layer_usage', type=str, default='key_layer', choices=['all', 'key_layer'],
                         help='which layers to use for loss calculation')
-    parser.add_argument('--student_grouping', type=str, default='proportional',
-                        choices=['uniform', 'proportional'],
+    parser.add_argument('--student_grouping', type=str, default='proportional', choices=['uniform', 'proportional'],
                         help='grouping method for student layers')
-    parser.add_argument('--inner_group_aggregation', type=str, default='mean',
-                        choices=['sum', 'mean'],
+    parser.add_argument('--inner_group_aggregation', type=str, default='mean', choices=['sum', 'mean'],
                         help='aggregation method for inner-group CKA loss')
-    parser.add_argument('--inter_group_aggregation', type=str, default='mean',
-                        choices=['sum', 'mean'],
+    parser.add_argument('--inter_group_aggregation', type=str, default='mean', choices=['sum', 'mean'],
                         help='aggregation method for inter-group CKA loss')
 
     opt = parser.parse_args()

@@ -14,11 +14,10 @@ class CKADistillLoss(nn.Module):
     """
     CKAベースの蒸留損失関数
     """
-    def __init__(self, group_num=4, method_inner_group='mean', method_inter_group='mean'):
+    def __init__(self, inner_group_aggregation='mean', inter_group_aggregation='mean'):
         super().__init__()
-        self.group_num = group_num # <- 必要？
-        self.method_inner_group = method_inner_group  # グループ内のCKA計算方法
-        self.method_inter_group = method_inter_group  # グループ間のCKA計算方法
+        self.method_inner_group = inner_group_aggregation  # グループ内のCKA計算方法
+        self.method_inter_group = inter_group_aggregation  # グループ間のCKA計算方法
 
     def forward(self, s_group_feats, t_group_feats):
         """
@@ -30,7 +29,7 @@ class CKADistillLoss(nn.Module):
         for s_feats, t_feats in zip(s_group_feats, t_group_feats):
             print("s_feats shapes in CKADistillLoss", [f.size() for f in s_feats])
             print("t_feats shapes in CKADistillLoss", [f.size() for f in t_feats])
-            inner_loss = self._calc_inner_group_loss(s_feats, t_feats)
+            inner_loss = self._aggregate_inner_group(s_feats, t_feats)
             inter_group_losses.append(inner_loss)
 
         # グループ間での集約
@@ -40,7 +39,7 @@ class CKADistillLoss(nn.Module):
     # -------------------------------
     # ▼ グループ内CKA計算部分
     # -------------------------------
-    def _calc_inner_group_loss(self, s_feats, t_feats):
+    def _aggregate_inner_group(self, s_feats, t_feats):
         """
         1つのグループ内で、層ごとの特徴マップ間のCKAを計算して平均化
         """

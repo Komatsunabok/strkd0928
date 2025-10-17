@@ -55,11 +55,7 @@ class CKAMapper(nn.Module):
             print("teacher key layers", self.t_key_layers)
     
     def forward(self, feat_s, feat_t):
-        if self.layer_usage == 'key_layers':
-            # キーレイヤーだけを取り出して2次元リスト化
-            s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_key_layers]
-            t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_key_layers]
-        elif self.layer_usage == 'all':
+        if self.layer_usage == 'all':
             # 各グループごとに特徴マップリストを返す
             # s_group_feats = [
             #     [feat_s[0], feat_s[1]],  # グループ1
@@ -69,18 +65,21 @@ class CKAMapper(nn.Module):
             # ]
             s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_groups]
             t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_groups]
+        elif self.layer_usage == 'key_layers':
+            # キーレイヤーだけを取り出して2次元リスト化
+            s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_key_layers]
+            t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_key_layers]
         return s_group_feats, t_group_feats
 
-    def get_key_features(self, feat_s, feat_t):
-        """
-        キー層（代表層）だけを抽出して返す
-        """
-        s_key_feats = [feat_s[i] for i in self.s_key_layers]
-        t_key_feats = [feat_t[i] for i in self.t_key_layers]
-
-        return s_key_feats, t_key_feats
-
     def _split_groups_by_cka(self, feat, group_num):
+        """
+        CKAに基づいて教師の特徴マップをグループ分けする
+        入力:
+            feat: 教師の特徴マップのリスト
+            group_num: グループ数   
+        出力:
+            groups: [[idx1, idx2, ...], ...] の形でインデックスのグループを返す
+        """
         # 1. CKA行列を計算（隣接層のみ）
         n = len(feat)
         cka_mat = np.zeros((n-1,))
@@ -132,6 +131,14 @@ class CKAMapper(nn.Module):
         return groups
 
     def _map_groups_by_ratio(self, num_layers, teacher_groups):
+        """
+        教師のグループサイズの割合に基づいて生徒のグループを割り当てる
+        入力:
+            num_layers: 生徒の特徴マップの数（= 選択された層の数）
+            teacher_groups: 教師のグループ（インデックスのリストのリスト）
+        出力:
+            groups: [[idx1, idx2, ...], ...] の形でインデックスのグループを返す
+        """
         # 教師の総層数
         total_teacher_layers = sum(len(g) for g in teacher_groups)
         # 教師のグループごとの割合
@@ -173,8 +180,15 @@ class CKAMapper(nn.Module):
         print("student group", groups)
         return groups
     
-    # 各グループのキー層インデックス（グループの中心をとる）
     def _get_center_indices(self, who):
+        """
+        各グループの中心層インデックスを取得
+        入力:
+            who: 'teacher' または 'student' 
+        出力:
+            center_indices: 各グループの中心層インデックスのリスト
+        """
+        # 各グループのキー層インデックス（グループの中心をとる）
         center_indices = []
         if who == 'teacher':
             groups = self.t_groups

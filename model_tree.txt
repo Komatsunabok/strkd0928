@@ -1,14 +1,67 @@
 save
+├── cka_logs
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251012_223023
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251012_223527
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_131308
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_133743
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_134450
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_144909
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_145347
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_150418
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_212757
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_213958
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_222423
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_230402
+│   │   └── cka_epoch_001.csv
+│   └── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251013_231316
+│       └── cka_epoch_001.csv
 ├── pretrained
 │   └── vgg16_bn
 ├── students
+│   ├── models
+│   └── tensorboard
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_141635
+│       │   └── events.out.tfevents.1760419011.sakana.6872.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_142421
+│       │   └── events.out.tfevents.1760419463.sakana.7388.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_151122
+│       │   └── events.out.tfevents.1760422283.sakana.9896.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_151409
+│       │   └── events.out.tfevents.1760422451.sakana.10108.0
+│       └── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251014_155911
+│           └── events.out.tfevents.1760425152.sakana.11315.0
 └── teachers
     ├── models
-    │   └── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
+    │   ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_best.pth
+    │   ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_best.pth
+    │   └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
     │       ├── parameters.json
     │       ├── test_best_metrics.json
     │       ├── training_history.json
-    │       └── vgg16_bn_best.pth
+    │       └── vgg8_bn_best.pth
     └── tensorboard
-        └── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
-            └── events.out.tfevents.1760065610.frontier.15956.0
+        ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
+        │   └── events.out.tfevents.1760065610.frontier.15956.0
+        ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623
+        │   └── events.out.tfevents.1760426784.rock9.926285.0
+        └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
+            └── events.out.tfevents.1760425444.rock9.841370.0

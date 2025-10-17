@@ -66,9 +66,10 @@ class CKAMapper(nn.Module):
             s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_groups]
             t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_groups]
         elif self.layer_usage == 'key_layers':
-            # キーレイヤーだけを取り出して2次元リスト化
-            s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_key_layers]
-            t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_key_layers]
+            # キーレイヤーだけを2次元リスト化
+            s_group_feats = [[feat_s[i]] for i in self.s_key_layers]
+            t_group_feats = [[feat_t[i]] for i in self.t_key_layers]
+
         return s_group_feats, t_group_feats
 
     def _split_groups_by_cka(self, feat, group_num):

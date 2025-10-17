@@ -77,7 +77,7 @@ def parse_option():
                         help='method to determine the number of groups for CKA-based loss')
     parser.add_argument('--group_num', type=int, default=4,
                         help='number of groups for CKA-based loss (if group_num_method is custom)')
-    parser.add_argument('--layer_usage', type=str, default='key_layer', choices=['all', 'key_layer'],
+    parser.add_argument('--layer_usage', type=str, default='key_layers', choices=['all', 'key_layers'],
                         help='which layers to use for loss calculation')
     parser.add_argument('--student_grouping', type=str, default='proportional', choices=['uniform', 'proportional'],
                         help='grouping method for student layers')
@@ -276,15 +276,18 @@ def main_worker(gpu, ngpus_per_node, opt):
 
         # CKAグループ対応モジュール
         cka_mapper = CKAMapper(
-            s_shapes=s_shapes, t_shapes=t_shapes, 
-            feat_t=feature_hook_t.outputs,
-            group_num=opt.group_num, grouping=opt.grouping
+            s_shapes=s_shapes, t_shapes=t_shapes, feat_t=feature_hook_t.outputs,
+            group_num_method=opt.group_num_method, group_num=opt.group_num, 
+            student_grouping=opt.student_grouping, layer_usage=opt.layer_usage
         )
         module_list.append(cka_mapper)
         trainable_list.append(cka_mapper)
     
         # CKAベースの蒸留損失関数
-        criterion_kd = CKADistillLoss(group_num=opt.group_num, method_inner_group=opt.method, method_inter_group=opt.reduction)
+        criterion_kd = CKADistillLoss(
+            inner_group_aggregation=opt.inner_group_aggregation,
+            inter_group_aggregation=opt.inter_group_aggregation
+        )
     else:
         raise NotImplementedError(opt.distill)
 

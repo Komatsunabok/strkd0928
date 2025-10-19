@@ -1,19 +1,28 @@
 import os
 
-folders = ["save/download", "save/students", "save/teachers"]
+# モデルフォルダの定義
+base_folders = {
+    "Students": "save/students/models",
+    "Teachers": "save/teachers/models"
+}
+
 output_file = "model_list.txt"
 
-with open(output_file, "w") as f:
-    for folder in folders:
+with open(output_file, "w", encoding="utf-8") as f:
+    for role, folder in base_folders.items():
+        f.write(f"=== {role} ===\n")
         if os.path.exists(folder):
-            f.write(f"=== {folder} ===\n")
+            # 下層フォルダ（モデル名）を取得
             for name in os.listdir(folder):
-                f.write(name + "\n")
-            f.write("\n")
+                path = os.path.join(folder, name)
+                if os.path.isdir(path):  # フォルダのみ対象
+                    f.write(name + "\n")
         else:
-            f.write(f"{folder} not found.\n\n")
+            f.write(f"{folder} not found.\n")
+        f.write("\n")
 
 print(f"モデル一覧を {output_file} に保存しました！")
+
 
 import os
 

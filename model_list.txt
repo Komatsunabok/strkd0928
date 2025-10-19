@@ -1,10 +1,14 @@
-save/download not found.
+=== Students ===
+S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_223517
+S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_224846
+S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_225654
+S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_230014
+S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251019_101628
+S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_8-kd-cls_1.0-div_1.0-beta_1.0-20251019_133112
+S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_8-kd-cls_1.0-div_1.0-beta_1.0-20251019_170929
 
-=== save/students ===
-models
-tensorboard
-
-=== save/teachers ===
-models
-tensorboard
+=== Teachers ===
+vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
+vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623
+vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
 

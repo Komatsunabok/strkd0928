@@ -1,4 +1,5 @@
-python train_student.py --dataset cifar100 --model vgg16_bn --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --epoch 1
+python train_student.py --dataset cifar100 --distill ckad --model vgg16_bn --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --epoch 240
+python train_student.py --dataset cifar100 --distill kd --model vgg16_bn --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --epoch 240
 
 # 20251006
 python train_teacher.py --dataset cifar100 --model vgg16_bn --epoch 1

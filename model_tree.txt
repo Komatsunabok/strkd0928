@@ -1,5 +1,23 @@
 save
 ├── cka_logs
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251020_102340
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
 │   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251012_223023
 │   │   └── cka_epoch_001.csv
 │   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251012_223527
@@ -12,6 +30,51 @@ save
 │   │   └── cka_epoch_001.csv
 │   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_230014
 │   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251020_132022
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251020_185856
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251020_205441
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251020_220447
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251020_175115
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
 │   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251019_101628
 │   │   ├── cka_epoch_001.csv
 │   │   ├── cka_epoch_031.csv
@@ -65,10 +128,45 @@ save
 │   └── vgg16_bn
 ├── students
 │   ├── models
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251020_102340
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_best.pth
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_223517
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_224846
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_225654
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_230014
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251020_132022
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251020_185856
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251020_205441
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251020_220447
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251020_175115
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
@@ -89,6 +187,10 @@ save
 │   │       ├── training_history.json
 │   │       └── vgg16_bn_best.pth
 │   └── tensorboard
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
+│       │   └── events.out.tfevents.1760919681.rock9.83228.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251020_102340
+│       │   └── events.out.tfevents.1760923423.rock9.181883.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_223517
 │       │   └── events.out.tfevents.1760708139.frontier.4648.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_224846
@@ -97,6 +199,16 @@ save
 │       │   └── events.out.tfevents.1760709435.frontier.15988.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251017_230014
 │       │   └── events.out.tfevents.1760709635.frontier.15524.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251020_132022
+│       │   └── events.out.tfevents.1760934026.rock9.315541.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251020_185856
+│       │   └── events.out.tfevents.1760954339.rock9.579785.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251020_205441
+│       │   └── events.out.tfevents.1760961285.rock9.694512.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251020_220447
+│       │   └── events.out.tfevents.1760965491.rock9.795546.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251020_175115
+│       │   └── events.out.tfevents.1760950278.rock9.479379.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251019_101628
 │       │   └── events.out.tfevents.1760836591.rock9.3390075.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_8-kd-cls_1.0-div_1.0-beta_1.0-20251019_133112
@@ -115,6 +227,11 @@ save
 │           └── events.out.tfevents.1760425152.sakana.11315.0
 └── teachers
     ├── models
+    │   ├── vgg16_bn-cifar10-trial_0-epochs_240-bs_64-20251020_083010
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_best.pth
     │   ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
     │   │   ├── parameters.json
     │   │   ├── test_best_metrics.json
@@ -131,6 +248,8 @@ save
     │       ├── training_history.json
     │       └── vgg8_bn_best.pth
     └── tensorboard
+        ├── vgg16_bn-cifar10-trial_0-epochs_240-bs_64-20251020_083010
+        │   └── events.out.tfevents.1760916611.rock9.4183823.0
         ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649
         │   └── events.out.tfevents.1760065610.frontier.15956.0
         ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623

@@ -2,6 +2,7 @@ import os
 
 # モデルフォルダの定義
 base_folders = {
+    "CKA_Logs": "save/cka_logs",
     "Students": "save/students/models",
     "Teachers": "save/teachers/models"
 }

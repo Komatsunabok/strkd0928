@@ -125,7 +125,8 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
     model_t = module_list[-1]
 
     # 確認のため30エポックごとにCKAを計算
-    if epoch % 30 == 1:
+    # if epoch % 30 == 1:
+    if epoch < 30:
         model_s.eval()
         with torch.no_grad():
             inputs, _ = next(iter(train_loader))

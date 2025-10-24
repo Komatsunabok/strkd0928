@@ -126,31 +126,32 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
 
     # 確認のため30エポックごとにCKAを計算
     # if epoch % 30 == 1:
-    if epoch < 30:
-        model_s.eval()
-        with torch.no_grad():
-            inputs, _ = next(iter(train_loader))
-            inputs = inputs.cuda(0, non_blocking=True)
+    if opt.log_cka:
+        if epoch < 30:
+            model_s.eval()
+            with torch.no_grad():
+                inputs, _ = next(iter(train_loader))
+                inputs = inputs.cuda(0, non_blocking=True)
 
-            feature_hook_s.outputs.clear()            
-            feature_hook_t.outputs.clear()
+                feature_hook_s.outputs.clear()            
+                feature_hook_t.outputs.clear()
 
-            feat_s, _ = model_s(inputs, is_feat=True)
-            feat_t, _ = model_t(inputs, is_feat=True)
+                feat_s, _ = model_s(inputs, is_feat=True)
+                feat_t, _ = model_t(inputs, is_feat=True)
 
-            # hook出力はここで取得済み
-            feat_s = feature_hook_s.outputs
-            feat_t = feature_hook_t.outputs
+                # hook出力はここで取得済み
+                feat_s = feature_hook_s.outputs
+                feat_t = feature_hook_t.outputs
 
-            cka_matrix = torch.zeros(len(feat_s), len(feat_t))
-            for i, s in enumerate(feat_s):
-                for j, t in enumerate(feat_t):
-                    fs = safe_flatten_and_mean(s)
-                    ft = safe_flatten_and_mean(t)
-                    cka_matrix[i, j] =  linear_CKA(fs, ft).item()
+                cka_matrix = torch.zeros(len(feat_s), len(feat_t))
+                for i, s in enumerate(feat_s):
+                    for j, t in enumerate(feat_t):
+                        fs = safe_flatten_and_mean(s)
+                        ft = safe_flatten_and_mean(t)
+                        cka_matrix[i, j] =  linear_CKA(fs, ft).item()
 
-            log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
-            print("cka matrix was saved!")
+                log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
+                print("cka matrix was saved!")
 
     # training
     model_s.train()

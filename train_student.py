@@ -85,6 +85,7 @@ def parse_option():
                         help='aggregation method for inner-group CKA loss')
     parser.add_argument('--inter_group_aggregation', type=str, default='mean', choices=['sum', 'mean'],
                         help='aggregation method for inter-group CKA loss')
+    parser.add_argument('--log_cka', action='store_true', help='whether to log CKA values during training')
 
     opt = parser.parse_args()
 

@@ -3,6 +3,9 @@ import numpy as np
 
 import sys
 import os
+import numpy as np
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.neighbors import kneighbors_graph
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from cka.LinearCKA import linear_CKA
 from helper.util import safe_flatten_and_mean

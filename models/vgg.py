@@ -11,7 +11,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 __all__ = [
-    'VGG', 'vgg11', 'vgg11_bn', 'vgg13', 'vgg13_bn', 'vgg16', 'vgg16_bn',
+    'VGG', 'vgg11', 'vgg11_bn', 'vgg13', 'vgg13_bn', 'vgg16', 'vgg16_bn', 'vgg16_bn_half',
     'vgg19_bn', 'vgg19',
 ]
 
@@ -119,6 +119,7 @@ cfg = {
     'D': [[64, 64], [128, 128], [256, 256, 256], [512, 512, 512], [512, 512, 512]],
     'E': [[64, 64], [128, 128], [256, 256, 256, 256], [512, 512, 512, 512], [512, 512, 512, 512]],
     'S': [[64], [128], [256], [512], [512]],
+    'D_half': [[32, 32], [64, 64], [128, 128, 128],[256, 256, 256], [256, 256, 256]],
 }
 
 def vgg8(**kwargs):
@@ -168,6 +169,10 @@ def vgg16_bn(**kwargs):
     model = VGG(cfg['D'], batch_norm=True, **kwargs)
     return model
 
+def vgg16_bn_half(**kwargs):
+    """VGG 16-layer model (configuration "D_half") with batch normalization"""
+    model = VGG(cfg['D_half'], batch_norm=True, **kwargs)
+    return model
 
 def vgg19(**kwargs):
     """VGG 19-layer model (configuration "E")"""

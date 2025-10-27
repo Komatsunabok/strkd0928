@@ -75,7 +75,7 @@ def parse_option():
     # CKA-based Knowledge Distillation (CKAD)
     parser.add_argument('--group_num_method', type=str, default='custom', choices=['custom', 'auto'],
                         help='method to determine the number of groups for CKA-based loss')
-    parser.add_argument('--group_num', type=int, default=4,
+    parser.add_argument('--group_num', type=int, default=6,
                         help='number of groups for CKA-based loss (if group_num_method is custom)')
     parser.add_argument('--layer_usage', type=str, default='key_layers', choices=['all', 'key_layers'],
                         help='which layers to use for loss calculation')

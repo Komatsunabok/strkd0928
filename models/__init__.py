@@ -1,6 +1,6 @@
 from .resnet import resnet38, resnet110, resnet116, resnet14x2, resnet38x2, resnet110x2
 from .resnet import resnet8x4, resnet14x4, resnet32x4, resnet38x4
-from .vgg import vgg8_bn, vgg13_bn, vgg16_bn  # vgg16 is not defined, using vgg13_bn as a placeholder
+from .vgg import vgg8_bn, vgg13_bn, vgg16_bn, vgg16_bn_half
 from .mobilenetv2 import mobile_half, mobile_half_double
 from .ShuffleNetv1 import ShuffleV1
 from .ShuffleNetv2 import ShuffleV2, ShuffleV2_1_5
@@ -29,6 +29,7 @@ model_dict = {
     'vgg13_bn': vgg13_bn,
     'vgg16': vgg16_bn,
     'vgg16_bn': vgg16_bn,
+    'vgg16_bn_half': vgg16_bn_half,
     'MobileNetV2': mobile_half,
     'MobileNetV2_1_0': mobile_half_double,
     'ShuffleV1': ShuffleV1,
@@ -48,16 +49,3 @@ model_dict = {
     'ShuffleV2_Imagenet': shufflenet_v2_x1_0,
 }
 
-# model_dict = {
-#     'vgg11': models.vgg11,
-#     'vgg13': models.vgg13,
-#     'vgg16': models.vgg16,
-#     'vgg19': models.vgg19,
-#     'vgg11_bn': models.vgg11_bn,
-#     'vgg13_bn': models.vgg13_bn,
-#     'vgg16_bn': models.vgg16_bn,
-#     'vgg19_bn': models.vgg19_bn,
-#     'resnet18': models.resnet18,
-#     'resnet34': models.resnet34,
-#     'resnet50': models.resnet50,
-# }

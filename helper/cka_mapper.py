@@ -120,6 +120,7 @@ class CKAMapper(nn.Module):
 
         print("==> Calculating CKA similarity matrix...")
         # 以前の複雑なループの代わりに、新しい関数を呼ぶだけ
+        print(feat)
         cka_sim_matrix = self._compute_cka_matrix(feat)
 
         # 3. 距離行列に変換 (変更なし)

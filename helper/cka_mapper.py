@@ -15,7 +15,7 @@ class CKAMapper(nn.Module):
     教師・生徒の特徴マップをグループ分けし、対応付けを管理するモジュール
     """
     def __init__(self, s_shapes, t_shapes, feat_t, 
-                 group_num_method, group_num=4, 
+                 group_num_method, group_num=6, 
                  student_grouping='proportional', layer_usage='all'):
         super().__init__()
         self.s_shapes = s_shapes

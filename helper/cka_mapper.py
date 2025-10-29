@@ -77,7 +77,7 @@ class CKAMapper(nn.Module):
 
         return s_group_feats, t_group_feats
     
-    def _compute_cka_matrix(feat_list):
+    def _compute_cka_matrix(slef, feat_list):
         """
         教師モデルの全層特徴feat_listからCKAマトリクスを計算
 
@@ -120,7 +120,7 @@ class CKAMapper(nn.Module):
 
         print("==> Calculating CKA similarity matrix...")
         # 以前の複雑なループの代わりに、新しい関数を呼ぶだけ
-        print(feat)
+        print()
         cka_sim_matrix = self._compute_cka_matrix(feat)
 
         # 3. 距離行列に変換 (変更なし)

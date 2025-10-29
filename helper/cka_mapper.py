@@ -1,14 +1,16 @@
+import torch
 import torch.nn as nn
 import numpy as np
-
 import sys
 import os
-import numpy as np
-# from sklearn.cluster import AgglomerativeClustering
-# from sklearn.neighbors import kneighbors_graph
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from cka.LinearCKA import linear_CKA
 from helper.util import safe_flatten_and_mean
+
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.neighbors import kneighbors_graph
+from sklearn.metrics import silhouette_score
 
 class CKAMapper(nn.Module):
     """
@@ -74,43 +76,122 @@ class CKAMapper(nn.Module):
             t_group_feats = [[feat_t[i]] for i in self.t_key_layers]
 
         return s_group_feats, t_group_feats
-
-    def _split_groups_by_cka(self, feat, group_num):
+    
+    def _compute_cka_matrix(feat_list):
         """
-        CKAに基づいて教師の特徴マップをグループ分けする
-        入力:
-            feat: 教師の特徴マップのリスト
-            group_num: グループ数   
-        出力:
-            groups: [[idx1, idx2, ...], ...] の形でインデックスのグループを返す
-        """
-        # 1. CKA行列を計算（隣接層のみ）
-        n = len(feat)
-        cka_mat = np.zeros((n-1,))
-        for i in range(n-1):
-            f1 = safe_flatten_and_mean(feat[i])
-            f2 = safe_flatten_and_mean(feat[i + 1])           
-            cka_mat[i] = linear_CKA(f1, f2).item()  # 隣接層間のCKA値
-            # 隣接した層でないと同じグループにはならないので、隣接層間のCKA値のみで十分
-            # LinearCKAはtorch.Tensorを受け取るので、feat_t[i]とfeat_t[i+1]はtorch.Tensorである必要がある
-            # LinearCKAでCKA計算のために２次元テンソルに変形されるので、ここでは４次元テンソルをそのまま渡してもよい
+        教師モデルの全層特徴feat_listからCKAマトリクスを計算
 
-        # 2. CKA値が高い順にグループ化（貪欲法）
-        # まず全層を1つずつグループに分ける
-        groups = [[i] for i in range(n)]
-        # グループ数が指定数になるまで、CKA値が最大の隣接グループをマージ
-        while len(groups) > group_num:
-            # 隣接グループ間のCKA値を取得
-            merge_scores = [cka_mat[groups[i][-1]] for i in range(len(groups)-1)]
-            # 最高のCKA値を持つ隣接グループを見つける
-            # ある層とその次の層のCKA値を用いて、隣接グループ間のCKA値を計算
-            max_idx = np.argmax(merge_scores)
-            # マージ
-            groups[max_idx] = groups[max_idx] + groups[max_idx+1] # 隣接グループmax_ind+1をmax_idxにマージ
-            del groups[max_idx+1] # マージして必要なくなったグループ(max_ind+1)を削除
+        Parameters
+        ----------
+        feat_list : list of torch.Tensor
+            各層の出力（例: [B, C, H, W]）
+
+        Returns
+        -------
+        cka_matrix : np.ndarray
+            層×層 の CKA 類似度行列（対称行列, 値は0～1に近い）
+        """
+        n = len(feat_list)
+        cka_matrix = np.zeros((n, n))
+
+        for i in range(n):
+            for j in range(i, n):
+                # flatten（できれば関数外でやっておくのが理想）
+                f1 = safe_flatten_and_mean(feat_list[i])
+                f2 = safe_flatten_and_mean(feat_list[j]) 
+                with torch.no_grad():
+                    cka_value = linear_CKA(f1, f2).item()
+
+                cka_matrix[i, j] = cka_value
+                cka_matrix[j, i] = cka_value  # 対称行列にする
+
+        return cka_matrix
+
+    def _split_groups_by_cka(self, feat: list[torch.Tensor], group_num: int) -> list[list[int]]:
+        """
+        【修正版】
+        CKA行列の計算を compute_cka_matrix 関数に任せる
+        """
         
-        print("teacher group", groups)
-        return groups
+        num_layers = len(feat)
+        
+        if group_num > num_layers:
+            return [[i] for i in range(num_layers)]
+
+        print("==> Calculating CKA similarity matrix...")
+        # 以前の複雑なループの代わりに、新しい関数を呼ぶだけ
+        cka_sim_matrix = self._compute_cka_matrix(feat)
+
+        # 3. 距離行列に変換 (変更なし)
+        dist_matrix = 1.0 - cka_sim_matrix
+
+        print("==> Creating connectivity matrix...")
+        # 4. 接続行列の作成 (変更なし)
+        positions = np.arange(num_layers).reshape(-1, 1)
+        connectivity = kneighbors_graph(
+            positions,
+            n_neighbors=1,
+            mode='connectivity',
+            include_self=True
+        )
+        
+        print("==> Running constrained clustering...")
+        # 5. クラスタリング実行 (変更なし)
+        clusterer = AgglomerativeClustering(
+            n_clusters=group_num,
+            metric='precomputed',
+            linkage='average',
+            connectivity=connectivity
+        )
+        
+        labels = clusterer.fit_predict(dist_matrix)
+        print(f"Clustering labels: {labels}")
+
+        # 6. 出力の整形 (変更なし)
+        groups = [[] for _ in range(group_num)]
+        for layer_index, group_label in enumerate(labels):
+            groups[group_label].append(layer_index)
+            
+        sorted_groups = sorted(groups, key=lambda x: x[0])
+        
+        return sorted_groups
+
+    # def _split_groups_by_cka(self, feat, group_num):
+    #     """
+    #     CKAに基づいて教師の特徴マップをグループ分けする
+    #     入力:
+    #         feat: 教師の特徴マップのリスト
+    #         group_num: グループ数   
+    #     出力:
+    #         groups: [[idx1, idx2, ...], ...] の形でインデックスのグループを返す
+    #     """
+    #     # 1. CKA行列を計算（隣接層のみ）
+    #     n = len(feat)
+    #     cka_mat = np.zeros((n-1,))
+    #     for i in range(n-1):
+    #         f1 = safe_flatten_and_mean(feat[i])
+    #         f2 = safe_flatten_and_mean(feat[i + 1])           
+    #         cka_mat[i] = linear_CKA(f1, f2).item()  # 隣接層間のCKA値
+    #         # 隣接した層でないと同じグループにはならないので、隣接層間のCKA値のみで十分
+    #         # LinearCKAはtorch.Tensorを受け取るので、feat_t[i]とfeat_t[i+1]はtorch.Tensorである必要がある
+    #         # LinearCKAでCKA計算のために２次元テンソルに変形されるので、ここでは４次元テンソルをそのまま渡してもよい
+
+    #     # 2. CKA値が高い順にグループ化（貪欲法）
+    #     # まず全層を1つずつグループに分ける
+    #     groups = [[i] for i in range(n)]
+    #     # グループ数が指定数になるまで、CKA値が最大の隣接グループをマージ
+    #     while len(groups) > group_num:
+    #         # 隣接グループ間のCKA値を取得
+    #         merge_scores = [cka_mat[groups[i][-1]] for i in range(len(groups)-1)]
+    #         # 最高のCKA値を持つ隣接グループを見つける
+    #         # ある層とその次の層のCKA値を用いて、隣接グループ間のCKA値を計算
+    #         max_idx = np.argmax(merge_scores)
+    #         # マージ
+    #         groups[max_idx] = groups[max_idx] + groups[max_idx+1] # 隣接グループmax_ind+1をmax_idxにマージ
+    #         del groups[max_idx+1] # マージして必要なくなったグループ(max_ind+1)を削除
+        
+    #     print("teacher group", groups)
+    #     return groups
 
     def _split_groups(self, num_layers, group_num):
         """

@@ -33,7 +33,15 @@ class VGG(nn.Module):
         # self.pool4 = nn.MaxPool2d(kernel_size=2, stride=2)
         self.relu = nn.ReLU(inplace=True)
 
-        self.classifier = nn.Linear(512, num_classes)
+        # === 修正箇所 ===
+        # 512 と決め打ちするのをやめる
+        # self.classifier = nn.Linear(512, num_classes) 
+
+        # cfg[4] (最後のブロック) の、[-1] (最後のチャンネル数) を取得する
+        final_out_channels = cfg[4][-1]
+        print("Final output channels before classifier:", final_out_channels)
+        self.classifier = nn.Linear(final_out_channels, num_classes)
+        # ==============        
         self._initialize_weights()
 
     def get_feat_modules(self):

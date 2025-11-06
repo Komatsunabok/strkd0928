@@ -204,8 +204,10 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         else:
             raise NotImplementedError(opt.distill)
         
-
-        b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
+        if opt.beta_method == 'fixed':
+            b = opt.beta  # 固定ベータ
+        elif opt.beta_method == 'epoch_based':
+            b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
             
         loss = opt.cls * loss_cls + opt.div * loss_div + b * loss_kd
         losses.update(loss.item(), images.size(0))

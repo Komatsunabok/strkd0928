@@ -2,33 +2,15 @@
 set -e  # ← 途中でエラーが出たら止める（安全）
 
 
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half --model_t vgg16_bn --beta 300 --beta_method fixed \
-  --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
-  --distill ckad --group_num 6 --layer_usage all --log_cka 
-echo "=== Done ==="
-sleep 5  # GPUメモリ開放のため5秒待機（任意）
+# echo "=== Start ==="
+# python train_student.py --dataset cifar100 --model vgg16_bn_half --model_t vgg16_bn --beta 300 --beta_method fixed \
+#   --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
+#   --distill ckad --group_num 6 --layer_usage all --log_cka 
+# echo "=== Done ==="
+# sleep 5  # GPUメモリ開放のため5秒待機（任意）
 
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half --model_t vgg16_bn --beta 400 --beta_method fixed \
-  --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
-  --distill ckad --group_num 6 --layer_usage all --log_cka 
-echo "=== Done ==="
-sleep 5  # GPUメモリ開放のため5秒待機（任意）
 
 echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half --model_t vgg16_bn --beta 500 --beta_method fixed \
-  --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
-  --distill ckad --group_num 6 --layer_usage all --log_cka 
+python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model vgg16_bn_half
 echo "=== Done ==="
 sleep 5  # GPUメモリ開放のため5秒待機（任意）
-
-
-
-
-
-
-
-
-
-

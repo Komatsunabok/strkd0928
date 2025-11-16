@@ -18,6 +18,7 @@ import torch.backends.cudnn as cudnn
 from torch.utils.tensorboard import SummaryWriter
 
 from models import model_dict
+from models.util import ConvReg
 
 from dataset.cifar10 import get_cifar10_dataloaders
 from dataset.cifar100 import get_cifar100_dataloaders
@@ -27,8 +28,10 @@ from helper.loops import train_distill as train, validate_vanilla, validate_dist
 from helper.util import save_dict_to_json, reduce_tensor
 from helper.cka_mapper import CKAMapper
 
-from distiller_zoo.KD import DistillKL
-from distiller_zoo.CKAD import CKADistillLoss
+# from distiller_zoo.KD import DistillKL
+# from distiller_zoo.CKAD import CKADistillLoss
+from distiller_zoo import DistillKL, HintLoss, Attention, Similarity, CKADistillLoss
+
 
 from helper.hooks import register_hooks
 
@@ -64,7 +67,7 @@ def parse_option():
 
     # distillation
     parser.add_argument('--kd_T', type=float, default=4, help='temperature for KD distillation')
-    parser.add_argument('--distill', type=str, default='ckad', choices=['kd', 'ckad'])
+    parser.add_argument('--distill', type=str, default='kd', choices=['kd', 'ckad', 'hint', 'attention', 'similarity'])
     parser.add_argument('-c', '--cls', type=float, default=1.0, help='weight for classification')
     parser.add_argument('-d', '--div', type=float, default=1.0, help='weight balance for KD')
     parser.add_argument('-b', '--beta', type=float, default=1.0, help='weight balance for other losses')
@@ -291,6 +294,15 @@ def main_worker(gpu, ngpus_per_node, opt):
             inner_group_aggregation=opt.inner_group_aggregation,
             inter_group_aggregation=opt.inter_group_aggregation
         )
+    elif opt.distill == 'hint':
+        criterion_kd = HintLoss()
+        regress_s = ConvReg(feat_s[opt.hint_layer].shape, feat_t[opt.hint_layer].shape)
+        module_list.append(regress_s)
+        trainable_list.append(regress_s)
+    elif opt.distill == 'attention':
+        criterion_kd = Attention()
+    elif opt.distill == 'similarity':
+        criterion_kd = Similarity()
     else:
         raise NotImplementedError(opt.distill)
 

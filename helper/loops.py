@@ -201,6 +201,17 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
             s_group_feats, t_group_feats = module_list[1](
                 feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
             loss_kd = criterion_kd(s_group_feats, t_group_feats)
+        elif opt.distill == 'attention':
+            # include 1, exclude -1.
+            g_s = feat_s[1:-1]
+            g_t = feat_t[1:-1]
+            loss_group = criterion_kd(g_s, g_t)
+            loss_kd = sum(loss_group)
+        elif opt.distill == 'similarity':
+            g_s = [feat_s[-2]]
+            g_t = [feat_t[-2]]
+            loss_group = criterion_kd(g_s, g_t)
+            loss_kd = sum(loss_group)
         else:
             raise NotImplementedError(opt.distill)
         

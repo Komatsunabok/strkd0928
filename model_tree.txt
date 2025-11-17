@@ -1328,6 +1328,143 @@ save
 │   │   ├── cka_epoch_151.csv
 │   │   ├── cka_epoch_181.csv
 │   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251106_115515
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251106_145309
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_080321
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_140650
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_194904
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_214846
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_141733
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_171924
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_194707
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_100402
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_120441
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_160151
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_174550
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251111_144050
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_400.0-20251111_153342
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_500.0-20251111_162639
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
 │   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_150951
 │   │   ├── cka_epoch_001.csv
 │   │   ├── cka_epoch_002.csv
@@ -1583,6 +1720,8 @@ save
 │       ├── cka_epoch_151.csv
 │       ├── cka_epoch_181.csv
 │       └── cka_epoch_211.csv
+├── pretrained
+│   └── vgg16_bn
 ├── students
 │   ├── models
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
@@ -1753,6 +1892,36 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251116_214459
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251116_223756
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_085421
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_104725
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_121105
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_144324
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251030_095314
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -1846,6 +2015,147 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251106_115515
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251106_145309
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_080321
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_140650
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_194904
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_214846
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_141733
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_171924
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_194707
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_100402
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_120441
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_160151
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_174550
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_110508
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_115807
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_125057
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_133658
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_143440
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_153230
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251111_144050
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_400.0-20251111_153342
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_500.0-20251111_162639
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_194419
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_212025
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_220702
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_082951
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_102248
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_114640
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_141859
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_150951
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -1876,7 +2186,35 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
-│   │   └── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_221326
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_230344
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_092003
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_111306
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_123645
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   └── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_150906
 │   │       ├── parameters.json
 │   │       ├── test_best_metrics.json
 │   │       ├── training_history.json
@@ -1950,6 +2288,20 @@ save
 │       │   └── events.out.tfevents.1761636468.rock9.1183960.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251028_173025
 │       │   └── events.out.tfevents.1761640228.rock9.1299649.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251116_200847
+│       │   └── events.out.tfevents.1763291328.rock9.757315.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251116_214459
+│       │   └── events.out.tfevents.1763297100.rock9.859887.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251116_223756
+│       │   └── events.out.tfevents.1763300278.rock9.1043552.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_085421
+│       │   └── events.out.tfevents.1763337262.rock9.1426903.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_104725
+│       │   └── events.out.tfevents.1763344046.rock9.1688511.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_121105
+│       │   └── events.out.tfevents.1763349066.rock9.1943082.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251117_144324
+│       │   └── events.out.tfevents.1763358205.rock9.2214160.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251030_095314
 │       │   └── events.out.tfevents.1761785603.rock9.2967131.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251030_122432
@@ -1988,6 +2340,64 @@ save
 │       │   └── events.out.tfevents.1762236699.rock9.3805250.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251104_160114
 │       │   └── events.out.tfevents.1762239683.rock9.3902867.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251106_115515
+│       │   └── events.out.tfevents.1762397733.rock9.941688.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251106_145309
+│       │   └── events.out.tfevents.1762408408.rock9.1089747.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_080321
+│       │   └── events.out.tfevents.1762470217.rock9.1715973.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_140650
+│       │   └── events.out.tfevents.1762492025.rock9.2092909.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_194904
+│       │   └── events.out.tfevents.1762512556.rock9.2457505.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_214846
+│       │   └── events.out.tfevents.1762519739.rock9.2577420.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_141733
+│       │   └── events.out.tfevents.1762406271.rock9.1068178.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_171924
+│       │   └── events.out.tfevents.1762417184.rock9.1221721.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_194707
+│       │   └── events.out.tfevents.1762426048.rock9.1357402.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_100402
+│       │   └── events.out.tfevents.1762477458.rock9.1837642.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_120441
+│       │   └── events.out.tfevents.1762484696.rock9.1959067.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_160151
+│       │   └── events.out.tfevents.1762498921.rock9.2222882.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251107_174550
+│       │   └── events.out.tfevents.1762505161.rock9.2336276.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_110508
+│       │   └── events.out.tfevents.1762999514.rock9.2035153.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_115807
+│       │   └── events.out.tfevents.1763002693.rock9.2128113.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_125057
+│       │   └── events.out.tfevents.1763005863.rock9.2219846.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_133658
+│       │   └── events.out.tfevents.1763008624.rock9.2266928.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_143440
+│       │   └── events.out.tfevents.1763012088.rock9.2362448.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251113_153230
+│       │   └── events.out.tfevents.1763015558.rock9.2457767.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251111_144050
+│       │   └── events.out.tfevents.1762839656.rock9.802110.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_400.0-20251111_153342
+│       │   └── events.out.tfevents.1762842828.rock9.895163.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_500.0-20251111_162639
+│       │   └── events.out.tfevents.1762846005.rock9.988251.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_194419
+│       │   └── events.out.tfevents.1763289861.rock9.673266.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_212025
+│       │   └── events.out.tfevents.1763295626.rock9.775806.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_220702
+│       │   └── events.out.tfevents.1763298424.rock9.932324.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_082951
+│       │   └── events.out.tfevents.1763335792.rock9.1342912.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_102248
+│       │   └── events.out.tfevents.1763342570.rock9.1604489.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_114640
+│       │   └── events.out.tfevents.1763347601.rock9.1859044.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_141859
+│       │   └── events.out.tfevents.1763356740.rock9.2130157.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_150951
 │       │   └── events.out.tfevents.1761804595.rock9.3508138.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_154459
@@ -2002,6 +2412,20 @@ save
 │       │   └── events.out.tfevents.1761907256.rock9.1644564.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420
 │       │   └── events.out.tfevents.1762234463.rock9.3715124.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_200851
+│       │   └── events.out.tfevents.1763291333.rock9.757917.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_221326
+│       │   └── events.out.tfevents.1763298809.rock9.956563.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_230344
+│       │   └── events.out.tfevents.1763301826.rock9.1127864.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_092003
+│       │   └── events.out.tfevents.1763338804.rock9.1511231.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_111306
+│       │   └── events.out.tfevents.1763345587.rock9.1772838.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_123645
+│       │   └── events.out.tfevents.1763350606.rock9.2027432.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_150906
+│       │   └── events.out.tfevents.1763359748.rock9.2298481.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_141635
 │       │   └── events.out.tfevents.1760419011.sakana.6872.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_142421
@@ -2029,6 +2453,36 @@ save
     │   │   ├── test_best_metrics.json
     │   │   ├── training_history.json
     │   │   └── vgg16_bn_best.pth
+    │   ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251112_153023
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_half_best.pth
+    │   ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_090714
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_half_best.pth
+    │   ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_093846
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_half_best.pth
+    │   ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_101017
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_half_best.pth
+    │   ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_104150
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_half_best.pth
+    │   ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg16_bn_half_best.pth
     │   └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
     │       ├── parameters.json
     │       ├── test_best_metrics.json
@@ -2041,5 +2495,17 @@ save
         │   └── events.out.tfevents.1760065610.frontier.15956.0
         ├── vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623
         │   └── events.out.tfevents.1760426784.rock9.926285.0
+        ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251112_153023
+        │   └── events.out.tfevents.1762929024.rock9.1653187.0
+        ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_090714
+        │   └── events.out.tfevents.1763078835.rock9.2985017.0
+        ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_093846
+        │   └── events.out.tfevents.1763080727.rock9.3076395.0
+        ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_101017
+        │   └── events.out.tfevents.1763082619.rock9.3167671.0
+        ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_104150
+        │   └── events.out.tfevents.1763084511.rock9.3258926.0
+        ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323
+        │   └── events.out.tfevents.1763086404.rock9.3350181.0
         └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
             └── events.out.tfevents.1760425444.rock9.841370.0

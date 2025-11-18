@@ -72,22 +72,22 @@ More scripts are provided in `./scripts`
  -->
 
 ## Citation
-```
-@inproceedings{chen2022simkd,
-  title={Knowledge Distillation with the Reused Teacher Classifier},
-  author={Chen, Defang and Mei, Jian-Ping and Zhang, Hailin and Wang, Can and Feng, Yan and Chen, Chun},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={11933--11942},
-  year={2022}
-}
-```
-```
-@inproceedings{chen2021cross,
-  author    = {Defang Chen and Jian{-}Ping Mei and Yuan Zhang and Can Wang and Zhe Wang and Yan Feng and Chun Chen},
-  title     = {Cross-Layer Distillation with Semantic Calibration},
-  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
-  pages     = {7028--7036},
-  year      = {2021},
-}
-```
 
+This implementation is based on the following papers:
+
+@inproceedings{chen2022simkd,
+title={Knowledge Distillation with the Reused Teacher Classifier},
+author={Chen, Defang and Mei, Jian-Ping and Zhang, Hailin and Wang, Can and Feng, Yan and Chen, Chun},
+booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+pages={11933--11942},
+year={2022}
+}
+
+コードをコピーする
+@inproceedings{chen2021cross,
+author = {Defang Chen and Jian{-}Ping Mei and Yuan Zhang and Can Wang and Zhe Wang and Yan Feng and Chun Chen},
+title = {Cross-Layer Distillation with Semantic Calibration},
+booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+pages = {7028--7036},
+year = {2021},
+}

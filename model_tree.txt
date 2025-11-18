@@ -2471,6 +2471,11 @@ save
 │           └── events.out.tfevents.1763449897.rock9.3067737.0
 └── teachers
     ├── models
+    │   ├── resnet32x4-cifar100-trial_0-epochs_240-bs_64-20251118_165813
+    │   │   ├── parameters.json
+    │   │   ├── resnet32x4_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
     │   ├── vgg16_bn-cifar10-trial_0-epochs_240-bs_64-20251020_083010
     │   │   ├── parameters.json
     │   │   ├── test_best_metrics.json
@@ -2522,6 +2527,8 @@ save
     │       ├── training_history.json
     │       └── vgg8_bn_best.pth
     └── tensorboard
+        ├── resnet32x4-cifar100-trial_0-epochs_240-bs_64-20251118_165813
+        │   └── events.out.tfevents.1763452694.rock9.3170113.0
         ├── vgg16_bn-cifar10-trial_0-epochs_240-bs_64-20251020_083010
         │   └── events.out.tfevents.1760916611.rock9.4183823.0
         ├── vgg16_bn-cifar100-trial_0-epochs_1-bs_64-20251010_120649

@@ -266,14 +266,21 @@ def main_worker(gpu, ngpus_per_node, opt):
         feat_s_conv, _ = model_s(images, is_feat=True)
         break
 
-    # どの層の出力か確認
-    for i, (idx, name, _) in enumerate(hooks_t):
-        print(f"{i}: Hooked layer = {name}")
-        print(f"    Output shape: {feature_hook_t.outputs[i].shape}")
+    print("Feature shapes from teacher model:")
+    for i, f in enumerate(feat_t):
+        print(f"  Layer {i}: {f.shape}")
+    print("Feature shapes from teacher model(conv):")
+    for i, f in enumerate(feat_t_conv):
+        print(f"  Conv Layer {i}: {f.shape}")
 
-    for i, (idx, name, _) in enumerate(hooks_t_conv):
-        print(f"{i}: Conv Hooked layer = {name}")
-        print(f"    Conv Output shape: {feature_hook_t_conv.outputs[i].shape}")
+    # # どの層の出力か確認
+    # for i, (idx, name, _) in enumerate(hooks_t):
+    #     print(f"{i}: Hooked layer = {name}")
+    #     print(f"    Output shape: {feature_hook_t.outputs[i].shape}")
+
+    # for i, (idx, name, _) in enumerate(hooks_t_conv):
+    #     print(f"{i}: Conv Hooked layer = {name}")
+    #     print(f"    Conv Output shape: {feature_hook_t_conv.outputs[i].shape}")
 
     # KD
     print(f"==> Setting up distillation method: {opt.distill}...")

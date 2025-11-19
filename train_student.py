@@ -262,16 +262,16 @@ def main_worker(gpu, ngpus_per_node, opt):
     for images, labels in train_loader:
         feat_t, _ = model_t(images, is_feat=True)
         feat_s, _ = model_s(images, is_feat=True)
-        feat_t_conv, _ = model_t(images, is_feat=True)
-        feat_s_conv, _ = model_s(images, is_feat=True)
+        # feat_t_conv, _ = model_t(images, is_feat=True)
+        # feat_s_conv, _ = model_s(images, is_feat=True)
         break
 
-    print("Feature shapes from teacher model:")
-    for i, f in enumerate(feat_t):
-        print(f"  Layer {i}: {f.shape}")
-    print("Feature shapes from teacher model(conv):")
-    for i, f in enumerate(feat_t_conv):
-        print(f"  Conv Layer {i}: {f.shape}")
+    # print("Feature shapes from teacher model:")
+    # for i, f in enumerate(feat_t):
+    #     print(f"  Layer {i}: {f.shape}")
+    # print("Feature shapes from teacher model(conv):")
+    # for i, f in enumerate(feat_t_conv):
+    #     print(f"  Conv Layer {i}: {f.shape}")
 
     # # どの層の出力か確認
     # for i, (idx, name, _) in enumerate(hooks_t):

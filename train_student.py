@@ -309,6 +309,9 @@ def main_worker(gpu, ngpus_per_node, opt):
         conv_indices_s = [i for i, f in enumerate(feature_hook_s_conv.outputs) if f.dim() == 4]
         conv_indices_t = [i for i, f in enumerate(feature_hook_t_conv.outputs) if f.dim() == 4]
 
+        print(f"Student conv layer indices: {conv_indices_s}")
+        print(f"Teacher conv layer indices: {conv_indices_t}")
+
         # 真ん中の層をHint層として記録
         opt.hint_layer_s = conv_indices_s[len(conv_indices_s) // 2]  # 生徒のHint層
         opt.hint_layer_t = conv_indices_t[len(conv_indices_t) // 2]  # 教師のHint層

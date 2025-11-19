@@ -244,12 +244,12 @@ def main_worker(gpu, ngpus_per_node, opt):
     #     ...
     # ]
     print("==> Registering hooks...")
-    hooks_t, feature_hook_t = register_hooks(model_t, (nn.BatchNorm2d, nn.Linear))
     hooks_s, feature_hook_s = register_hooks(model_s, (nn.BatchNorm2d, nn.Linear))
+    hooks_t, feature_hook_t = register_hooks(model_t, (nn.BatchNorm2d, nn.Linear))
 
     # Conv 用 (Hint用)
-    hooks_t_conv, feature_hook_t_conv = register_hooks(model_t, (nn.Conv2d,))
     hooks_s_conv, feature_hook_s_conv = register_hooks(model_s, (nn.Conv2d,))
+    hooks_t_conv, feature_hook_t_conv = register_hooks(model_t, (nn.Conv2d,))
 
     # dataをモデルに通して特徴量を取得(実際の各層の出力)
     # feat_t = [
@@ -260,8 +260,8 @@ def main_worker(gpu, ngpus_per_node, opt):
     # ]
     # torch.Size([バッチサイズ, チャンネル数, 高さ, 幅])
     for images, labels in train_loader:
-        feat_t, _ = model_t(images, is_feat=True)
         feat_s, _ = model_s(images, is_feat=True)
+        feat_t, _ = model_t(images, is_feat=True)
         # feat_t_conv, _ = model_t(images, is_feat=True)
         # feat_s_conv, _ = model_s(images, is_feat=True)
         break
@@ -294,8 +294,8 @@ def main_worker(gpu, ngpus_per_node, opt):
         #     torch.Size([バッチサイズ, チャンネル数2, 高さ2, 幅2]),
         # ...
         # ]
-        t_shapes = [f.shape for f in feature_hook_t.outputs]
         s_shapes = [f.shape for f in feature_hook_s.outputs]
+        t_shapes = [f.shape for f in feature_hook_t.outputs]
 
         # CKAグループ対応モジュール
         cka_mapper = CKAMapper(
@@ -329,8 +329,8 @@ def main_worker(gpu, ngpus_per_node, opt):
         # HintLossとConvRegを作る（Conv専用Hookの出力を渡す）
         criterion_kd = HintLoss()
         regress_s = ConvReg(
-            feat_s_conv[opt.hint_layer_s].shape,  # ← ここを修正
-            feat_t_conv[opt.hint_layer_t].shape   # ← ここを修正
+            feature_hook_s_conv.outputs[opt.hint_layer_s].shape,  # ← ここを修正
+            feature_hook_t_conv.outputs[opt.hint_layer_t].shape   # ← ここを修正
         )
 
         module_list.append(regress_s)

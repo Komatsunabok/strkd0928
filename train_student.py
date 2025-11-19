@@ -271,6 +271,10 @@ def main_worker(gpu, ngpus_per_node, opt):
         print(f"{i}: Hooked layer = {name}")
         print(f"    Output shape: {feature_hook_t.outputs[i].shape}")
 
+    for i, (idx, name, _) in enumerate(hooks_t_conv):
+        print(f"{i}: Conv Hooked layer = {name}")
+        print(f"    Conv Output shape: {feature_hook_t_conv.outputs[i].shape}")
+
     # KD
     print(f"==> Setting up distillation method: {opt.distill}...")
     if opt.distill == 'kd':

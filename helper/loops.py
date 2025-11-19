@@ -135,6 +135,8 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
 
                 feature_hook_s.outputs.clear()            
                 feature_hook_t.outputs.clear()
+                feature_hook_s_conv.outputs.clear()            
+                feature_hook_t_conv.outputs.clear()
 
                 feat_s, _ = model_s(inputs, is_feat=True)
                 feat_t, _ = model_t(inputs, is_feat=True)

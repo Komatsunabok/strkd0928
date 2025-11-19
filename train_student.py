@@ -75,8 +75,8 @@ def parse_option():
                         help='method to adjust beta during training')
 
     # hint layer
-    # parser.add_argument('--hint_layer_s', default=1, type=int, choices=[0, 1, 2, 3, 4])
-    # parser.add_argument('--hint_layer_t', default=1, type=int, choices=[0, 1, 2, 3, 4])
+    parser.add_argument('--hint_layer_s', default=-1, type=int, help='student hint layer index (-1: auto middle layer)')
+    parser.add_argument('--hint_layer_t', default=-1, type=int, help='teacher hint layer index (-1: auto middle layer)')
 
     # CKA-based Knowledge Distillation (CKAD)
     parser.add_argument('--group_num_method', type=str, default='custom', choices=['custom', 'auto'],
@@ -312,16 +312,20 @@ def main_worker(gpu, ngpus_per_node, opt):
             inter_group_aggregation=opt.inter_group_aggregation
         )
     elif opt.distill == 'hint':
-        # Conv出力だけ抽出して真ん中の層をHint層に選ぶ
+        # Conv出力だけ抽出
         conv_indices_s = [i for i, f in enumerate(feature_hook_s_conv.outputs) if f.dim() == 4]
         conv_indices_t = [i for i, f in enumerate(feature_hook_t_conv.outputs) if f.dim() == 4]
 
         print(f"Student conv layer indices: {conv_indices_s}")
         print(f"Teacher conv layer indices: {conv_indices_t}")
 
-        # 真ん中の層をHint層として記録
-        opt.hint_layer_s = conv_indices_s[len(conv_indices_s) // 2]  # 生徒のHint層
-        opt.hint_layer_t = conv_indices_t[len(conv_indices_t) // 2]  # 教師のHint層
+        # Hint層を自動選択または明示的に指定
+        if opt.hint_layer_s == -1:
+            # 自動選択: 中間層
+            opt.hint_layer_s = conv_indices_s[len(conv_indices_s) // 2]
+        if opt.hint_layer_t == -1:
+            # 自動選択: 中間層
+            opt.hint_layer_t = conv_indices_t[len(conv_indices_t) // 2]
 
         print(f"Student hint layer: {opt.hint_layer_s}, shape: {feature_hook_s_conv.outputs[opt.hint_layer_s].shape}")
         print(f"Teacher hint layer: {opt.hint_layer_t}, shape: {feature_hook_t_conv.outputs[opt.hint_layer_t].shape}")
@@ -389,6 +393,9 @@ def main_worker(gpu, ngpus_per_node, opt):
     # ※feature_hook_t.outputsはmodel(input)を呼ぶたびにたまり続ける
     feature_hook_t.outputs.clear()
     feature_hook_s.outputs.clear()
+
+    feature_hook_s_conv.outputs.clear()
+    feature_hook_t_conv.outputs.clear()
 
     # routine
     for epoch in range(1, opt.epochs + 1):

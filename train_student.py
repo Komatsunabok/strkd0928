@@ -75,7 +75,8 @@ def parse_option():
                         help='method to adjust beta during training')
 
     # hint layer
-    parser.add_argument('--hint_layer', default=1, type=int, choices=[0, 1, 2, 3, 4])
+    # parser.add_argument('--hint_layer_s', default=1, type=int, choices=[0, 1, 2, 3, 4])
+    # parser.add_argument('--hint_layer_t', default=1, type=int, choices=[0, 1, 2, 3, 4])
 
     # CKA-based Knowledge Distillation (CKAD)
     parser.add_argument('--group_num_method', type=str, default='custom', choices=['custom', 'auto'],
@@ -246,6 +247,10 @@ def main_worker(gpu, ngpus_per_node, opt):
     hooks_t, feature_hook_t = register_hooks(model_t, (nn.BatchNorm2d, nn.Linear))
     hooks_s, feature_hook_s = register_hooks(model_s, (nn.BatchNorm2d, nn.Linear))
 
+    # Conv 用 (Hint用)
+    hooks_t_conv, feature_hook_t_conv = register_hooks(model_t, (nn.Conv2d,))
+    hooks_s_conv, feature_hook_s_conv = register_hooks(model_s, (nn.Conv2d,))
+
     # dataをモデルに通して特徴量を取得(実際の各層の出力)
     # feat_t = [
     #     torch.Size([2, 128, 8, 8]),
@@ -257,7 +262,8 @@ def main_worker(gpu, ngpus_per_node, opt):
     for images, labels in train_loader:
         feat_t, _ = model_t(images, is_feat=True)
         feat_s, _ = model_s(images, is_feat=True)
-        # ...CKA計算に使う...
+        feat_t_conv, _ = model_t(images, is_feat=True)
+        feat_s_conv, _ = model_s(images, is_feat=True)
         break
 
     # どの層の出力か確認
@@ -295,10 +301,27 @@ def main_worker(gpu, ngpus_per_node, opt):
             inter_group_aggregation=opt.inter_group_aggregation
         )
     elif opt.distill == 'hint':
+        # Conv出力だけ抽出して真ん中の層をHint層に選ぶ
+        conv_indices_s = [i for i, f in enumerate(feature_hook_s_conv.outputs) if f.dim() == 4]
+        conv_indices_t = [i for i, f in enumerate(feature_hook_t_conv.outputs) if f.dim() == 4]
+
+        # 真ん中の層をHint層として記録
+        opt.hint_layer_s = conv_indices_s[len(conv_indices_s) // 2]  # 生徒のHint層
+        opt.hint_layer_t = conv_indices_t[len(conv_indices_t) // 2]  # 教師のHint層
+
+        print(f"Student hint layer: {opt.hint_layer_s}, shape: {feature_hook_s_conv.outputs[opt.hint_layer_s].shape}")
+        print(f"Teacher hint layer: {opt.hint_layer_t}, shape: {feature_hook_t_conv.outputs[opt.hint_layer_t].shape}")
+
+        # HintLossとConvRegを作る（Conv専用Hookの出力を渡す）
         criterion_kd = HintLoss()
-        regress_s = ConvReg(feat_s[opt.hint_layer].shape, feat_t[opt.hint_layer].shape)
+        regress_s = ConvReg(
+            feat_s_conv[opt.hint_layer_s].shape,  # ← ここを修正
+            feat_t_conv[opt.hint_layer_t].shape   # ← ここを修正
+        )
+
         module_list.append(regress_s)
         trainable_list.append(regress_s)
+
     elif opt.distill == 'attention':
         criterion_kd = Attention()
     elif opt.distill == 'similarity':
@@ -360,8 +383,14 @@ def main_worker(gpu, ngpus_per_node, opt):
         # train
         print("==> training...")
         time1 = time.time()
-        train_acc, train_acc_top5, train_loss = train(epoch, train_loader, module_list, criterion_list, optimizer, opt,
-                                                      feature_hook_t, feature_hook_s, device)
+        train_acc, train_acc_top5, train_loss = train(
+            epoch, train_loader, module_list, criterion_list, optimizer, opt,
+            feature_hook_t=feature_hook_t,
+            feature_hook_s=feature_hook_s,
+            feature_hook_t_conv=feature_hook_t_conv,
+            feature_hook_s_conv=feature_hook_s_conv,
+            device=device
+        )
         time2 = time.time()
         print(' * Epoch {}, GPU {}, Acc@1 {:.3f}, Acc@5 {:.3f}, Time {:.2f}'.format(epoch, opt.gpu, train_acc, train_acc_top5, time2 - time1))
         writer.add_scalar('train_acc', train_acc, epoch)    

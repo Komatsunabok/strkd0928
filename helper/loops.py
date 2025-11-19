@@ -108,7 +108,7 @@ def validate_vanilla(val_loader, model, criterion, opt, device):
     return top1.avg, top5.avg, losses.avg
 
 def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, opt, 
-                  feature_hook_t, feature_hook_s, device):
+                  feature_hook_t, feature_hook_s, feature_hook_t_conv, feature_hook_s_conv, device):
     """one epoch distillation"""
     # set modules as train()
     for module in module_list:
@@ -174,6 +174,9 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         feature_hook_t.outputs.clear()
         feature_hook_s.outputs.clear()
 
+        feature_hook_s_conv.outputs.clear()
+        feature_hook_t_conv.outputs.clear()
+
         feat_s, logit_s = model_s(images, is_feat=True)
         with torch.no_grad(): # 勾配追跡しない
             feat_t, logit_t = model_t(images, is_feat=True)
@@ -187,7 +190,9 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         if opt.distill == 'kd':
             loss_kd = 0
         elif opt.distill == 'hint':
-            f_s, f_t = module_list[1](feat_s[opt.hint_layer], feat_t[opt.hint_layer])
+            # Conv 層出力を ConvReg に渡す
+            f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],
+                                    feature_hook_t_conv.outputs[opt.hint_layer_t])
             loss_kd = criterion_kd(f_s, f_t)
         elif opt.distill == 'ckad':
             # グループ化（module_list[1]がCKAMapperの場合）

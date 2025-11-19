@@ -70,7 +70,7 @@ def parse_option():
     parser.add_argument('--distill', type=str, default='kd', choices=['kd', 'ckad', 'hint', 'attention', 'similarity'])
     parser.add_argument('-c', '--cls', type=float, default=1.0, help='weight for classification')
     parser.add_argument('-d', '--div', type=float, default=1.0, help='weight balance for KD')
-    parser.add_argument('-b', '--beta', type=float, default=100.0, help='weight balance for other losses')
+    parser.add_argument('-b', '--beta', type=float, default=1.0, help='weight balance for other losses')
     parser.add_argument('--beta_method', type=str, default='fixed', choices=['fixed', 'epoch_based'],
                         help='method to adjust beta during training')
 

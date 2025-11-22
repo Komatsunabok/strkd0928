@@ -80,6 +80,11 @@ S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251111_144050
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_400.0-20251111_153342
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_500.0-20251111_162639
+S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537
+S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810
+S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046
+S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311
+S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_194419
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_212025
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_220702
@@ -87,6 +92,8 @@ S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_102248
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_114640
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_141859
+S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_224151
+S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_235658
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_150951
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_154459
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251030_221622
@@ -100,6 +107,16 @@ S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_111306
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_123645
 S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_150906
+S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_001054
+S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_005355
+S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_013704
+S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_022016
+S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_030323
+S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840
+S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359
+S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901
+S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407
+S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906
 S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_142505
 S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_144737
 S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_151205
@@ -118,4 +135,9 @@ vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_101017
 vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_104150
 vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323
 vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
+vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_115605
+vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_122500
+vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_125349
+vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_132241
+vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_135131
 

@@ -1465,6 +1465,69 @@ save
 │   │   ├── cka_epoch_151.csv
 │   │   ├── cka_epoch_181.csv
 │   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_224151
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_235658
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
 │   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_150951
 │   │   ├── cka_epoch_001.csv
 │   │   ├── cka_epoch_002.csv
@@ -1711,7 +1774,61 @@ save
 │   │   ├── cka_epoch_038.csv
 │   │   ├── cka_epoch_039.csv
 │   │   └── cka_epoch_040.csv
-│   └── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_005355
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_181.csv
+│   │   └── cka_epoch_211.csv
+│   └── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906
 │       ├── cka_epoch_001.csv
 │       ├── cka_epoch_031.csv
 │       ├── cka_epoch_061.csv
@@ -1720,6 +1837,8 @@ save
 │       ├── cka_epoch_151.csv
 │       ├── cka_epoch_181.csv
 │       └── cka_epoch_211.csv
+├── pretrained
+│   └── vgg16_bn
 ├── students
 │   ├── models
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
@@ -2119,6 +2238,31 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_194419
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -2150,6 +2294,16 @@ save
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_141859
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_224151
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_235658
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
@@ -2217,6 +2371,56 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_001054
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_005355
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_013704
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_022016
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_030323
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_bn_best.pth
+│   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_bn_best.pth
+│   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_bn_best.pth
+│   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_bn_best.pth
+│   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_bn_best.pth
 │   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_142505
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -2407,6 +2611,16 @@ save
 │       │   └── events.out.tfevents.1762842828.rock9.895163.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_500.0-20251111_162639
 │       │   └── events.out.tfevents.1762846005.rock9.988251.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537
+│       │   └── events.out.tfevents.1763567740.rock9.371909.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810
+│       │   └── events.out.tfevents.1763570894.rock9.473298.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046
+│       │   └── events.out.tfevents.1763574049.rock9.574634.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311
+│       │   └── events.out.tfevents.1763577195.rock9.675836.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548
+│       │   └── events.out.tfevents.1763580351.rock9.777275.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_194419
 │       │   └── events.out.tfevents.1763289861.rock9.673266.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251116_212025
@@ -2421,6 +2635,10 @@ save
 │       │   └── events.out.tfevents.1763347601.rock9.1859044.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_141859
 │       │   └── events.out.tfevents.1763356740.rock9.2130157.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_224151
+│       │   └── events.out.tfevents.1763559714.rock9.156520.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_235658
+│       │   └── events.out.tfevents.1763564221.rock9.267981.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_150951
 │       │   └── events.out.tfevents.1761804595.rock9.3508138.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_154459
@@ -2449,6 +2667,16 @@ save
 │       │   └── events.out.tfevents.1763350606.rock9.2027432.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_150906
 │       │   └── events.out.tfevents.1763359748.rock9.2298481.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_001054
+│       │   └── events.out.tfevents.1763478662.rock9.3467007.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_005355
+│       │   └── events.out.tfevents.1763481243.rock9.3567051.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_013704
+│       │   └── events.out.tfevents.1763483832.rock9.3668777.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_022016
+│       │   └── events.out.tfevents.1763486424.rock9.3768784.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_030323
+│       │   └── events.out.tfevents.1763489011.rock9.3868629.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_141635
 │       │   └── events.out.tfevents.1760419011.sakana.6872.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_142421
@@ -2459,6 +2687,16 @@ save
 │       │   └── events.out.tfevents.1760422451.sakana.10108.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251014_155911
 │       │   └── events.out.tfevents.1760425152.sakana.11315.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840
+│       │   └── events.out.tfevents.1763583523.rock9.879127.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359
+│       │   └── events.out.tfevents.1763586242.rock9.977446.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901
+│       │   └── events.out.tfevents.1763588944.rock9.1075733.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407
+│       │   └── events.out.tfevents.1763591649.rock9.1173945.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906
+│       │   └── events.out.tfevents.1763594349.rock9.1272335.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_142505
 │       │   └── events.out.tfevents.1763443506.rock9.2714054.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_144737
@@ -2521,7 +2759,32 @@ save
     │   │   ├── test_best_metrics.json
     │   │   ├── training_history.json
     │   │   └── vgg16_bn_half_best.pth
-    │   └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
+    │   ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg8_bn_best.pth
+    │   ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_115605
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg8_bn_best.pth
+    │   ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_122500
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg8_bn_best.pth
+    │   ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_125349
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg8_bn_best.pth
+    │   ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_132241
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg8_bn_best.pth
+    │   └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_135131
     │       ├── parameters.json
     │       ├── test_best_metrics.json
     │       ├── training_history.json
@@ -2547,5 +2810,15 @@ save
         │   └── events.out.tfevents.1763084511.rock9.3258926.0
         ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323
         │   └── events.out.tfevents.1763086404.rock9.3350181.0
-        └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
-            └── events.out.tfevents.1760425444.rock9.841370.0
+        ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
+        │   └── events.out.tfevents.1760425444.rock9.841370.0
+        ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_115605
+        │   └── events.out.tfevents.1763693766.rock9.2053973.0
+        ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_122500
+        │   └── events.out.tfevents.1763695501.rock9.2144605.0
+        ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_125349
+        │   └── events.out.tfevents.1763697230.rock9.2235031.0
+        ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_132241
+        │   └── events.out.tfevents.1763698963.rock9.2325485.0
+        └── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_135131
+            └── events.out.tfevents.1763700692.rock9.2415978.0

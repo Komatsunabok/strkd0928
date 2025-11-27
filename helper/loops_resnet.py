@@ -240,9 +240,20 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         end = time.time()
 
         # ===================backward=====================
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()        
+        # 勾配クリアは backward の直前に行う（set_to_none=True 推奨）
+        optimizer.zero_grad(set_to_none=True)
+
+        if scaler is not None:
+            # AMP 使用時は scaler を使ってスケーリング backward → step → update
+            scaler.scale(loss).backward()
+            # 必要なら AMP の場合は unscale してから勾配クリップ
+            # scaler.unscale_(optimizer)
+            # torch.nn.utils.clip_grad_norm_(model_s.parameters(), max_norm)
+            scaler.step(optimizer)
+            scaler.update()
+        else:
+            loss.backward()
+            optimizer.step()        
 
         # print info
         if idx % opt.print_freq == 0:
@@ -277,6 +288,7 @@ def validate_distill(val_loader, module_list, criterion, opt, device):
     
     n_batch = len(val_loader)
 
+    # torch.no_grad() + autocast() : 精度を落とさずメモリと計算を削減
     with torch.no_grad():
         end = time.time()
         for idx, batch_data in enumerate(val_loader):
@@ -286,9 +298,11 @@ def validate_distill(val_loader, module_list, criterion, opt, device):
             images = images.to(device, non_blocking=True)
             labels = labels.to(device, non_blocking=True)
 
-            # compute output
-            output = model_s(images)
-            loss = criterion(output, labels)
+            # AMP を使って forward を半精度で実行（評価時も有効）
+            with torch.amp.autocast():
+                output = model_s(images)
+                loss = criterion(output, labels)
+
             losses.update(loss.item(), images.size(0))
 
             # ===================Metrics=====================
@@ -308,6 +322,11 @@ def validate_distill(val_loader, module_list, criterion, opt, device):
                       'Acc@5 {top5.avg:.3f}'.format(
                        idx, n_batch, opt.gpu, batch_time=batch_time, loss=losses,
                        top1=top1, top5=top5))
+
+            # 明示的に大きな中間テンソルを削除してキャッシュを解放
+            del output, loss
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
 
     return top1.avg, top5.avg, losses.avg
 

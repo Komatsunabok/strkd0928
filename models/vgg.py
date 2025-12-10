@@ -128,7 +128,20 @@ cfg = {
     'E': [[64, 64], [128, 128], [256, 256, 256, 256], [512, 512, 512, 512], [512, 512, 512, 512]],
     'S': [[64], [128], [256], [512], [512]],
     'D_half': [[32, 32], [64, 64], [128, 128, 128],[256, 256, 256], [256, 256, 256]],
+    'E_half': [[32, 32], [64, 64], [128, 128, 128, 128], [256, 256, 256, 256], [256, 256, 256, 256]],
 }
+
+# cfg['E_half'] = [
+#     # block内で層の数を調整
+#     # デフォルトで5ブロック
+#     [32, 32],        # block1
+#     [64, 64],        # block2
+#     [128, 128, 128, 128],  # block3
+#     [256, 256, 256, 256],  # block4
+#     [256, 256, 256, 256]   # block5
+# ]
+
+
 
 def vgg8(**kwargs):
     """VGG 8-layer model (configuration "S")"""
@@ -187,12 +200,15 @@ def vgg19(**kwargs):
     model = VGG(cfg['E'], **kwargs)
     return model
 
-
 def vgg19_bn(**kwargs):
     """VGG 19-layer model (configuration 'E') with batch normalization"""
     model = VGG(cfg['E'], batch_norm=True, **kwargs)
     return model
 
+def vgg19_bn_half(**kwargs):
+    """VGG 19-layer model (configuration "E_half") with batch normalization"""
+    model = VGG(cfg['E_half'], batch_norm=True, **kwargs)
+    return model
 
 if __name__ == '__main__':
     import torch

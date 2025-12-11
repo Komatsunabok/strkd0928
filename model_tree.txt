@@ -1,5 +1,1232 @@
 save
 ├── cka_logs
+│   ├── cka_log_S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_093142
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
+│   ├── cka_log_S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251129_171016
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   └── cka_epoch_019.csv
+│   ├── cka_log_S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251129_204735
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
+│   ├── cka_log_S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_084825
+│   │   └── cka_epoch_001.csv
+│   ├── cka_log_S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_085005
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
+│   ├── cka_log_S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_155456
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
+│   ├── cka_log_S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_193224
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
 │   ├── cka_log_S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
 │   │   ├── cka_epoch_001.csv
 │   │   ├── cka_epoch_031.csv
@@ -1382,6 +2609,288 @@ save
 │   │   ├── cka_epoch_151.csv
 │   │   ├── cka_epoch_181.csv
 │   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251122_231524
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   └── cka_epoch_040.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251126_171737
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
 │   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_141733
 │   │   └── cka_epoch_001.csv
 │   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_171924
@@ -1783,6 +3292,488 @@ save
 │   │   ├── cka_epoch_151.csv
 │   │   ├── cka_epoch_181.csv
 │   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251127_090028
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
+│   ├── cka_log_S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251211_120508
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
 │   ├── cka_log_S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_005355
 │   │   ├── cka_epoch_001.csv
 │   │   ├── cka_epoch_031.csv
@@ -1792,6 +3783,570 @@ save
 │   │   ├── cka_epoch_151.csv
 │   │   ├── cka_epoch_181.csv
 │   │   └── cka_epoch_211.csv
+│   ├── cka_log_S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251123_005808
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   └── cka_epoch_040.csv
+│   ├── cka_log_S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251123_020806
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   └── cka_epoch_040.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251126_201340
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
+│   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251127_105129
+│   │   ├── cka_epoch_001.csv
+│   │   ├── cka_epoch_002.csv
+│   │   ├── cka_epoch_003.csv
+│   │   ├── cka_epoch_004.csv
+│   │   ├── cka_epoch_005.csv
+│   │   ├── cka_epoch_006.csv
+│   │   ├── cka_epoch_007.csv
+│   │   ├── cka_epoch_008.csv
+│   │   ├── cka_epoch_009.csv
+│   │   ├── cka_epoch_010.csv
+│   │   ├── cka_epoch_011.csv
+│   │   ├── cka_epoch_012.csv
+│   │   ├── cka_epoch_013.csv
+│   │   ├── cka_epoch_014.csv
+│   │   ├── cka_epoch_015.csv
+│   │   ├── cka_epoch_016.csv
+│   │   ├── cka_epoch_017.csv
+│   │   ├── cka_epoch_018.csv
+│   │   ├── cka_epoch_019.csv
+│   │   ├── cka_epoch_020.csv
+│   │   ├── cka_epoch_021.csv
+│   │   ├── cka_epoch_022.csv
+│   │   ├── cka_epoch_023.csv
+│   │   ├── cka_epoch_024.csv
+│   │   ├── cka_epoch_025.csv
+│   │   ├── cka_epoch_026.csv
+│   │   ├── cka_epoch_027.csv
+│   │   ├── cka_epoch_028.csv
+│   │   ├── cka_epoch_029.csv
+│   │   ├── cka_epoch_030.csv
+│   │   ├── cka_epoch_031.csv
+│   │   ├── cka_epoch_032.csv
+│   │   ├── cka_epoch_033.csv
+│   │   ├── cka_epoch_034.csv
+│   │   ├── cka_epoch_035.csv
+│   │   ├── cka_epoch_036.csv
+│   │   ├── cka_epoch_037.csv
+│   │   ├── cka_epoch_038.csv
+│   │   ├── cka_epoch_039.csv
+│   │   ├── cka_epoch_040.csv
+│   │   ├── cka_epoch_041.csv
+│   │   ├── cka_epoch_042.csv
+│   │   ├── cka_epoch_043.csv
+│   │   ├── cka_epoch_044.csv
+│   │   ├── cka_epoch_045.csv
+│   │   ├── cka_epoch_046.csv
+│   │   ├── cka_epoch_047.csv
+│   │   ├── cka_epoch_048.csv
+│   │   ├── cka_epoch_049.csv
+│   │   ├── cka_epoch_050.csv
+│   │   ├── cka_epoch_051.csv
+│   │   ├── cka_epoch_052.csv
+│   │   ├── cka_epoch_053.csv
+│   │   ├── cka_epoch_054.csv
+│   │   ├── cka_epoch_055.csv
+│   │   ├── cka_epoch_056.csv
+│   │   ├── cka_epoch_057.csv
+│   │   ├── cka_epoch_058.csv
+│   │   ├── cka_epoch_059.csv
+│   │   ├── cka_epoch_060.csv
+│   │   ├── cka_epoch_061.csv
+│   │   ├── cka_epoch_062.csv
+│   │   ├── cka_epoch_063.csv
+│   │   ├── cka_epoch_064.csv
+│   │   ├── cka_epoch_065.csv
+│   │   ├── cka_epoch_066.csv
+│   │   ├── cka_epoch_067.csv
+│   │   ├── cka_epoch_068.csv
+│   │   ├── cka_epoch_069.csv
+│   │   ├── cka_epoch_070.csv
+│   │   ├── cka_epoch_071.csv
+│   │   ├── cka_epoch_072.csv
+│   │   ├── cka_epoch_073.csv
+│   │   ├── cka_epoch_074.csv
+│   │   ├── cka_epoch_075.csv
+│   │   ├── cka_epoch_076.csv
+│   │   ├── cka_epoch_077.csv
+│   │   ├── cka_epoch_078.csv
+│   │   ├── cka_epoch_079.csv
+│   │   ├── cka_epoch_080.csv
+│   │   ├── cka_epoch_081.csv
+│   │   ├── cka_epoch_082.csv
+│   │   ├── cka_epoch_083.csv
+│   │   ├── cka_epoch_084.csv
+│   │   ├── cka_epoch_085.csv
+│   │   ├── cka_epoch_086.csv
+│   │   ├── cka_epoch_087.csv
+│   │   ├── cka_epoch_088.csv
+│   │   ├── cka_epoch_089.csv
+│   │   ├── cka_epoch_090.csv
+│   │   ├── cka_epoch_091.csv
+│   │   ├── cka_epoch_092.csv
+│   │   ├── cka_epoch_093.csv
+│   │   ├── cka_epoch_094.csv
+│   │   ├── cka_epoch_095.csv
+│   │   ├── cka_epoch_096.csv
+│   │   ├── cka_epoch_097.csv
+│   │   ├── cka_epoch_098.csv
+│   │   ├── cka_epoch_099.csv
+│   │   ├── cka_epoch_100.csv
+│   │   ├── cka_epoch_101.csv
+│   │   ├── cka_epoch_102.csv
+│   │   ├── cka_epoch_103.csv
+│   │   ├── cka_epoch_104.csv
+│   │   ├── cka_epoch_105.csv
+│   │   ├── cka_epoch_106.csv
+│   │   ├── cka_epoch_107.csv
+│   │   ├── cka_epoch_108.csv
+│   │   ├── cka_epoch_109.csv
+│   │   ├── cka_epoch_110.csv
+│   │   ├── cka_epoch_111.csv
+│   │   ├── cka_epoch_112.csv
+│   │   ├── cka_epoch_113.csv
+│   │   ├── cka_epoch_114.csv
+│   │   ├── cka_epoch_115.csv
+│   │   ├── cka_epoch_116.csv
+│   │   ├── cka_epoch_117.csv
+│   │   ├── cka_epoch_118.csv
+│   │   ├── cka_epoch_119.csv
+│   │   ├── cka_epoch_120.csv
+│   │   ├── cka_epoch_121.csv
+│   │   ├── cka_epoch_122.csv
+│   │   ├── cka_epoch_123.csv
+│   │   ├── cka_epoch_124.csv
+│   │   ├── cka_epoch_125.csv
+│   │   ├── cka_epoch_126.csv
+│   │   ├── cka_epoch_127.csv
+│   │   ├── cka_epoch_128.csv
+│   │   ├── cka_epoch_129.csv
+│   │   ├── cka_epoch_130.csv
+│   │   ├── cka_epoch_131.csv
+│   │   ├── cka_epoch_132.csv
+│   │   ├── cka_epoch_133.csv
+│   │   ├── cka_epoch_134.csv
+│   │   ├── cka_epoch_135.csv
+│   │   ├── cka_epoch_136.csv
+│   │   ├── cka_epoch_137.csv
+│   │   ├── cka_epoch_138.csv
+│   │   ├── cka_epoch_139.csv
+│   │   ├── cka_epoch_140.csv
+│   │   ├── cka_epoch_141.csv
+│   │   ├── cka_epoch_142.csv
+│   │   ├── cka_epoch_143.csv
+│   │   ├── cka_epoch_144.csv
+│   │   ├── cka_epoch_145.csv
+│   │   ├── cka_epoch_146.csv
+│   │   ├── cka_epoch_147.csv
+│   │   ├── cka_epoch_148.csv
+│   │   ├── cka_epoch_149.csv
+│   │   ├── cka_epoch_150.csv
+│   │   ├── cka_epoch_151.csv
+│   │   ├── cka_epoch_152.csv
+│   │   ├── cka_epoch_153.csv
+│   │   ├── cka_epoch_154.csv
+│   │   ├── cka_epoch_155.csv
+│   │   ├── cka_epoch_156.csv
+│   │   ├── cka_epoch_157.csv
+│   │   ├── cka_epoch_158.csv
+│   │   ├── cka_epoch_159.csv
+│   │   ├── cka_epoch_160.csv
+│   │   ├── cka_epoch_161.csv
+│   │   ├── cka_epoch_162.csv
+│   │   ├── cka_epoch_163.csv
+│   │   ├── cka_epoch_164.csv
+│   │   ├── cka_epoch_165.csv
+│   │   ├── cka_epoch_166.csv
+│   │   ├── cka_epoch_167.csv
+│   │   ├── cka_epoch_168.csv
+│   │   ├── cka_epoch_169.csv
+│   │   ├── cka_epoch_170.csv
+│   │   ├── cka_epoch_171.csv
+│   │   ├── cka_epoch_172.csv
+│   │   ├── cka_epoch_173.csv
+│   │   ├── cka_epoch_174.csv
+│   │   ├── cka_epoch_175.csv
+│   │   ├── cka_epoch_176.csv
+│   │   ├── cka_epoch_177.csv
+│   │   ├── cka_epoch_178.csv
+│   │   ├── cka_epoch_179.csv
+│   │   ├── cka_epoch_180.csv
+│   │   ├── cka_epoch_181.csv
+│   │   ├── cka_epoch_182.csv
+│   │   ├── cka_epoch_183.csv
+│   │   ├── cka_epoch_184.csv
+│   │   ├── cka_epoch_185.csv
+│   │   ├── cka_epoch_186.csv
+│   │   ├── cka_epoch_187.csv
+│   │   ├── cka_epoch_188.csv
+│   │   ├── cka_epoch_189.csv
+│   │   ├── cka_epoch_190.csv
+│   │   ├── cka_epoch_191.csv
+│   │   ├── cka_epoch_192.csv
+│   │   ├── cka_epoch_193.csv
+│   │   ├── cka_epoch_194.csv
+│   │   ├── cka_epoch_195.csv
+│   │   ├── cka_epoch_196.csv
+│   │   ├── cka_epoch_197.csv
+│   │   ├── cka_epoch_198.csv
+│   │   ├── cka_epoch_199.csv
+│   │   ├── cka_epoch_200.csv
+│   │   ├── cka_epoch_201.csv
+│   │   ├── cka_epoch_202.csv
+│   │   ├── cka_epoch_203.csv
+│   │   ├── cka_epoch_204.csv
+│   │   ├── cka_epoch_205.csv
+│   │   ├── cka_epoch_206.csv
+│   │   ├── cka_epoch_207.csv
+│   │   ├── cka_epoch_208.csv
+│   │   ├── cka_epoch_209.csv
+│   │   ├── cka_epoch_210.csv
+│   │   ├── cka_epoch_211.csv
+│   │   ├── cka_epoch_212.csv
+│   │   ├── cka_epoch_213.csv
+│   │   ├── cka_epoch_214.csv
+│   │   ├── cka_epoch_215.csv
+│   │   ├── cka_epoch_216.csv
+│   │   ├── cka_epoch_217.csv
+│   │   ├── cka_epoch_218.csv
+│   │   ├── cka_epoch_219.csv
+│   │   ├── cka_epoch_220.csv
+│   │   ├── cka_epoch_221.csv
+│   │   ├── cka_epoch_222.csv
+│   │   ├── cka_epoch_223.csv
+│   │   ├── cka_epoch_224.csv
+│   │   ├── cka_epoch_225.csv
+│   │   ├── cka_epoch_226.csv
+│   │   ├── cka_epoch_227.csv
+│   │   ├── cka_epoch_228.csv
+│   │   ├── cka_epoch_229.csv
+│   │   ├── cka_epoch_230.csv
+│   │   ├── cka_epoch_231.csv
+│   │   ├── cka_epoch_232.csv
+│   │   ├── cka_epoch_233.csv
+│   │   ├── cka_epoch_234.csv
+│   │   ├── cka_epoch_235.csv
+│   │   ├── cka_epoch_236.csv
+│   │   ├── cka_epoch_237.csv
+│   │   ├── cka_epoch_238.csv
+│   │   ├── cka_epoch_239.csv
+│   │   └── cka_epoch_240.csv
 │   ├── cka_log_S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840
 │   │   ├── cka_epoch_001.csv
 │   │   ├── cka_epoch_031.csv
@@ -1837,10 +4392,74 @@ save
 │       ├── cka_epoch_151.csv
 │       ├── cka_epoch_181.csv
 │       └── cka_epoch_211.csv
-├── pretrained
-│   └── vgg16_bn
 ├── students
 │   ├── models
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_093142
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_103546
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_190323
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_201930
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251129_204735
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_084825
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_085005
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_091128
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_182245
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_184307
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_155456
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_193224
+│   │   │   ├── parameters.json
+│   │   │   ├── resnet14_best.pth
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── training_history.json
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_16-kd-cls_1.0-div_1.0-beta_100.0-20251128_004100
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_16-kd-cls_1.0-div_1.0-beta_100.0-20251128_004351
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_16-kd-cls_1.0-div_1.0-beta_100.0-20251128_004838
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_32-kd-cls_1.0-div_1.0-beta_100.0-20251128_003945
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_32-kd-cls_1.0-div_1.0-beta_100.0-20251128_004048
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_003411
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_003436
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_8-kd-cls_1.0-div_1.0-beta_100.0-20251128_005248
+│   │   ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_8-kd-cls_1.0-div_1.0-beta_100.0-20251128_011842
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_082807
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -1914,6 +4533,8 @@ save
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_102117
 │   │   │   ├── test_best_metrics.json
 │   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_110357
+│   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_110814
 │   │   ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_112802
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -2009,6 +4630,7 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251116_200847
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-attention-cls_1.0-div_1.0-beta_1000.0-20251116_214459
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -2162,6 +4784,16 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251122_231524
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251126_171737
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_141733
 │   │   │   ├── test_best_metrics.json
 │   │   │   └── vgg16_bn_half_best.pth
@@ -2224,6 +4856,26 @@ save
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251111_144050
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_093614
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_111924
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_130216
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_144516
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
@@ -2298,6 +4950,23 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151259
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151307
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151315
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151323
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151331
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152747
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152755
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152803
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152811
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152819
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175832
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175840
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175848
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175856
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175904
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_181753
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_215049
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_224151
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -2343,6 +5012,12 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251127_090028
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_200851
 │   │   ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_221326
 │   │   │   ├── test_best_metrics.json
 │   │   │   └── vgg16_bn_half_best.pth
@@ -2371,6 +5046,14 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg16_bn_half_best.pth
+│   │   ├── S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251211_120508
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg19_bn_half_best.pth
+│   │   ├── S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251211_133722
+│   │   │   ├── test_best_metrics.json
+│   │   │   └── vgg19_bn_half_best.pth
 │   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_001054
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -2396,6 +5079,46 @@ save
 │   │   │   ├── test_best_metrics.json
 │   │   │   ├── training_history.json
 │   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251123_005808
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_025349
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_040425
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_051446
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_062417
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251123_020806
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_best.pth
+│   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251126_201340
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_bn_best.pth
+│   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251127_105129
+│   │   │   ├── parameters.json
+│   │   │   ├── test_best_metrics.json
+│   │   │   ├── training_history.json
+│   │   │   └── vgg8_bn_best.pth
 │   │   ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840
 │   │   │   ├── parameters.json
 │   │   │   ├── test_best_metrics.json
@@ -2447,6 +5170,51 @@ save
 │   │       ├── training_history.json
 │   │       └── vgg8_bn_best.pth
 │   └── tensorboard
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_093142
+│       │   └── events.out.tfevents.1764289907.rock9.36481.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_103546
+│       │   └── events.out.tfevents.1764293752.rock9.183543.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_190323
+│       │   └── events.out.tfevents.1764324204.rock9.874543.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251128_201930
+│       │   └── events.out.tfevents.1764328778.rock9.977968.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251129_171016
+│       │   └── events.out.tfevents.1764403826.rock9.1655468.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251129_204735
+│       │   └── events.out.tfevents.1764416864.rock9.1936353.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_084825
+│       │   └── events.out.tfevents.1764287307.rock9.4009671.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_085005
+│       │   └── events.out.tfevents.1764287407.rock9.4011080.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_091128
+│       │   └── events.out.tfevents.1764288690.rock9.4146762.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_182245
+│       │   └── events.out.tfevents.1764321768.rock9.707197.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_184307
+│       │   └── events.out.tfevents.1764322989.rock9.790842.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_155456
+│       │   └── events.out.tfevents.1764399301.rock9.1503529.0
+│       ├── S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_193224
+│       │   └── events.out.tfevents.1764412349.rock9.1784332.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_16-kd-cls_1.0-div_1.0-beta_100.0-20251128_004100
+│       │   └── events.out.tfevents.1764258064.rock9.3797553.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_16-kd-cls_1.0-div_1.0-beta_100.0-20251128_004351
+│       │   └── events.out.tfevents.1764258234.rock9.3798698.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_16-kd-cls_1.0-div_1.0-beta_100.0-20251128_004838
+│       │   └── events.out.tfevents.1764258522.rock9.3800297.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_32-kd-cls_1.0-div_1.0-beta_100.0-20251128_003945
+│       │   └── events.out.tfevents.1764257989.rock9.3796445.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_32-kd-cls_1.0-div_1.0-beta_100.0-20251128_004048
+│       │   └── events.out.tfevents.1764258052.rock9.3797134.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_003411
+│       │   └── events.out.tfevents.1764257655.rock9.3794136.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251128_003436
+│       │   └── events.out.tfevents.1764257680.rock9.3794616.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_8-kd-cls_1.0-div_1.0-beta_100.0-20251128_005248
+│       │   └── events.out.tfevents.1764258771.rock9.3801889.0
+│       ├── S_resnet32-T_resnet32x4-cifar100-trial_0-epochs_240-bs_8-kd-cls_1.0-div_1.0-beta_100.0-20251128_011842
+│       │   └── events.out.tfevents.1764260326.rock9.3809172.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_082807
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251020_092117
 │       │   └── events.out.tfevents.1760919681.rock9.83228.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar10-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251020_102340
@@ -2477,6 +5245,8 @@ save
 │       │   └── events.out.tfevents.1761292997.rock9.3765157.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_102117
 │       │   └── events.out.tfevents.1761700881.rock9.1938324.0
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_110357
+│       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_110814
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_112802
 │       │   └── events.out.tfevents.1761704892.rock9.1980678.0
 │       ├── S_vgg16_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_10.0-20251029_125234
@@ -2579,6 +5349,10 @@ save
 │       │   └── events.out.tfevents.1762512556.rock9.2457505.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251107_214846
 │       │   └── events.out.tfevents.1762519739.rock9.2577420.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251122_231524
+│       │   └── events.out.tfevents.1763820935.rock9.3375363.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251126_171737
+│       │   └── events.out.tfevents.1764145079.rock9.2573399.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_141733
 │       │   └── events.out.tfevents.1762406271.rock9.1068178.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251106_171924
@@ -2607,6 +5381,14 @@ save
 │       │   └── events.out.tfevents.1763015558.rock9.2457767.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251111_144050
 │       │   └── events.out.tfevents.1762839656.rock9.802110.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_093614
+│       │   └── events.out.tfevents.1763944584.rock9.815105.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_111924
+│       │   └── events.out.tfevents.1763950774.rock9.937155.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_130216
+│       │   └── events.out.tfevents.1763956947.rock9.1058651.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251124_144516
+│       │   └── events.out.tfevents.1763963126.rock9.1182754.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_400.0-20251111_153342
 │       │   └── events.out.tfevents.1762842828.rock9.895163.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_500.0-20251111_162639
@@ -2635,6 +5417,23 @@ save
 │       │   └── events.out.tfevents.1763347601.rock9.1859044.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251117_141859
 │       │   └── events.out.tfevents.1763356740.rock9.2130157.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151259
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151307
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151315
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151323
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_151331
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152747
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152755
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152803
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152811
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_152819
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175832
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175840
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175848
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175856
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_175904
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_181753
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_215049
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_224151
 │       │   └── events.out.tfevents.1763559714.rock9.156520.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251119_235658
@@ -2653,6 +5452,8 @@ save
 │       │   └── events.out.tfevents.1761907256.rock9.1644564.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420
 │       │   └── events.out.tfevents.1762234463.rock9.3715124.0
+│       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251127_090028
+│       │   └── events.out.tfevents.1764201633.rock9.3193948.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_200851
 │       │   └── events.out.tfevents.1763291333.rock9.757917.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251116_221326
@@ -2667,6 +5468,10 @@ save
 │       │   └── events.out.tfevents.1763350606.rock9.2027432.0
 │       ├── S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-similarity-cls_1.0-div_1.0-beta_3000.0-20251117_150906
 │       │   └── events.out.tfevents.1763359748.rock9.2298481.0
+│       ├── S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251211_120508
+│       │   └── events.out.tfevents.1765422317.rock9.3061275.0
+│       ├── S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251211_133722
+│       │   └── events.out.tfevents.1765427851.rock9.3210072.0
 │       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_001054
 │       │   └── events.out.tfevents.1763478662.rock9.3467007.0
 │       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_005355
@@ -2677,6 +5482,18 @@ save
 │       │   └── events.out.tfevents.1763486424.rock9.3768784.0
 │       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_030323
 │       │   └── events.out.tfevents.1763489011.rock9.3868629.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251123_005808
+│       │   └── events.out.tfevents.1763827097.rock9.3520163.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_025349
+│       │   └── events.out.tfevents.1763834038.rock9.3759209.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_040425
+│       │   └── events.out.tfevents.1763838274.rock9.3877116.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_051446
+│       │   └── events.out.tfevents.1763842495.rock9.3995203.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251123_062417
+│       │   └── events.out.tfevents.1763846667.rock9.4112766.0
+│       ├── S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251123_020806
+│       │   └── events.out.tfevents.1763831289.rock9.3646398.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_141635
 │       │   └── events.out.tfevents.1760419011.sakana.6872.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_64-ckad-cls_1.0-div_1.0-beta_1.0-20251014_142421
@@ -2687,6 +5504,10 @@ save
 │       │   └── events.out.tfevents.1760422451.sakana.10108.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_1-bs_8-ckad-cls_1.0-div_1.0-beta_1.0-20251014_155911
 │       │   └── events.out.tfevents.1760425152.sakana.11315.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251126_201340
+│       │   └── events.out.tfevents.1764155640.rock9.2769045.0
+│       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251127_105129
+│       │   └── events.out.tfevents.1764208304.rock9.3366033.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840
 │       │   └── events.out.tfevents.1763583523.rock9.879127.0
 │       ├── S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359
@@ -2709,6 +5530,41 @@ save
 │           └── events.out.tfevents.1763449897.rock9.3067737.0
 └── teachers
     ├── models
+    │   ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_150220
+    │   │   ├── parameters.json
+    │   │   ├── resnet14_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
+    │   ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_151751
+    │   │   ├── parameters.json
+    │   │   ├── resnet14_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
+    │   ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_175156
+    │   │   ├── parameters.json
+    │   │   ├── resnet14_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
+    │   ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_180721
+    │   │   ├── parameters.json
+    │   │   ├── resnet14_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
+    │   ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_145140
+    │   │   ├── parameters.json
+    │   │   ├── resnet14_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
+    │   ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_182914
+    │   │   ├── parameters.json
+    │   │   ├── resnet14_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
+    │   ├── resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110
+    │   │   ├── parameters.json
+    │   │   ├── resnet14x2_best.pth
+    │   │   ├── test_best_metrics.json
+    │   │   └── training_history.json
     │   ├── resnet32x4-cifar100-trial_0-epochs_240-bs_64-20251118_165813
     │   │   ├── parameters.json
     │   │   ├── resnet32x4_best.pth
@@ -2759,6 +5615,29 @@ save
     │   │   ├── test_best_metrics.json
     │   │   ├── training_history.json
     │   │   └── vgg16_bn_half_best.pth
+    │   ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_090900
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg19_bn_half_best.pth
+    │   ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_094349
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg19_bn_half_best.pth
+    │   ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_094526
+    │   │   ├── test_best_metrics.json
+    │   │   └── vgg19_bn_half_best.pth
+    │   ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_102126
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg19_bn_half_best.pth
+    │   ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_105733
+    │   │   ├── parameters.json
+    │   │   ├── test_best_metrics.json
+    │   │   ├── training_history.json
+    │   │   └── vgg19_bn_half_best.pth
     │   ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
     │   │   ├── parameters.json
     │   │   ├── test_best_metrics.json
@@ -2790,6 +5669,20 @@ save
     │       ├── training_history.json
     │       └── vgg8_bn_best.pth
     └── tensorboard
+        ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_150220
+        │   └── events.out.tfevents.1764309741.rock9.336737.0
+        ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_151751
+        │   └── events.out.tfevents.1764310672.rock9.418914.0
+        ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_175156
+        │   └── events.out.tfevents.1764319917.rock9.543045.0
+        ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_180721
+        │   └── events.out.tfevents.1764320842.rock9.625020.0
+        ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_145140
+        │   └── events.out.tfevents.1764395502.rock9.1407458.0
+        ├── resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_182914
+        │   └── events.out.tfevents.1764408556.rock9.1688725.0
+        ├── resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110
+        │   └── events.out.tfevents.1764261071.rock9.3812923.0
         ├── resnet32x4-cifar100-trial_0-epochs_240-bs_64-20251118_165813
         │   └── events.out.tfevents.1763452694.rock9.3170113.0
         ├── vgg16_bn-cifar10-trial_0-epochs_240-bs_64-20251020_083010
@@ -2810,6 +5703,16 @@ save
         │   └── events.out.tfevents.1763084511.rock9.3258926.0
         ├── vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323
         │   └── events.out.tfevents.1763086404.rock9.3350181.0
+        ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_090900
+        │   └── events.out.tfevents.1765411741.rock9.2706674.0
+        ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_094349
+        │   └── events.out.tfevents.1765413830.rock9.2789300.0
+        ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_094526
+        │   └── events.out.tfevents.1765413927.rock9.2794555.0
+        ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_102126
+        │   └── events.out.tfevents.1765416087.rock9.2883286.0
+        ├── vgg19_bn_half-cifar100-trial_0-epochs_240-bs_64-20251211_105733
+        │   └── events.out.tfevents.1765418254.rock9.2969000.0
         ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403
         │   └── events.out.tfevents.1760425444.rock9.841370.0
         ├── vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_115605

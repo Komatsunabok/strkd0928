@@ -1,4 +1,4 @@
-from .resnet import resnet8, resnet14, resnet32, resnet38, resnet110, resnet116, resnet14x2, resnet38x2, resnet110x2
+from .resnet import resnet8, resnet14, resnet20, resnet32, resnet38, resnet110, resnet116, resnet14x2, resnet38x2, resnet110x2
 from .resnet import resnet8x4, resnet14x4, resnet32x4, resnet38x4
 from .vgg import vgg8_bn, vgg13_bn, vgg16_bn, vgg16_bn_half, vgg19_bn, vgg19_bn_half
 from .mobilenetv2 import mobile_half, mobile_half_double
@@ -15,6 +15,7 @@ import torchvision.models as models
 model_dict = {
     'resnet8' : resnet8,
     'resnet14' : resnet14,
+    'resnet20': resnet20,
     'resnet32': resnet32,
     'resnet38': resnet38,
     'resnet110': resnet110,

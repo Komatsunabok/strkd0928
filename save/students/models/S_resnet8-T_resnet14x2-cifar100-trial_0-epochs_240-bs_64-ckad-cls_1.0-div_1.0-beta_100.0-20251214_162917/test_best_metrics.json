@@ -1,0 +1,6 @@
+{
+    "test_loss": 1.593899863243103,
+    "test_acc": 59.6,
+    "test_acc_top5": 86.4,
+    "epoch": 213
+}

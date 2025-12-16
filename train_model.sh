@@ -25,13 +25,3 @@ python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet
 echo "=== Done ==="
 sleep 5  # GPUメモリ開放のため5秒待機（任意）
 
-echo "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8
-echo "=== Done ==="
-sleep 5  # GPUメモリ開放のため5秒待機（任意）
-
-echo "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8
-echo "=== Done ==="
-sleep 5  # GPUメモリ開放のため5秒待機（任意）
-

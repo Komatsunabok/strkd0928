@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # ← 途中でエラーが出たら止める（安全）
+# set -e  # ← 途中でエラーが出たら止める（安全）
 
 # how to use:
 
@@ -13,15 +13,56 @@ set -e  # ← 途中でエラーが出たら止める（安全）
 # echo "=== Start ==="
 # python train_student.py --dataset cifar100 --model vgg16_bn_half --model_t vgg16_bn -c 1 -d 1 -b 100 --beta_method fixed \
 #   --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
-#   --distill hint
+#   --distill hint --log_cka
 # echo "=== Done ==="
 # sleep 5  # GPUメモリ開放のため5秒待機（任意）
 
-set -e
+echo "=== Start ==="
+python train_student.py --dataset cifar100 --model vgg16_bn --model_t vgg16_bn -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
+  --distill kd --log_cka
+echo "=== Done ==="
+
+echo "=== Start ==="
+python train_student.py --dataset cifar100 --model vgg16_bn --model_t vgg16_bn -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
+  --distill kd
+echo "=== Done ==="
+
+echo "=== Start ==="
+python train_student.py --dataset cifar100 --model vgg16_bn --model_t vgg16_bn -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
+  --distill ckad --log_cka
+echo "=== Done ==="
+
+echo "=== Start ==="
+python train_student.py --dataset cifar100 --model vgg16_bn --model_t vgg16_bn -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
+  --distill ckad 
+echo "=== Done ==="
+
 
 
 echo "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8
+python train_student.py --dataset cifar100 --model resnet14x2 --model_t resnet14x2 -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110 \
+  --distill kd --log_cka
 echo "=== Done ==="
-sleep 5  # GPUメモリ開放のため5秒待機（任意）
 
+echo "=== Start ==="
+python train_student.py --dataset cifar100 --model resnet14x2 --model_t resnet14x2 -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110 \
+  --distill kd 
+echo "=== Done ==="
+
+echo "=== Start ==="
+python train_student.py --dataset cifar100 --model resnet14x2 --model_t resnet14x2 -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110 \
+  --distill ckad --log_cka
+echo "=== Done ==="
+
+echo "=== Start ==="
+python train_student.py --dataset cifar100 --model resnet14x2 --model_t resnet14x2 -c 1 -d 1 -b 100 --beta_method fixed \
+  --model_name_t resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110 \
+  --distill ckad 
+echo "=== Done ==="

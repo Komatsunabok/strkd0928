@@ -305,6 +305,10 @@ def main_worker(gpu, ngpus_per_node, opt):
         )
         module_list.append(cka_mapper)
         trainable_list.append(cka_mapper)
+
+        # グループ情報をoptに保存
+        opt.student_grouping = cka_mapper.s_groups
+        opt.teacher_grouping = cka_mapper.t_groups
     
         # CKAベースの蒸留損失関数
         criterion_kd = CKADistillLoss(

@@ -312,6 +312,9 @@ def main_worker(gpu, ngpus_per_node, opt):
         if opt.layer_usage == 'key':
             opt.student_key_layers = cka_mapper.s_key_layers
             opt.teacher_key_layers = cka_mapper.t_key_layers    
+        # student group [[0, 1], [2, 3], [4, 5, 6], [7, 8], [9, 10], [11, 12, 13]]
+        # student key layers [1, 3, 5, 8, 10, 12]
+        # teacher key layers [1, 3, 5, 8, 10, 12]
     
         # CKAベースの蒸留損失関数
         criterion_kd = CKADistillLoss(

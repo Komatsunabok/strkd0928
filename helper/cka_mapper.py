@@ -70,7 +70,7 @@ class CKAMapper(nn.Module):
             # ]
             s_group_feats = [[feat_s[i] for i in idxs] for idxs in self.s_groups]
             t_group_feats = [[feat_t[i] for i in idxs] for idxs in self.t_groups]
-        elif self.layer_usage == 'key_layers':
+        elif self.layer_usage == 'key':
             # キーレイヤーだけを2次元リスト化
             s_group_feats = [[feat_s[i]] for i in self.s_key_layers]
             t_group_feats = [[feat_t[i]] for i in self.t_key_layers]

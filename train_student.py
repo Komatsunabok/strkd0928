@@ -398,6 +398,7 @@ def main_worker(gpu, ngpus_per_node, opt):
     test_acc_history = []
     test_loss_history = []
     lr_history = []
+    train_time_history = []
     
     # 学習前にfeature_hook_t.outputsをクリアしておく
     # ※feature_hook_t.outputsはmodel(input)を呼ぶたびにたまり続ける
@@ -460,18 +461,27 @@ def main_worker(gpu, ngpus_per_node, opt):
         test_acc_history.append(test_acc)
         test_loss_history.append(test_loss)
         lr_history.append(optimizer.param_groups[0]["lr"])
+        epoch_train_time = time2 - time1
+        train_time_history.append(epoch_train_time)
 
         # optimizarの学習率を更新
         scheduler.step()
     
     # historyを保存
     hist_path = os.path.join(opt.save_folder, "training_history.json")
+    avg_train_time = sum(train_time_history) / len(train_time_history)
+    total_train_time = sum(train_time_history)
+
     history = {
         "train_acc": train_acc_history,
         "test_acc": test_acc_history,
         "test_loss": test_loss_history,
         "lr": lr_history,
+        "train_time_per_epoch_sec": train_time_history,
+        "avg_train_time_per_epoch_sec": avg_train_time,
+        "total_train_time_sec": total_train_time,
     }
+
     save_dict_to_json(history, hist_path)
     print(f"Training history saved to {hist_path}")
 

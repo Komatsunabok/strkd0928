@@ -83,7 +83,7 @@ def parse_option():
                         help='method to determine the number of groups for CKA-based loss')
     parser.add_argument('--group_num', type=int, default=6,
                         help='number of groups for CKA-based loss (if group_num_method is custom)')
-    parser.add_argument('--layer_usage', type=str, default='all', choices=['all', 'key_layers'],
+    parser.add_argument('--layer_usage', type=str, default='all', choices=['all', 'key'],
                         help='which layers to use for loss calculation')
     parser.add_argument('--student_grouping', type=str, default='proportional', choices=['uniform', 'proportional'],
                         help='grouping method for student layers')
@@ -309,6 +309,9 @@ def main_worker(gpu, ngpus_per_node, opt):
         # グループ情報をoptに保存
         opt.student_grouping = cka_mapper.s_groups
         opt.teacher_grouping = cka_mapper.t_groups
+        if opt.layer_usage == 'key':
+            opt.student_key_layers = cka_mapper.s_key_layers
+            opt.teacher_key_layers = cka_mapper.t_key_layers    
     
         # CKAベースの蒸留損失関数
         criterion_kd = CKADistillLoss(

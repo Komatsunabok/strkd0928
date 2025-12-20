@@ -53,7 +53,7 @@ class CKAMapper(nn.Module):
         
         # 各グループのキー層インデックス（グループの中心層）
         self.layer_usage = layer_usage
-        if layer_usage == 'key_layers':
+        if layer_usage == 'key':
             self.s_key_layers = self._get_center_indices('student')
             self.t_key_layers = self._get_center_indices('teacher')
             print("student key layers", self.s_key_layers)

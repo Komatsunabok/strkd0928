@@ -17,18 +17,19 @@
 # echo "=== Done ==="
 # sleep 5  # GPUメモリ開放のため5秒待機（任意）
 
-cho "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
-echo "=== Done ==="
-echo "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
-echo "=== Done ==="
-echo "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
-echo "=== Done ==="
-echo "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
-echo "=== Done ==="
-echo "=== Start ==="
-python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
-echo "=== Done ==="
+# done
+# cho "=== Start ==="
+# python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model resnet8x2
+# echo "=== Done ==="

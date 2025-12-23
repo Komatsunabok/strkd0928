@@ -127,42 +127,49 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
 
     # 確認のためCKAを計算
     if opt.log_cka:
-        # if epoch % 30 == 1:
-        if epoch < 250:
-            model_s.eval()
-            with torch.no_grad():
-                inputs, _ = next(iter(train_loader))
-                inputs = inputs.cuda(0, non_blocking=True)
+        model_s.eval()
+        with torch.no_grad():
+            inputs, _ = next(iter(train_loader))
+            inputs = inputs.cuda(0, non_blocking=True)
 
-                feature_hook_s.outputs.clear()            
-                feature_hook_t.outputs.clear()
-                feature_hook_s_conv.outputs.clear()            
-                feature_hook_t_conv.outputs.clear()
+            feature_hook_s.outputs.clear()            
+            feature_hook_t.outputs.clear()
+            feature_hook_s_conv.outputs.clear()            
+            feature_hook_t_conv.outputs.clear()
 
-                feat_s, _ = model_s(inputs, is_feat=True)
-                feat_t, _ = model_t(inputs, is_feat=True)
+            feat_s, _ = model_s(inputs, is_feat=True)
+            feat_t, _ = model_t(inputs, is_feat=True)
 
-                # hook出力はここで取得済み
-                feat_s = feature_hook_s.outputs
-                feat_t = feature_hook_t.outputs
+            # hook出力はここで取得済み
+            feat_s = feature_hook_s.outputs
+            feat_t = feature_hook_t.outputs
 
-                cka_matrix = torch.zeros(len(feat_s), len(feat_t))
-                for i, s in enumerate(feat_s):
-                    for j, t in enumerate(feat_t):
-                        fs = safe_flatten_and_mean(s)
-                        ft = safe_flatten_and_mean(t)
-                        cka_matrix[i, j] =  linear_CKA(fs, ft).item()
+            cka_matrix = torch.zeros(len(feat_s), len(feat_t))
+            for i, s in enumerate(feat_s):
+                for j, t in enumerate(feat_t):
+                    fs = safe_flatten_and_mean(s)
+                    ft = safe_flatten_and_mean(t)
+                    cka_matrix[i, j] =  linear_CKA(fs, ft).item()
 
-                log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
-                print("cka matrix was saved!")
+            log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
+            print("cka matrix was saved!")
 
     # training
     model_s.train()
 
     batch_time = AverageMeter()
-    losses = AverageMeter()
+    # losses = AverageMeter()
     top1 = AverageMeter()
     top5 = AverageMeter()
+    loss_meters = {
+        "total": AverageMeter(),
+        "cls": AverageMeter(),
+        "div": AverageMeter(),
+        "kd": AverageMeter(),
+    }
+    if opt.distill == "ckad":
+        loss_meters["kd_group"] = None  # ← まだ未初期化
+
 
     n_batch = len(train_loader)
 
@@ -208,7 +215,13 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
             # ]
             s_group_feats, t_group_feats = module_list[1](
                 feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
-            loss_kd = criterion_kd(s_group_feats, t_group_feats)
+            loss_kd, loss_kd_each_group = criterion_kd(s_group_feats, t_group_feats)
+            # ★ ここが重要
+            if loss_meters["kd_group"] is None:
+                loss_meters["kd_group"] = [
+                    AverageMeter() for _ in range(len(loss_kd_each_group))
+                ]
+
         elif opt.distill == 'attention':
             # include 1, exclude -1.
             g_s = feat_s[1:-1]
@@ -229,14 +242,24 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         #     b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
             
         loss = opt.cls * loss_cls + opt.div * loss_div + opt.beta * loss_kd
-        losses.update(loss.item(), images.size(0))
+
 
         # ===================Metrics=====================
         metrics = accuracy(logit_s, labels, topk=(1, 5))
-        top1.update(metrics[0].item(), images.size(0))
-        top5.update(metrics[1].item(), images.size(0))
+        top1.update(metrics[0].item(), bs)
+        top5.update(metrics[1].item(), bs)
 
+        # losses.update(loss.item(), bs)
+        loss_meters["cls"].update(loss_cls.item(), bs)
+        loss_meters["div"].update(loss_div.item(), bs)
+        loss_meters["kd"].update(loss_kd.item(), bs)
+        loss_meters["total"].update(loss.item(), bs)
+        if opt.distill == "ckad":
+            for i, lg in enumerate(loss_kd_each_group):
+                loss_meters["kd_group"][i].update(lg.item(), bs)
+        
         batch_time.update(time.time() - end)
+        bs = images.size(0)
         end = time.time()
 
         # ===================backward=====================
@@ -253,14 +276,27 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
                   'Acc@1 {top1.avg:.3f}\t'
                   'Acc@5 {top5.avg:.3f}'.format(
                    epoch, idx, n_batch, opt.gpu, batch_time=batch_time,
-                   loss=losses, top1=top1, top5=top5))
+                   loss=loss_meters["total"], top1=top1, top5=top5))
             sys.stdout.flush()
     
     # キャッシュをクリア
     # メモリが足りない場合に備えて、解決策になるかもしれない
     # torch.cuda.empty_cache() 
 
-    return top1.avg, top5.avg, losses.avg
+    # return top1.avg, top5.avg, losses.avg
+    return {
+        "acc1": top1.avg,
+        "acc5": top5.avg,
+        "loss_total": loss_meters["total"].avg,
+        "loss_cls": loss_meters["cls"].avg,
+        "loss_div": loss_meters["div"].avg,
+        "loss_kd": loss_meters["kd"].avg,
+        "loss_kd_group": (
+            [m.avg for m in loss_meters["kd_group"]]
+            if opt.distill == "ckad" else None
+        ),
+    }
+
 
 def validate_distill(val_loader, module_list, criterion, opt, device):
     """validation"""

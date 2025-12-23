@@ -399,6 +399,15 @@ def main_worker(gpu, ngpus_per_node, opt):
     test_loss_history = []
     lr_history = []
     train_time_history = []
+
+    train_loss_total_history = []
+    train_loss_cls_history = []
+    train_loss_div_history = []
+    train_loss_kd_history = []
+
+    # ckad 用（epoch ごとに [g1, g2, ...] を入れる）
+    train_loss_kd_group_history = []
+
     
     # 学習前にfeature_hook_t.outputsをクリアしておく
     # ※feature_hook_t.outputsはmodel(input)を呼ぶたびにたまり続ける
@@ -415,7 +424,15 @@ def main_worker(gpu, ngpus_per_node, opt):
         # train
         print("==> training...")
         time1 = time.time()
-        train_acc, train_acc_top5, train_loss = train(
+        # train_acc, train_acc_top5, train_loss = train(
+        #     epoch, train_loader, module_list, criterion_list, optimizer, opt,
+        #     feature_hook_t=feature_hook_t,
+        #     feature_hook_s=feature_hook_s,
+        #     feature_hook_t_conv=feature_hook_t_conv,
+        #     feature_hook_s_conv=feature_hook_s_conv,
+        #     device=device
+        # )
+        train_log = train(
             epoch, train_loader, module_list, criterion_list, optimizer, opt,
             feature_hook_t=feature_hook_t,
             feature_hook_s=feature_hook_s,
@@ -423,6 +440,16 @@ def main_worker(gpu, ngpus_per_node, opt):
             feature_hook_s_conv=feature_hook_s_conv,
             device=device
         )
+        train_acc = train_log["acc1"]
+        train_acc_top5 = train_log["acc5"]
+        train_loss = train_log["loss_total"]
+        loss_total = train_log["loss_total"]
+        loss_cls   = train_log["loss_cls"]
+        loss_div   = train_log["loss_div"]
+        loss_kd    = train_log["loss_kd"]
+        loss_kd_group = train_log["loss_kd_group"]  # None or list
+
+
         time2 = time.time()
         print(' * Epoch {}, GPU {}, Acc@1 {:.3f}, Acc@5 {:.3f}, Time {:.2f}'.format(epoch, opt.gpu, train_acc, train_acc_top5, time2 - time1))
         writer.add_scalar('train_acc', train_acc, epoch)    
@@ -464,6 +491,15 @@ def main_worker(gpu, ngpus_per_node, opt):
         epoch_train_time = time2 - time1
         train_time_history.append(epoch_train_time)
 
+        train_loss_total_history.append(loss_total)
+        train_loss_cls_history.append(loss_cls)
+        train_loss_div_history.append(loss_div)
+        train_loss_kd_history.append(loss_kd)
+
+        if loss_kd_group is not None:
+            train_loss_kd_group_history.append(loss_kd_group)
+
+
         # optimizarの学習率を更新
         scheduler.step()
     
@@ -480,7 +516,15 @@ def main_worker(gpu, ngpus_per_node, opt):
         "train_time_per_epoch_sec": train_time_history,
         "avg_train_time_per_epoch_sec": avg_train_time,
         "total_train_time_sec": total_train_time,
+
+        # 追加
+        "train_loss_total": train_loss_total_history,
+        "train_loss_cls": train_loss_cls_history,
+        "train_loss_div": train_loss_div_history,
+        "train_loss_kd": train_loss_kd_history,
     }
+    if opt.distill == "ckad":
+        history["train_loss_kd_group"] = train_loss_kd_group_history
 
     save_dict_to_json(history, hist_path)
     print(f"Training history saved to {hist_path}")

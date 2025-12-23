@@ -32,7 +32,7 @@ class CKADistillLoss(nn.Module):
 
         # グループ間での集約
         total_loss = self._aggregate_inter_group(inter_group_losses)
-        return total_loss
+        return total_loss, inter_group_losses
 
     # -------------------------------
     # ▼ グループ内CKA計算部分
@@ -51,16 +51,16 @@ class CKADistillLoss(nn.Module):
                     cka_losses.append(1 - cka)
             return torch.mean(torch.stack(cka_losses))
 
-        elif self.method_inner_group == 'max':
-            # 最大損失を取る（最も類似していないペアを重視）
-            cka_losses = []
-            for s in s_feats:
-                for t in t_feats:
-                    fs = safe_flatten_and_mean(s)
-                    ft = safe_flatten_and_mean(t)
-                    cka = linear_CKA(fs, ft)
-                    cka_losses.append(1 - cka)
-            return torch.max(torch.stack(cka_losses))
+        # elif self.method_inner_group == 'max':
+        #     # 最大損失を取る（最も類似していないペアを重視）
+        #     cka_losses = []
+        #     for s in s_feats:
+        #         for t in t_feats:
+        #             fs = safe_flatten_and_mean(s)
+        #             ft = safe_flatten_and_mean(t)
+        #             cka = linear_CKA(fs, ft)
+        #             cka_losses.append(1 - cka)
+        #     return torch.max(torch.stack(cka_losses))
 
         else:
             raise ValueError(f"Unknown inner group method: {self.method_inner_group}")

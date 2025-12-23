@@ -216,6 +216,9 @@ def resnet116(**kwargs):
 def resnet200(**kwargs):
     return ResNet(200, [16, 16, 32, 64], 'basicblock', **kwargs)
 
+def resnet8x2(**kwargs):
+    return ResNet(8, [16, 32, 64, 128], 'basicblock', **kwargs)
+
 # wrn_16_2 (We use the wrn notation to be consistent with the previous work)
 def resnet14x2(**kwargs):
     return ResNet(14, [16, 32, 64, 128], 'basicblock', **kwargs)

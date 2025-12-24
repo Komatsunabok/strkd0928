@@ -245,6 +245,8 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
 
 
         # ===================Metrics=====================
+        bs = images.size(0)
+        
         metrics = accuracy(logit_s, labels, topk=(1, 5))
         top1.update(metrics[0].item(), bs)
         top5.update(metrics[1].item(), bs)
@@ -259,7 +261,6 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
                 loss_meters["kd_group"][i].update(lg.item(), bs)
         
         batch_time.update(time.time() - end)
-        bs = images.size(0)
         end = time.time()
 
         # ===================backward=====================

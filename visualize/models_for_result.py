@@ -71,6 +71,7 @@ files = {
 }
 
 # vgg19_bn_half as student
+# ok saved
 files = {
     "Teacher": [
         "vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623"
@@ -90,12 +91,11 @@ files = {
 "S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251212_102921",
     ],
     "FitNets": [
-# "S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251212_105937",
-# "S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251212_112728",
-# "S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251212_115411",
-# "S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251212_122058",
-# "S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_100.0-20251212_124741",
-# betaミスってる
+"S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251225_174425",
+"S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251225_170132",
+"S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251225_161944",
+"S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251225_153651",
+"S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251225_145315",
     ],
     "Str-KD": [
 # "S_vgg19_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251211_120508",

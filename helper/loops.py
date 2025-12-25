@@ -166,11 +166,9 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         "cls": AverageMeter(),
         "div": AverageMeter(),
         "kd": AverageMeter(),
+        "kd_group": None,  # ← まだ未初期化
     }
-    if opt.distill == "ckad":
-        loss_meters["kd_group"] = None  # ← まだ未初期化
-
-
+    
     n_batch = len(train_loader)
 
     end = time.time()
@@ -199,6 +197,7 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         # other kd loss
         if opt.distill == 'kd':
             loss_kd = 0
+            loss_meters["kd"].update(loss_kd.item(), bs)
         elif opt.distill == 'hint':
             # Conv 層出力を ConvReg に渡す
             f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],
@@ -256,10 +255,10 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         loss_meters["div"].update(loss_div.item(), bs)
         loss_meters["kd"].update(loss_kd.item(), bs)
         loss_meters["total"].update(loss.item(), bs)
-        if opt.distill == "ckad":
+        if loss_meters["kd_group"] is not None:
             for i, lg in enumerate(loss_kd_each_group):
                 loss_meters["kd_group"][i].update(lg.item(), bs)
-        
+                
         batch_time.update(time.time() - end)
         end = time.time()
 

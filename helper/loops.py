@@ -252,7 +252,10 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         # losses.update(loss.item(), bs)
         loss_meters["cls"].update(loss_cls.item(), bs)
         loss_meters["div"].update(loss_div.item(), bs)
-        loss_meters["kd"].update(loss_kd.item(), bs)
+        if opt.distill == 'kd':
+            loss_meters["kd"].update(loss_kd, bs)
+        else:
+            loss_meters["kd"].update(loss_kd.item(), bs)
         loss_meters["total"].update(loss.item(), bs)
         if loss_meters["kd_group"] is not None:
             for i, lg in enumerate(loss_kd_each_group):

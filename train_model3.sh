@@ -134,32 +134,32 @@
 #   --distill ckad --layer_usage all --group_num 4
 # echo "=== Done ==="
 
-
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
---model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
---distill ckad --layer_usage all --group_num 8 --log_cka
-echo "=== Done ==="
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
---model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
---distill ckad --layer_usage all --group_num 8  
-echo "=== Done ==="
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
---model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
---distill ckad --layer_usage all --group_num 8  
-echo "=== Done ==="
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
---model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
---distill ckad --layer_usage all --group_num 8  
-echo "=== Done ==="
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
---model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
---distill ckad --layer_usage all --group_num 8  
-echo "=== Done ==="
+# 20251225morning~
+# echo "=== Start ==="
+# python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
+# --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
+# --distill ckad --layer_usage all --group_num 8 --log_cka
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
+# --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
+# --distill ckad --layer_usage all --group_num 8  
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
+# --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
+# --distill ckad --layer_usage all --group_num 8  
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
+# --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
+# --distill ckad --layer_usage all --group_num 8  
+# echo "=== Done ==="
+# echo "=== Start ==="
+# python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 100 \ 
+# --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \ 
+# --distill ckad --layer_usage all --group_num 8  
+# echo "=== Done ==="
 
 
 # 1221night~

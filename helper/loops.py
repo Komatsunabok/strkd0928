@@ -197,7 +197,6 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         # other kd loss
         if opt.distill == 'kd':
             loss_kd = 0.0
-            loss_meters["kd"].update(loss_kd.item(), bs)
         elif opt.distill == 'hint':
             # Conv 層出力を ConvReg に渡す
             f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],

@@ -442,7 +442,8 @@ def main_worker(gpu, ngpus_per_node, opt):
             feature_hook_s=feature_hook_s,
             feature_hook_t_conv=feature_hook_t_conv,
             feature_hook_s_conv=feature_hook_s_conv,
-            device=device
+            device=device,
+            scaler=scaler
         )
         train_acc = train_log["acc1"]
         train_acc_top5 = train_log["acc5"]

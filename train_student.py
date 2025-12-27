@@ -419,6 +419,8 @@ def main_worker(gpu, ngpus_per_node, opt):
 
     # AMP scaler
     scaler = torch.cuda.amp.GradScaler()
+    print("autocast enabled:", torch.is_autocast_enabled())
+
 
 
     # routine
@@ -445,6 +447,7 @@ def main_worker(gpu, ngpus_per_node, opt):
             device=device,
             scaler=scaler
         )
+        
         train_acc = train_log["acc1"]
         train_acc_top5 = train_log["acc5"]
         train_loss = train_log["loss_total"]

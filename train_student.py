@@ -417,6 +417,10 @@ def main_worker(gpu, ngpus_per_node, opt):
     feature_hook_s_conv.outputs.clear()
     feature_hook_t_conv.outputs.clear()
 
+    # AMP scaler
+    scaler = torch.cuda.amp.GradScaler()
+
+
     # routine
     for epoch in range(1, opt.epochs + 1):
         print(f"Starting epoch {epoch}/{opt.epochs}...")

@@ -4,8 +4,9 @@ from cProfile import label
 import sys
 import time
 import torch
-from torch.cuda.amp import autocast
+from torch.amp import autocast, GradScaler
 from .util import AverageMeter, accuracy, reduce_tensor
+
 
 from cka.LinearCKA import linear_CKA
 from .util import safe_flatten_and_mean
@@ -108,8 +109,8 @@ def validate_vanilla(val_loader, model, criterion, opt, device):
 
     return top1.avg, top5.avg, losses.avg
 
-def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, opt, 
-                  feature_hook_t, feature_hook_s, feature_hook_t_conv, feature_hook_s_conv, device, scaler=None):
+def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, opt, device,
+                  feature_hook_t, feature_hook_s, feature_hook_t_conv=None, feature_hook_s_conv=None, scaler=None):
     """one epoch distillation"""
     # set modules as train()
     for module in module_list:
@@ -131,55 +132,34 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         with torch.no_grad():
             inputs, _ = next(iter(train_loader))
             inputs = inputs.cuda(0, non_blocking=True)
-
-            # feature_hook_s.outputs.clear()            
-            # feature_hook_t.outputs.clear()
-            # feature_hook_s_conv.outputs.clear()            
-            # feature_hook_t_conv.outputs.clear()
-
-            # feat_s, _ = model_s(inputs, is_feat=True)
-            # feat_t, _ = model_t(inputs, is_feat=True)
-
-            # # hook出力はここで取得済み
-            # feat_s = feature_hook_s.outputs
-            # feat_t = feature_hook_t.outputs
-
-            # cka_matrix = torch.zeros(len(feat_s), len(feat_t))
-            # for i, s in enumerate(feat_s):
-            #     for j, t in enumerate(feat_t):
-            #         fs = safe_flatten_and_mean(s)
-            #         ft = safe_flatten_and_mean(t)
-            #         cka_matrix[i, j] =  linear_CKA(fs, ft).item()
-
-            # log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
-            # print("cka matrix was saved!")
-
-        with torch.no_grad():
-            with torch.cuda.amp.autocast():
-                inputs, _ = next(iter(train_loader))
-                inputs = inputs[:1].cuda()  # ★ batch=1
-
-                feature_hook_s.outputs.clear()            
+            
+            if feature_hook_s is not None:
+                feature_hook_s.outputs.clear()    
+            if feature_hook_t is not None:         
                 feature_hook_t.outputs.clear()
-                feature_hook_s_conv.outputs.clear()            
-                feature_hook_t_conv.outputs.clear()
 
-                feat_s, _ = model_s(inputs, is_feat=True)
-                feat_t, _ = model_t(inputs, is_feat=True)
+            if opt.distill == 'hint':
+                if feature_hook_s_conv is not None:
+                    feature_hook_s_conv.outputs.clear()            
+                if feature_hook_t_conv is not None:
+                    feature_hook_t_conv.outputs.clear()
 
-                # hook出力はここで取得済み
-                feat_s = feature_hook_s.outputs
-                feat_t = feature_hook_t.outputs
+            _ = model_s(inputs, is_feat=False)
+            _ = model_t(inputs, is_feat=False)
 
-                cka_matrix = torch.zeros(len(feat_s), len(feat_t))
-                for i, s in enumerate(feat_s):
-                    for j, t in enumerate(feat_t):
-                        fs = safe_flatten_and_mean(s)
-                        ft = safe_flatten_and_mean(t)
-                        cka_matrix[i, j] =  linear_CKA(fs, ft).item()
+            # hook出力はここで取得済み
+            feat_s = feature_hook_s.outputs
+            feat_t = feature_hook_t.outputs
 
-                log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
-                print("cka matrix was saved!")
+            cka_matrix = torch.zeros(len(feat_s), len(feat_t))
+            for i, s in enumerate(feat_s):
+                for j, t in enumerate(feat_t):
+                    fs = safe_flatten_and_mean(s)
+                    ft = safe_flatten_and_mean(t)
+                    cka_matrix[i, j] =  linear_CKA(fs, ft).item()
+
+            log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
+            print("cka matrix was saved!")
 
 
     # training
@@ -207,127 +187,75 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         labels = labels.to(device, non_blocking=True)
 
         # ===================forward=====================
-        feature_hook_t.outputs.clear()
-        feature_hook_s.outputs.clear()
+        if feature_hook_s is not None:
+            feature_hook_s.outputs.clear()    
+        if feature_hook_t is not None:         
+            feature_hook_t.outputs.clear()
 
-        feature_hook_s_conv.outputs.clear()
-        feature_hook_t_conv.outputs.clear()
+            if opt.distill == 'hint':
+                if feature_hook_s_conv is not None:
+                    feature_hook_s_conv.outputs.clear()            
+                if feature_hook_t_conv is not None:
+                    feature_hook_t_conv.outputs.clear()
 
-        # feat_s, logit_s = model_s(images, is_feat=True)
-        # with torch.no_grad(): # 勾配追跡しない
-        #     feat_t, logit_t = model_t(images, is_feat=True)
-        #     feat_t = [f.detach() for f in feat_t] # テンソルをグラフから切り離して、以降の計算で勾配を計算しないようにする
-        #     # 教師モデルの特徴マップを使っても勾配が更新されないようにする
- 
-        # loss_cls = criterion_cls(logit_s, labels)
-        # loss_div = criterion_div(logit_s, logit_t)
-        
-        # # other kd loss
-        # if opt.distill == 'kd':
-        #     loss_kd = 0.0
-        # elif opt.distill == 'hint':
-        #     # Conv 層出力を ConvReg に渡す
-        #     f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],
-        #                             feature_hook_t_conv.outputs[opt.hint_layer_t])
-        #     loss_kd = criterion_kd(f_s, f_t)
-        # elif opt.distill == 'ckad':
-        #     # グループ化（module_list[1]がCKAMapperの場合）
-        #     # 各グループごとにまとめた特徴マップのリスト（リストのリスト）
-        #     # s_group_feats = [
-        #     #     [feat_s[0], feat_s[1]],  # グループ1
-        #     #     [feat_s[2], feat_s[3]],  # グループ2
-        #     #     [feat_s[4], feat_s[5]],  # グループ3
-        #     #     [feat_s[6], feat_s[7]],  # グループ4
-        #     # ]
-        #     s_group_feats, t_group_feats = module_list[1](
-        #         feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
-        #     loss_kd, loss_kd_each_group = criterion_kd(s_group_feats, t_group_feats)
-        #     # ★ ここが重要
-        #     if loss_meters["kd_group"] is None:
-        #         loss_meters["kd_group"] = [
-        #             AverageMeter() for _ in range(len(loss_kd_each_group))
-        #         ]
-
-        # elif opt.distill == 'attention':
-        #     # include 1, exclude -1.
-        #     g_s = feat_s[1:-1]
-        #     g_t = feat_t[1:-1]
-        #     loss_group = criterion_kd(g_s, g_t)
-        #     loss_kd = sum(loss_group)
-        # elif opt.distill == 'similarity':
-        #     g_s = [feat_s[-2]]
-        #     g_t = [feat_t[-2]]
-        #     loss_group = criterion_kd(g_s, g_t)
-        #     loss_kd = sum(loss_group)
-        # else:
-        #     raise NotImplementedError(opt.distill)
-        
-        # # if opt.beta_method == 'fixed':
-        # #     b = opt.beta  # 固定ベータ
-        # # elif opt.beta_method == 'epoch_based':
-        # #     b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
-            
-        # loss = opt.cls * loss_cls + opt.div * loss_div + opt.beta * loss_kd
-
-        with torch.cuda.amp.autocast(enabled=(scaler is not None)):
-
+        if opt.distill in ['attention', 'similarity']:
             feat_s, logit_s = model_s(images, is_feat=True)
-            with torch.no_grad(): # 勾配追跡しない
+            with torch.no_grad():
                 feat_t, logit_t = model_t(images, is_feat=True)
-                feat_t = [f.detach() for f in feat_t] # テンソルをグラフから切り離して、以降の計算で勾配を計算しないようにする
-                # 教師モデルの特徴マップを使っても勾配が更新されないようにする
-    
-            loss_cls = criterion_cls(logit_s, labels)
-            loss_div = criterion_div(logit_s, logit_t)
+        else:
+            logit_s = model_s(images, is_feat=False)
+            with torch.no_grad():
+                logit_t = model_t(images, is_feat=False)
+ 
+        loss_cls = criterion_cls(logit_s, labels)
+        loss_div = criterion_div(logit_s, logit_t)
+        
+        # other kd loss
+        if opt.distill == 'kd':
+            loss_kd = 0.0
+        elif opt.distill == 'hint':
+            # Conv 層出力を ConvReg に渡す
+            f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],
+                                    feature_hook_t_conv.outputs[opt.hint_layer_t])
+            loss_kd = criterion_kd(f_s, f_t)
+        elif opt.distill == 'ckad':
+            # グループ化（module_list[1]がCKAMapperの場合）
+            # 各グループごとにまとめた特徴マップのリスト（リストのリスト）
+            # s_group_feats = [
+            #     [feat_s[0], feat_s[1]],  # グループ1
+            #     [feat_s[2], feat_s[3]],  # グループ2
+            #     [feat_s[4], feat_s[5]],  # グループ3
+            #     [feat_s[6], feat_s[7]],  # グループ4
+            # ]
+            s_group_feats, t_group_feats = module_list[1](
+                feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
+            loss_kd, loss_kd_each_group = criterion_kd(s_group_feats, t_group_feats)
+            # ★ ここが重要
+            if loss_meters["kd_group"] is None:
+                loss_meters["kd_group"] = [
+                    AverageMeter() for _ in range(len(loss_kd_each_group))
+                ]
+
+        elif opt.distill == 'attention':
+            # include 1, exclude -1.
+            g_s = feat_s[1:-1]
+            g_t = feat_t[1:-1]
+            loss_group = criterion_kd(g_s, g_t)
+            loss_kd = sum(loss_group)
+        elif opt.distill == 'similarity':
+            g_s = [feat_s[-2]]
+            g_t = [feat_t[-2]]
+            loss_group = criterion_kd(g_s, g_t)
+            loss_kd = sum(loss_group)
+        else:
+            raise NotImplementedError(opt.distill)
+        
+        # if opt.beta_method == 'fixed':
+        #     b = opt.beta  # 固定ベータ
+        # elif opt.beta_method == 'epoch_based':
+        #     b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
             
-            # other kd loss
-            if opt.distill == 'kd':
-                loss_kd = 0.0
-            elif opt.distill == 'hint':
-                # Conv 層出力を ConvReg に渡す
-                f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],
-                                        feature_hook_t_conv.outputs[opt.hint_layer_t])
-                loss_kd = criterion_kd(f_s, f_t)
-            elif opt.distill == 'ckad':
-                # グループ化（module_list[1]がCKAMapperの場合）
-                # 各グループごとにまとめた特徴マップのリスト（リストのリスト）
-                # s_group_feats = [
-                #     [feat_s[0], feat_s[1]],  # グループ1
-                #     [feat_s[2], feat_s[3]],  # グループ2
-                #     [feat_s[4], feat_s[5]],  # グループ3
-                #     [feat_s[6], feat_s[7]],  # グループ4
-                # ]
-                s_group_feats, t_group_feats = module_list[1](
-                    feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
-                loss_kd, loss_kd_each_group = criterion_kd(s_group_feats, t_group_feats)
-                # ★ ここが重要
-                if loss_meters["kd_group"] is None:
-                    loss_meters["kd_group"] = [
-                        AverageMeter() for _ in range(len(loss_kd_each_group))
-                    ]
-
-            elif opt.distill == 'attention':
-                # include 1, exclude -1.
-                g_s = feat_s[1:-1]
-                g_t = feat_t[1:-1]
-                loss_group = criterion_kd(g_s, g_t)
-                loss_kd = sum(loss_group)
-            elif opt.distill == 'similarity':
-                g_s = [feat_s[-2]]
-                g_t = [feat_t[-2]]
-                loss_group = criterion_kd(g_s, g_t)
-                loss_kd = sum(loss_group)
-            else:
-                raise NotImplementedError(opt.distill)
-            
-            # if opt.beta_method == 'fixed':
-            #     b = opt.beta  # 固定ベータ
-            # elif opt.beta_method == 'epoch_based':
-            #     b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
-                
-            loss = opt.cls * loss_cls + opt.div * loss_div + opt.beta * loss_kd
-
-
+        loss = opt.cls * loss_cls + opt.div * loss_div + opt.beta * loss_kd
 
         # ===================Metrics=====================
         bs = images.size(0)
@@ -352,21 +280,9 @@ def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, o
         end = time.time()
 
         # ===================backward=====================
-        # optimizer.zero_grad()
-        # loss.backward()
-        # optimizer.step()   
-
-        # AMP対応版
         optimizer.zero_grad()
-
-        if scaler is not None:
-            scaler.scale(loss).backward()
-            scaler.step(optimizer)
-            scaler.update()
-        else:
-            loss.backward()
-            optimizer.step()
-     
+        loss.backward()
+        optimizer.step()   
 
         # print info
         if idx % opt.print_freq == 0:
@@ -447,4 +363,301 @@ def validate_distill(val_loader, module_list, criterion, opt, device):
                        top1=top1, top5=top5))
 
     return top1.avg, top5.avg, losses.avg
+
+# def train_distill(epoch, train_loader, module_list, criterion_list, optimizer, opt, 
+#                   feature_hook_t, feature_hook_s, feature_hook_t_conv=None, feature_hook_s_conv=None, device, scaler=None):
+#     """one epoch distillation"""
+#     # set modules as train()
+#     for module in module_list:
+#         module.train()
+
+#     # set teacher as eval()
+#     module_list[-1].eval()
+
+#     criterion_cls = criterion_list[0]
+#     criterion_div = criterion_list[1]
+#     criterion_kd = criterion_list[2]
+
+#     model_s = module_list[0]
+#     model_t = module_list[-1]
+
+#     # 確認のためCKAを計算
+#     if opt.log_cka:
+#         model_s.eval()
+#         with torch.no_grad():
+#             inputs, _ = next(iter(train_loader))
+#             inputs = inputs.cuda(0, non_blocking=True)
+
+#             feature_hook_s.outputs.clear()            
+#             feature_hook_t.outputs.clear()
+
+#             if opt.distill == 'hint':
+#                 feature_hook_s_conv.outputs.clear()            
+#                 feature_hook_t_conv.outputs.clear()
+
+#             feat_s, _ = model_s(inputs, is_feat=True)
+#             feat_t, _ = model_t(inputs, is_feat=True)
+
+#             # hook出力はここで取得済み
+#             feat_s = feature_hook_s.outputs
+#             feat_t = feature_hook_t.outputs
+
+#             cka_matrix = torch.zeros(len(feat_s), len(feat_t))
+#             for i, s in enumerate(feat_s):
+#                 for j, t in enumerate(feat_t):
+#                     fs = safe_flatten_and_mean(s)
+#                     ft = safe_flatten_and_mean(t)
+#                     cka_matrix[i, j] =  linear_CKA(fs, ft).item()
+
+#             log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
+#             print("cka matrix was saved!")
+
+#         # with torch.no_grad():
+#         #     with torch.cuda.amp.autocast():
+#         #         inputs, _ = next(iter(train_loader))
+#         #         inputs = inputs[:1].cuda()  # ★ batch=1
+
+#         #         feature_hook_s.outputs.clear()            
+#         #         feature_hook_t.outputs.clear()
+
+#         #         if opt.distill == 'hint':
+#         #             feature_hook_s_conv.outputs.clear()            
+#         #             feature_hook_t_conv.outputs.clear()
+
+#         #         feat_s, _ = model_s(inputs, is_feat=True)
+#         #         feat_t, _ = model_t(inputs, is_feat=True)
+
+#         #         # hook出力はここで取得済み
+#         #         feat_s = feature_hook_s.outputs
+#         #         feat_t = feature_hook_t.outputs
+
+#         #         cka_matrix = torch.zeros(len(feat_s), len(feat_t))
+#         #         for i, s in enumerate(feat_s):
+#         #             for j, t in enumerate(feat_t):
+#         #                 fs = safe_flatten_and_mean(s)
+#         #                 ft = safe_flatten_and_mean(t)
+#         #                 cka_matrix[i, j] =  linear_CKA(fs, ft).item()
+
+#         #         log_cka_matrix(epoch, cka_matrix, opt)  # CKAの結果をCSV記録する関数
+#         #         print("cka matrix was saved!")
+
+
+#     # training
+#     model_s.train()
+
+#     batch_time = AverageMeter()
+#     # losses = AverageMeter()
+#     top1 = AverageMeter()
+#     top5 = AverageMeter()
+#     loss_meters = {
+#         "total": AverageMeter(),
+#         "cls": AverageMeter(),
+#         "div": AverageMeter(),
+#         "kd": AverageMeter(),
+#         "kd_group": None,  # ← まだ未初期化
+#     }
+
+#     n_batch = len(train_loader)
+
+#     end = time.time()
+#     for idx, data in enumerate(train_loader):
+#         images, labels = data
+
+#         images = images.to(device, non_blocking=True)
+#         labels = labels.to(device, non_blocking=True)
+
+#         # ===================forward=====================
+#         feature_hook_t.outputs.clear()
+#         feature_hook_s.outputs.clear()
+
+#         if opt.distill == 'hint':
+#             feature_hook_s_conv.outputs.clear()
+#             feature_hook_t_conv.outputs.clear()
+
+#         feat_s, logit_s = model_s(images, is_feat=True)
+#         with torch.no_grad(): # 勾配追跡しない
+#             feat_t, logit_t = model_t(images, is_feat=True)
+#             feat_t = [f.detach() for f in feat_t] # テンソルをグラフから切り離して、以降の計算で勾配を計算しないようにする
+#             # 教師モデルの特徴マップを使っても勾配が更新されないようにする
+ 
+#         loss_cls = criterion_cls(logit_s, labels)
+#         loss_div = criterion_div(logit_s, logit_t)
+        
+#         # other kd loss
+#         if opt.distill == 'kd':
+#             loss_kd = 0.0
+#         elif opt.distill == 'hint':
+#             # Conv 層出力を ConvReg に渡す
+#             f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],
+#                                     feature_hook_t_conv.outputs[opt.hint_layer_t])
+#             loss_kd = criterion_kd(f_s, f_t)
+#         elif opt.distill == 'ckad':
+#             # グループ化（module_list[1]がCKAMapperの場合）
+#             # 各グループごとにまとめた特徴マップのリスト（リストのリスト）
+#             # s_group_feats = [
+#             #     [feat_s[0], feat_s[1]],  # グループ1
+#             #     [feat_s[2], feat_s[3]],  # グループ2
+#             #     [feat_s[4], feat_s[5]],  # グループ3
+#             #     [feat_s[6], feat_s[7]],  # グループ4
+#             # ]
+#             s_group_feats, t_group_feats = module_list[1](
+#                 feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
+#             loss_kd, loss_kd_each_group = criterion_kd(s_group_feats, t_group_feats)
+#             # ★ ここが重要
+#             if loss_meters["kd_group"] is None:
+#                 loss_meters["kd_group"] = [
+#                     AverageMeter() for _ in range(len(loss_kd_each_group))
+#                 ]
+
+#         elif opt.distill == 'attention':
+#             # include 1, exclude -1.
+#             g_s = feat_s[1:-1]
+#             g_t = feat_t[1:-1]
+#             loss_group = criterion_kd(g_s, g_t)
+#             loss_kd = sum(loss_group)
+#         elif opt.distill == 'similarity':
+#             g_s = [feat_s[-2]]
+#             g_t = [feat_t[-2]]
+#             loss_group = criterion_kd(g_s, g_t)
+#             loss_kd = sum(loss_group)
+#         else:
+#             raise NotImplementedError(opt.distill)
+        
+#         # if opt.beta_method == 'fixed':
+#         #     b = opt.beta  # 固定ベータ
+#         # elif opt.beta_method == 'epoch_based':
+#         #     b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
+            
+#         loss = opt.cls * loss_cls + opt.div * loss_div + opt.beta * loss_kd
+
+#         # with autocast("cuda"):
+
+#         #     feat_s, logit_s = model_s(images, is_feat=True)
+#         #     with torch.no_grad(): # 勾配追跡しない
+#         #         feat_t, logit_t = model_t(images, is_feat=True)
+#         #         feat_t = [f.detach() for f in feat_t] # テンソルをグラフから切り離して、以降の計算で勾配を計算しないようにする
+#         #         # 教師モデルの特徴マップを使っても勾配が更新されないようにする
+    
+#         #     loss_cls = criterion_cls(logit_s, labels)
+#         #     loss_div = criterion_div(logit_s, logit_t)
+            
+#         #     # other kd loss
+#         #     if opt.distill == 'kd':
+#         #         loss_kd = 0.0
+#         #     elif opt.distill == 'hint':
+#         #         # Conv 層出力を ConvReg に渡す
+#         #         f_s, f_t = module_list[1](feature_hook_s_conv.outputs[opt.hint_layer_s],
+#         #                                 feature_hook_t_conv.outputs[opt.hint_layer_t])
+#         #         loss_kd = criterion_kd(f_s, f_t)
+#         #     elif opt.distill == 'ckad':
+#         #         # グループ化（module_list[1]がCKAMapperの場合）
+#         #         # 各グループごとにまとめた特徴マップのリスト（リストのリスト）
+#         #         # s_group_feats = [
+#         #         #     [feat_s[0], feat_s[1]],  # グループ1
+#         #         #     [feat_s[2], feat_s[3]],  # グループ2
+#         #         #     [feat_s[4], feat_s[5]],  # グループ3
+#         #         #     [feat_s[6], feat_s[7]],  # グループ4
+#         #         # ]
+#         #         s_group_feats, t_group_feats = module_list[1](
+#         #             feat_t=feature_hook_t.outputs, feat_s=feature_hook_s.outputs)
+#         #         loss_kd, loss_kd_each_group = criterion_kd(s_group_feats, t_group_feats)
+#         #         # ★ ここが重要
+#         #         if loss_meters["kd_group"] is None:
+#         #             loss_meters["kd_group"] = [
+#         #                 AverageMeter() for _ in range(len(loss_kd_each_group))
+#         #             ]
+
+#         #     elif opt.distill == 'attention':
+#         #         # include 1, exclude -1.
+#         #         g_s = feat_s[1:-1]
+#         #         g_t = feat_t[1:-1]
+#         #         loss_group = criterion_kd(g_s, g_t)
+#         #         loss_kd = sum(loss_group)
+#         #     elif opt.distill == 'similarity':
+#         #         g_s = [feat_s[-2]]
+#         #         g_t = [feat_t[-2]]
+#         #         loss_group = criterion_kd(g_s, g_t)
+#         #         loss_kd = sum(loss_group)
+#         #     else:
+#         #         raise NotImplementedError(opt.distill)
+            
+#         #     # if opt.beta_method == 'fixed':
+#         #     #     b = opt.beta  # 固定ベータ
+#         #     # elif opt.beta_method == 'epoch_based':
+#         #     #     b = opt.beta * (0.1 ** (epoch / opt.epochs))  # ベータをエポックに応じて減衰させる
+                
+#         #     loss = opt.cls * loss_cls + opt.div * loss_div + opt.beta * loss_kd
+
+
+
+#         # ===================Metrics=====================
+#         bs = images.size(0)
+        
+#         metrics = accuracy(logit_s, labels, topk=(1, 5))
+#         top1.update(metrics[0].item(), bs)
+#         top5.update(metrics[1].item(), bs)
+
+#         # losses.update(loss.item(), bs)
+#         loss_meters["cls"].update(loss_cls.item(), bs)
+#         loss_meters["div"].update(loss_div.item(), bs)
+#         if opt.distill == 'kd':
+#             loss_meters["kd"].update(loss_kd, bs)
+#         else:
+#             loss_meters["kd"].update(loss_kd.item(), bs)
+#         loss_meters["total"].update(loss.item(), bs)
+#         if loss_meters["kd_group"] is not None:
+#             for i, lg in enumerate(loss_kd_each_group):
+#                 loss_meters["kd_group"][i].update(lg.item(), bs)
+                
+#         batch_time.update(time.time() - end)
+#         end = time.time()
+
+#         # ===================backward=====================
+#         optimizer.zero_grad()
+#         loss.backward()
+#         optimizer.step()   
+
+#         # AMP対応版
+#         # optimizer.zero_grad()
+#         # if scaler is not None:
+#         #     scaler.scale(loss).backward()
+#         #     scaler.step(optimizer)
+#         #     scaler.update()
+#         # else:
+#         #     loss.backward()
+#         #     optimizer.step()
+     
+
+#         # print info
+#         if idx % opt.print_freq == 0:
+#             print('Epoch: [{0}][{1}/{2}]\t'
+#                   'GPU {3}\t'
+#                   'Time: {batch_time.avg:.3f}\t'
+#                   'Loss {loss.avg:.4f}\t'
+#                   'Acc@1 {top1.avg:.3f}\t'
+#                   'Acc@5 {top5.avg:.3f}'.format(
+#                    epoch, idx, n_batch, opt.gpu, batch_time=batch_time,
+#                    loss=loss_meters["total"], top1=top1, top5=top5))
+#             sys.stdout.flush()
+    
+#     # キャッシュをクリア
+#     # メモリが足りない場合に備えて、解決策になるかもしれない
+#     # torch.cuda.empty_cache() 
+
+#     # return top1.avg, top5.avg, losses.avg
+#     return {
+#         "acc1": top1.avg,
+#         "acc5": top5.avg,
+#         "loss_total": loss_meters["total"].avg,
+#         "loss_cls": loss_meters["cls"].avg,
+#         "loss_div": loss_meters["div"].avg,
+#         "loss_kd": loss_meters["kd"].avg,
+#         "loss_kd_group": (
+#             [m.avg for m in loss_meters["kd_group"]]
+#             if opt.distill == "ckad" else None
+#         ),
+#     }
+
+
+
 

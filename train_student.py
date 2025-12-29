@@ -16,6 +16,7 @@ import torch.optim as optim
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
 from torch.utils.tensorboard import SummaryWriter
+from torch.amp import GradScaler
 
 from models import model_dict
 from models.util import ConvReg
@@ -247,9 +248,14 @@ def main_worker(gpu, ngpus_per_node, opt):
     hooks_s, feature_hook_s = register_hooks(model_s, (nn.BatchNorm2d, nn.Linear))
     hooks_t, feature_hook_t = register_hooks(model_t, (nn.BatchNorm2d, nn.Linear))
 
+    hooks_s, feature_hook_s = register_hooks(model_name=opt.model, model=model_s)
+    hooks_t, feature_hook_t = register_hooks(model_name=model_t_name, model=model_t)
+
+
     # Conv 用 (Hint用)
-    hooks_s_conv, feature_hook_s_conv = register_hooks(model_s, (nn.Conv2d,))
-    hooks_t_conv, feature_hook_t_conv = register_hooks(model_t, (nn.Conv2d,))
+    if opt.distill == 'hint':
+        hooks_s_conv, feature_hook_s_conv = register_hooks(model_s, (nn.Conv2d,))
+        hooks_t_conv, feature_hook_t_conv = register_hooks(model_t, (nn.Conv2d,))
 
     # dataをモデルに通して特徴量を取得(実際の各層の出力)
     # feat_t = [
@@ -260,8 +266,8 @@ def main_worker(gpu, ngpus_per_node, opt):
     # ]
     # torch.Size([バッチサイズ, チャンネル数, 高さ, 幅])
     for images, labels in train_loader:
-        feat_s, _ = model_s(images, is_feat=True)
-        feat_t, _ = model_t(images, is_feat=True)
+        _ = model_s(images, is_feat=False)
+        _ = model_t(images, is_feat=False)
         # feat_t_conv, _ = model_t(images, is_feat=True)
         # feat_s_conv, _ = model_s(images, is_feat=True)
         break
@@ -411,14 +417,20 @@ def main_worker(gpu, ngpus_per_node, opt):
     
     # 学習前にfeature_hook_t.outputsをクリアしておく
     # ※feature_hook_t.outputsはmodel(input)を呼ぶたびにたまり続ける
-    feature_hook_t.outputs.clear()
-    feature_hook_s.outputs.clear()
+    if feature_hook_s is not None:
+        feature_hook_s.outputs.clear()    
+    if feature_hook_t is not None:         
+        feature_hook_t.outputs.clear()
 
-    feature_hook_s_conv.outputs.clear()
-    feature_hook_t_conv.outputs.clear()
+        if opt.distill == 'hint':
+            if feature_hook_s_conv is not None:
+                feature_hook_s_conv.outputs.clear()            
+            if feature_hook_t_conv is not None:
+                feature_hook_t_conv.outputs.clear()
 
     # AMP scaler
-    scaler = torch.cuda.amp.GradScaler()
+    scaler = GradScaler("cuda")
+    
     print("autocast enabled:", torch.is_autocast_enabled())
 
 
@@ -438,6 +450,7 @@ def main_worker(gpu, ngpus_per_node, opt):
         #     feature_hook_s_conv=feature_hook_s_conv,
         #     device=device
         # )
+        
         train_log = train(
             epoch, train_loader, module_list, criterion_list, optimizer, opt,
             feature_hook_t=feature_hook_t,
@@ -447,7 +460,16 @@ def main_worker(gpu, ngpus_per_node, opt):
             device=device,
             scaler=scaler
         )
-        
+        train_log = train(
+            epoch, train_loader, module_list, criterion_list, optimizer, opt,
+            feature_hook_t=feature_hook_t,
+            feature_hook_s=feature_hook_s,
+            feature_hook_t_conv=feature_hook_t_conv if opt.distill == 'hint' else None,
+            feature_hook_s_conv=feature_hook_s_conv if opt.distill == 'hint' else None,
+            device=device,
+            scaler=scaler
+        )
+
         train_acc = train_log["acc1"]
         train_acc_top5 = train_log["acc5"]
         train_loss = train_log["loss_total"]

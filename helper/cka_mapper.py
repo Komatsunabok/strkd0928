@@ -295,43 +295,46 @@ class CKAMapper(nn.Module):
     def _map_groups_by_ratio(self, num_layers, teacher_groups):
         """
         教師のグループサイズの割合に基づいて生徒のグループを割り当てる
-        入力:
-            num_layers: 生徒の特徴マップの数（= 選択された層の数）
-            teacher_groups: 教師のグループ（インデックスのリストのリスト）
-        出力:
-            groups: [[idx1, idx2, ...], ...] の形でインデックスのグループを返す
+        各グループに少なくとも1層が含まれることを保証する
         """
+
+        num_groups = len(teacher_groups)
+
+        if num_layers < num_groups:
+            raise ValueError(
+                f"num_layers ({num_layers}) must be >= number of groups ({num_groups})"
+            )
+
         # 教師の総層数
         total_teacher_layers = sum(len(g) for g in teacher_groups)
-        # 教師のグループごとの割合
+
+        # 教師グループの比率
         ratios = [len(g) / total_teacher_layers for g in teacher_groups]
 
-        # 生徒側のグループサイズの割当（まずは丸め前）
-        raw_sizes = [r * num_layers for r in ratios]
+        # --- ① 各グループに最低1層を割り当て ---
+        sizes = [1] * num_groups
+        remaining = num_layers - num_groups
 
-        # 小数点以下での切り上げ・切り下げを考慮して調整
-        sizes = [int(round(r)) for r in raw_sizes]
+        # --- ② 残りを比率に応じて配分 ---
+        raw_extra = [r * remaining for r in ratios]
+        extra = [int(round(x)) for x in raw_extra]
 
-        # 合計が num_layers になるように補正
-        diff = sum(sizes) - num_layers
+        # 合計調整
+        diff = sum(extra) - remaining
         while diff != 0:
-            if diff > 0:
-                # 大きすぎるので1引く
-                for i in range(len(sizes)):
-                    if sizes[i] > 1:
-                        sizes[i] -= 1
-                        diff -= 1
-                        if diff == 0:
-                            break
-            else:
-                # 小さすぎるので1足す
-                for i in range(len(sizes)):
-                    sizes[i] += 1
+            for i in range(num_groups):
+                if diff > 0 and extra[i] > 0:
+                    extra[i] -= 1
+                    diff -= 1
+                elif diff < 0:
+                    extra[i] += 1
                     diff += 1
-                    if diff == 0:
-                        break
+                if diff == 0:
+                    break
 
-        # 実際のインデックスに基づく生徒グループを作成
+        sizes = [s + e for s, e in zip(sizes, extra)]
+
+        # --- ③ インデックス割当 ---
         groups = []
         idx = 0
         for size in sizes:
@@ -339,8 +342,66 @@ class CKAMapper(nn.Module):
             groups.append(group)
             idx += size
 
-        print("student group", groups)
+        print("student groups:", groups)
         return groups
+
+    # def _map_groups_by_ratio(self, num_layers, teacher_groups):
+    #     """
+    #     教師のグループサイズの割合に基づいて生徒のグループを割り当てる
+    #     入力:
+    #         num_layers: 生徒の特徴マップの数（= 選択された層の数）
+    #         teacher_groups: 教師のグループ（インデックスのリストのリスト）
+    #     出力:
+    #         groups: [[idx1, idx2, ...], ...] の形でインデックスのグループを返す
+    #     """
+
+    #     num_groups = len(teacher_groups)
+
+    #     if num_layers < num_groups:
+    #         raise ValueError(
+    #             f"num_layers ({num_layers}) must be >= number of groups ({num_groups})"
+    #         )
+        
+    #     # 教師の総層数
+    #     total_teacher_layers = sum(len(g) for g in teacher_groups)
+    #     # 教師のグループごとの割合
+    #     ratios = [len(g) / total_teacher_layers for g in teacher_groups]
+
+    #     # 生徒側のグループサイズの割当（まずは丸め前）
+    #     raw_sizes = [r * num_layers for r in ratios]
+
+    #     # 小数点以下での切り上げ・切り下げを考慮して調整
+    #     sizes = [int(round(r)) for r in raw_sizes]
+
+    #     # 合計が num_layers になるように補正
+    #     diff = sum(sizes) - num_layers
+    #     while diff != 0:
+    #         if diff > 0:
+    #             # 大きすぎるので1引く
+    #             for i in range(len(sizes)):
+    #                 if sizes[i] > 1:
+    #                     sizes[i] -= 1
+    #                     diff -= 1
+    #                     if diff == 0:
+    #                         break
+    #         else:
+    #             # 小さすぎるので1足す
+    #             for i in range(len(sizes)):
+    #                 sizes[i] += 1
+    #                 diff += 1
+    #                 if diff == 0:
+    #                     break
+
+    #     # 実際のインデックスに基づく生徒グループを作成
+    #     groups = []
+    #     idx = 0
+    #     for size in sizes:
+    #         group = list(range(idx, idx + size))
+    #         groups.append(group)
+    #         idx += size
+
+    #     print("student group", groups)
+    #     return groups
     
     def _get_center_indices(self, who):
         """

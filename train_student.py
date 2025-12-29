@@ -451,15 +451,15 @@ def main_worker(gpu, ngpus_per_node, opt):
         #     device=device
         # )
         
-        train_log = train(
-            epoch, train_loader, module_list, criterion_list, optimizer, opt,
-            feature_hook_t=feature_hook_t,
-            feature_hook_s=feature_hook_s,
-            feature_hook_t_conv=feature_hook_t_conv,
-            feature_hook_s_conv=feature_hook_s_conv,
-            device=device,
-            scaler=scaler
-        )
+        # train_log = train(
+        #     epoch, train_loader, module_list, criterion_list, optimizer, opt,
+        #     feature_hook_t=feature_hook_t,
+        #     feature_hook_s=feature_hook_s,
+        #     feature_hook_t_conv=feature_hook_t_conv,
+        #     feature_hook_s_conv=feature_hook_s_conv,
+        #     device=device,
+        #     scaler=scaler
+        # )
         train_log = train(
             epoch, train_loader, module_list, criterion_list, optimizer, opt,
             feature_hook_t=feature_hook_t,

@@ -245,8 +245,8 @@ def main_worker(gpu, ngpus_per_node, opt):
     #     ...
     # ]
     print("==> Registering hooks...")
-    hooks_s, feature_hook_s = register_hooks(model_s, (nn.BatchNorm2d, nn.Linear))
-    hooks_t, feature_hook_t = register_hooks(model_t, (nn.BatchNorm2d, nn.Linear))
+    # hooks_s, feature_hook_s = register_hooks(model_s, (nn.BatchNorm2d, nn.Linear))
+    # hooks_t, feature_hook_t = register_hooks(model_t, (nn.BatchNorm2d, nn.Linear))
 
     hooks_s, feature_hook_s = register_hooks(model_name=opt.model, model=model_s)
     hooks_t, feature_hook_t = register_hooks(model_name=model_t_name, model=model_t)

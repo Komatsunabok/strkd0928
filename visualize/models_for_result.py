@@ -145,6 +145,37 @@ files = {
     ],
 }
 
+# resnet38 as student
+files = {
+    "Teacher": [
+"resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110",
+    ],
+    "Student": [
+    ],
+    "Vanilla KD": [
+    ],
+    "FitNets": [
+    ],
+    "Str-KD": [
+    ],
+}
+
+# resnet14x2 as student ver2
+files = {
+    "Teacher": [
+"resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110",
+    ],
+    "Student": [
+    ],
+    "Vanilla KD": [
+    ],
+    "FitNets": [
+    ],
+    "Str-KD": [
+    ],
+}
+
+
 # resnet14x2 as student
 # ok saved
 files = {

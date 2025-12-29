@@ -44,7 +44,7 @@ class CKAMapper(nn.Module):
         # しかしそれは意図した割り当てではないので注意
         self.t_groups = self._split_groups_by_cka(feat_t, group_num)
 
-        print("teacher groups", self.t_group)
+        print("teacher groups", self.t_groups)
 
         # 生徒のグループ分け
         self.layer_usage = layer_usage

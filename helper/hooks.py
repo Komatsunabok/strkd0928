@@ -7,7 +7,7 @@ class FeatureHook:
 
     def __call__(self, module, input, output):
         self.outputs.append(output)
-
+        
 def register_hooks(
     model_name,
     model,
@@ -16,39 +16,50 @@ def register_hooks(
     # linear_names=None,       # 例: ["fc", "classifier.6"]
     spatial_avg=False
 ):
-
+    # ===== モデル別設定 =====
     if "resnet" in model_name:
-        bn_suffixes = ["bn2"]                  # Block最後だけ
+        bn_suffixes = ["bn2"]
         linear_names = ["fc"]
+
     elif "vgg" in model_name:
-        bn_suffixes = [name for name, m in model.named_modules() if isinstance(m, nn.BatchNorm2d)]
+        bn_suffixes = [
+            name for name, m in model.named_modules()
+            if isinstance(m, nn.BatchNorm2d)
+        ]
         linear_names = ["classifier"]
 
+    else:
+        bn_suffixes = []
+        linear_names = []
+
     hooks = []
-    features = {}
+    feature_hook = FeatureHook()  # ← そのまま
 
-    bn_suffixes = bn_suffixes or []
-    linear_names = linear_names or []
+    EXCLUDED_LAYERS = ['layer1.0.downsample.1']
 
-    def hook_fn(name):
-        def fn(module, input, output):
-            if spatial_avg and output.dim() == 4:
-                output = output.mean(dim=(2, 3))
-            features[name] = output
-        return fn
+    for idx, (name, module) in enumerate(model.named_modules()):
+        print(f"Checking layer: {name}")
 
-    for name, module in model.named_modules():
+        if name in EXCLUDED_LAYERS:
+            continue
+
+        register = False
+
         if isinstance(module, nn.BatchNorm2d):
             if any(name.endswith(suf) for suf in bn_suffixes):
                 print(f"[HOOK BN] {name}")
-                hooks.append(module.register_forward_hook(hook_fn(name)))
+                register = True
 
         if isinstance(module, nn.Linear):
             if name in linear_names:
                 print(f"[HOOK FC] {name}")
-                hooks.append(module.register_forward_hook(hook_fn(name)))
+                register = True
 
-    return hooks, features
+        if register:
+            handle = module.register_forward_hook(feature_hook)
+            hooks.append((idx, name, handle))
+
+    return hooks, feature_hook
 
 
 # # 修正後の register_hooks 関数

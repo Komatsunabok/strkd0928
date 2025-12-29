@@ -295,7 +295,6 @@ files = {
 "resnet8x2-cifar100-trial_0-epochs_240-bs_64-20251223_192054",
 "resnet8x2-cifar100-trial_0-epochs_240-bs_64-20251223_185535",
 "resnet8x2-cifar100-trial_0-epochs_240-bs_64-20251223_183003",
-"resnet8x2-cifar100-trial_0-epochs_240-bs_64-20251223_180541",
     ],
     "Vanilla KD": [
 

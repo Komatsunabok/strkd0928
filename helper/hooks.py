@@ -61,6 +61,51 @@ def register_hooks(
 
     return hooks, feature_hook
 
+def register_hooks_conv(
+    model_name,
+    model,
+    *,
+    spatial_avg=False,
+):
+    """
+    Register forward hooks on Conv2d layers.
+
+    Args:
+        model_name (str): name of the model (for logging).
+        model (nn.Module): target model.
+        spatial_avg (bool): whether to apply spatial average later (handled in FeatureHook).
+
+    Returns:
+        hooks (list): list of (idx, layer_name, hook_handle)
+        feature_hook (FeatureHook): hook object storing features
+    """
+
+    hooks = []
+    feature_hook = FeatureHook(spatial_avg=spatial_avg)
+
+    # 除外したい層（必要に応じて追加）
+    EXCLUDED_LAYERS = {
+        "layer1.0.downsample.1",
+    }
+
+    for idx, (name, module) in enumerate(model.named_modules()):
+        print(f"Checking layer: {name}")
+
+        # 除外
+        if name in EXCLUDED_LAYERS:
+            continue
+
+        # Conv2d のみ hook
+        if isinstance(module, nn.Conv2d):
+            print(f"[HOOK CONV] {name}")
+            handle = module.register_forward_hook(feature_hook)
+            hooks.append((idx, name, handle))
+
+    if len(hooks) == 0:
+        raise RuntimeError(f"No Conv2d layers were hooked in model {model_name}")
+
+    return hooks, feature_hook
+
 
 # # 修正後の register_hooks 関数
 # def register_hooks(model, layer_types=None):

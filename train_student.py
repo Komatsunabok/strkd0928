@@ -34,7 +34,7 @@ from helper.cka_mapper import CKAMapper
 from distiller_zoo import DistillKL, HintLoss, Attention, Similarity, CKADistillLoss
 
 
-from helper.hooks import register_hooks
+from helper.hooks import register_hooks, register_hooks_conv
 
 # ASSIGN CUDA_ID
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
@@ -254,8 +254,8 @@ def main_worker(gpu, ngpus_per_node, opt):
 
     # Conv 用 (Hint用)
     if opt.distill == 'hint':
-        hooks_s_conv, feature_hook_s_conv = register_hooks(model_s, (nn.Conv2d,))
-        hooks_t_conv, feature_hook_t_conv = register_hooks(model_t, (nn.Conv2d,))
+        hooks_s_conv, feature_hook_s_conv = register_hooks_conv(model_name=opt.model, model=model_s)
+        hooks_t_conv, feature_hook_t_conv = register_hooks_conv(model_name=model_t_name, model=model_t)
 
     # dataをモデルに通して特徴量を取得(実際の各層の出力)
     # feat_t = [

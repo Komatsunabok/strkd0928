@@ -106,13 +106,13 @@ class CKAMapper(nn.Module):
                 cka_matrix[j, i] = cka_value  # 対称行列にする
 
         return cka_matrix
+ 
+    def _split_groups_by_cka(
+        self, feat: list[torch.Tensor],
+        group_num: int,
+        max_group_size: int = None
+        )-> list[list[int]]:
 
-    def _split_groups_by_cka(self, feat: list[torch.Tensor], group_num: int) -> list[list[int]]:
-        """
-        【修正版】
-        CKA行列の計算を compute_cka_matrix 関数に任せる
-        """
-        
         num_layers = len(feat)
         
         if group_num > num_layers:
@@ -123,39 +123,113 @@ class CKAMapper(nn.Module):
         print()
         cka_sim_matrix = self._compute_cka_matrix(feat)
 
-        # 3. 距離行列に変換 (変更なし)
-        dist_matrix = 1.0 - cka_sim_matrix
+        if group_num >= num_layers:
+            return [[i] for i in range(num_layers)]
 
-        print("==> Creating connectivity matrix...")
-        # 4. 接続行列の作成 (変更なし)
-        positions = np.arange(num_layers).reshape(-1, 1)
-        connectivity = kneighbors_graph(
-            positions,
-            n_neighbors=1,
-            mode='connectivity',
-            include_self=True
-        )
-        
-        print("==> Running constrained clustering...")
-        # 5. クラスタリング実行 (変更なし)
-        clusterer = AgglomerativeClustering(
-            n_clusters=group_num,
-            metric='precomputed',
-            linkage='average',
-            connectivity=connectivity
-        )
-        
-        labels = clusterer.fit_predict(dist_matrix)
-        print(f"Clustering labels: {labels}")
+        # 隣接距離
+        adj_dist = np.array([
+            1.0 - cka_sim_matrix[i, i + 1]
+            for i in range(num_layers - 1)
+        ])
 
-        # 6. 出力の整形 (変更なし)
-        groups = [[] for _ in range(group_num)]
-        for layer_index, group_label in enumerate(labels):
-            groups[group_label].append(layer_index)
-            
+        # CKA 的に切りたい順
+        cut_priority = np.argsort(adj_dist)[::-1]
+
+        cut_mask = np.zeros(num_layers - 1, dtype=bool)
+        cuts_needed = group_num - 1
+
+        # まず CKA に基づく cut を入れる
+        for idx in cut_priority:
+            if cuts_needed == 0:
+                break
+            cut_mask[idx] = True
+            cuts_needed -= 1
+
+        # --- サイズ制約の強制 ---
+        if max_group_size is not None:
+            i = 0
+            while i < num_layers:
+                # 次の cut までの長さを測る
+                j = i
+                while j < num_layers - 1 and not cut_mask[j]:
+                    j += 1
+                group_len = j - i + 1
+
+                # 長すぎたら強制 cut
+                while group_len > max_group_size:
+                    cut_pos = i + max_group_size - 1
+                    cut_mask[cut_pos] = True
+                    group_len -= max_group_size
+                    i = cut_pos + 1
+                i = j + 1
+
+        # --- groups 化 ---
+        groups = []
+        start = 0
+        for i, cut in enumerate(cut_mask):
+            if cut:
+                groups.append(list(range(start, i + 1)))
+                start = i + 1
+        groups.append(list(range(start, num_layers)))
+
+        # 1. 各 group 内を昇順（念のため）
+        groups = [sorted(g) for g in groups]
+
+        # 2. group 自体を層順でソート
         sorted_groups = sorted(groups, key=lambda x: x[0])
-        
+
         return sorted_groups
+
+
+    # def _split_groups_by_cka(self, feat: list[torch.Tensor], group_num: int) -> list[list[int]]:
+    #     """
+    #     【修正版】
+    #     CKA行列の計算を compute_cka_matrix 関数に任せる
+    #     """
+        
+    #     num_layers = len(feat)
+        
+    #     if group_num > num_layers:
+    #         return [[i] for i in range(num_layers)]
+
+    #     print("==> Calculating CKA similarity matrix...")
+    #     # 以前の複雑なループの代わりに、新しい関数を呼ぶだけ
+    #     print()
+    #     cka_sim_matrix = self._compute_cka_matrix(feat)
+
+    #     # 3. 距離行列に変換 (変更なし)
+    #     dist_matrix = 1.0 - cka_sim_matrix
+
+    #     print("==> Creating connectivity matrix...")
+    #     # 4. 接続行列の作成 (変更なし)
+    #     positions = np.arange(num_layers).reshape(-1, 1)
+    #     connectivity = kneighbors_graph(
+    #         positions,
+    #         n_neighbors=1,
+    #         mode='connectivity',
+    #         include_self=True
+    #     )
+        
+    #     print("==> Running constrained clustering...")
+    #     # 5. クラスタリング実行 (変更なし)
+    #     clusterer = AgglomerativeClustering(
+    #         n_clusters=group_num,
+    #         metric='precomputed',
+    #         linkage='average',
+    #         connectivity=connectivity
+    #     )
+        
+    #     labels = clusterer.fit_predict(dist_matrix)
+    #     print(f"Clustering labels: {labels}")
+
+    #     # 6. 出力の整形 (変更なし)
+    #     groups = [[] for _ in range(group_num)]
+    #     for layer_index, group_label in enumerate(labels):
+    #         groups[group_label].append(layer_index)
+            
+    #     sorted_groups = sorted(groups, key=lambda x: x[0])
+        
+    #     return sorted_groups
 
     # def _split_groups_by_cka(self, feat, group_num):
     #     """

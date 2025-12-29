@@ -81,7 +81,7 @@ def register_hooks_conv(
     """
 
     hooks = []
-    feature_hook = FeatureHook(spatial_avg=spatial_avg)
+    feature_hook = FeatureHook()
 
     # 除外したい層（必要に応じて追加）
     EXCLUDED_LAYERS = {

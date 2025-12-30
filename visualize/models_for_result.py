@@ -27,6 +27,9 @@ files = {
 # # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_184716",
     ],
     "FitNets": [
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251230_151213",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251230_145724",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251230_144246",
 # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537", 
 # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810", 
 # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046", 
@@ -70,6 +73,9 @@ files = {
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_161134", 
     ],
     "FitNets": [
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251230_155141",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251230_153916",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251230_152650",
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840", 
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359", 
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901", 
@@ -86,6 +92,44 @@ files = {
 "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_000018",
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_235911",
     ],
+}
+
+
+"""ablation study on lambda_cka"""
+# Effect of the CKA-based loss weight ver2
+files = {
+    "Teacher": [
+        "vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623"
+    ],
+    "Student": [
+# "vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251112_153023",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_090714",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_093846",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_101017",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_104150",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323",
+    ],
+    r"Str-KD ($\lambda_{\mathrm{CKA}}=0$)": [
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_104931",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_103512",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_102048",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_100621",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_095126",
+    ],
+    r"Str-KD ($\lambda_{\mathrm{CKA}}=10$)":[],
+    r"Str-KD ($\lambda_{\mathrm{CKA}}=100$)": [
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_015648",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_012037",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_213634",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_190218",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_113347",  
+    ],
+    r"Str-KD ($\lambda_{\mathrm{CKA}}=200$)": [
+
+    ],
+    r"Str-KD ($\lambda_{\mathrm{CKA}}=300$)": [
+
+    ]
 }
 
 

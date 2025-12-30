@@ -1,3 +1,145 @@
+"""new exp"""
+# vgg16_bn_half as student ver2
+files = {
+    "Teacher": [
+        "vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623"
+    ],
+    "Student": [
+# "vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251112_153023",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_090714",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_093846",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_101017",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_104150",
+"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323",
+    ],
+    "Vanilla KD": [
+
+# # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251030_221622",  
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_154459",  
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251031_140555",  
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251030_224208",  
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420",  
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251031_194052",  
+# # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_184716",
+    ],
+    "FitNets": [
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537", 
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810", 
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046", 
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311", 
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548", 
+    ],
+    "Str-KD": [
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_015648",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_012037",
+
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_213634",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_190218",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_113347",  
+    ],
+}
+
+
+# vgg8 as student ver2
+files = {
+    "Teacher": [
+        "vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623"
+    ],
+    "Student": [
+# "vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403",
+"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_115605",
+"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_122500",
+"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_125349",
+"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_132241",
+"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_135131",
+    ],
+    "Vanilla KD": [
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_142505", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_144737", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_151205", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_153816", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_161134", 
+    ],
+    "FitNets": [
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840", 
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359", 
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901", 
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407", 
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906", 
+    ],
+    "Str-KD": [
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_035404",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_032747",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_030121",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_023447",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_000018",
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_235911",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_000018",
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_235911",
+    ],
+}
+
+
+# resnet38 as student
+files = {
+    "Teacher": [
+"resnet38x2-cifar100-trial_0-epochs_240-bs_64-20251226_140410",
+    ],
+    "Student": [
+"resnet38-cifar100-trial_0-epochs_240-bs_64-20251226_205340",
+    ],
+    "Vanilla KD": [
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_225634",
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_223340",
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_181129",
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_173548",
+
+    ],
+    "FitNets": [
+    ],
+    "Str-KD": [
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_061812",
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_051857",
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_042012",
+
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_160458",
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_144217",
+    ],
+}
+
+# resnet14 as student ver2
+files = {
+    "Teacher": [
+"resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110",
+    ],
+    "Student": [
+"resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_151751",
+"resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_175156",
+"resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_180721",
+"resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_145140",
+"resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_182914",
+    ],
+    "Vanilla KD": [
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_155456",
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_193224",
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_183418",
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_175838",
+    ],
+    "FitNets": [
+    ],
+    "Str-KD": [
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_083708",
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_081552",
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_075504",
+
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_170733",
+"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_154407",
+    ],
+}
+
+
+
+
 """basic experiments"""
 # vgg16 as student
 files = {
@@ -69,44 +211,6 @@ files = {
 "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251106_115515",  
     ],
 }
-
-# vgg16_bn_half as student ver2
-# ok saved
-files = {
-    "Teacher": [
-        "vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623"
-    ],
-    "Student": [
-# "vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251112_153023",
-"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_090714",
-"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_093846",
-"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_101017",
-"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_104150",
-"vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323",
-    ],
-    "Vanilla KD": [
-# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251030_221622",  
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_154459",  
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251031_140555",  
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251030_224208",  
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251104_143420",  
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251031_194052",  
-# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_184716",
-    ],
-    "FitNets": [
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548", 
-    ],
-    "Str-KD": [
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_213634",
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_190218",
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_113347",  
-    ],
-}
-
 
 # vgg19_bn_half as student
 # ok saved
@@ -182,92 +286,6 @@ files = {
 "S_vgg8-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251119_030323", 
     ],
 }
-
-
-# vgg8 as student ver2
-# ok saved
-files = {
-    "Teacher": [
-        "vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623"
-    ],
-    "Student": [
-# "vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251014_160403",
-"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_115605",
-"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_122500",
-"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_125349",
-"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_132241",
-"vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_135131",
-    ],
-    "Vanilla KD": [
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_142505", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_144737", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_151205", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_153816", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_161134", 
-    ],
-    "FitNets": [
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906", 
-    ],
-    "Str-KD": [
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_000018",
-# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_235911",
-    ],
-}
-
-# resnet38 as student
-files = {
-    "Teacher": [
-"resnet38x2-cifar100-trial_0-epochs_240-bs_64-20251226_140410",
-    ],
-    "Student": [
-"resnet38-cifar100-trial_0-epochs_240-bs_64-20251226_205340",
-    ],
-    "Vanilla KD": [
-"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_225634",
-"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_223340",
-"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_181129",
-"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_173548",
-
-    ],
-    "FitNets": [
-    ],
-    "Str-KD": [
-
-"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_160458",
-"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_144217",
-    ],
-}
-
-# resnet14 as student ver2
-files = {
-    "Teacher": [
-"resnet14x2-cifar100-trial_0-epochs_240-bs_64-20251128_013110",
-    ],
-    "Student": [
-"resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_151751",
-"resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_175156",
-"resnet14-cifar100-trial_0-epochs_240-bs_64-20251128_180721",
-"resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_145140",
-"resnet14-cifar100-trial_0-epochs_240-bs_64-20251129_182914",
-    ],
-    "Vanilla KD": [
-"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_155456",
-"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251129_193224",
-"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_183418",
-"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_175838",
-    ],
-    "FitNets": [
-    ],
-    "Str-KD": [
-"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_170733",
-"S_resnet14-T_resnet14x2-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_154407",
-    ],
-}
-
 
 # resnet14x2 as student
 # ok saved

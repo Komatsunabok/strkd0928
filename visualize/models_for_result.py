@@ -95,9 +95,15 @@ files = {
 "resnet38x2-cifar100-trial_0-epochs_240-bs_64-20251226_140410",
     ],
     "Student": [
+"resnet38-cifar100-trial_0-epochs_240-bs_64-20251230_140325",
+"resnet38-cifar100-trial_0-epochs_240-bs_64-20251230_134702",
+"resnet38-cifar100-trial_0-epochs_240-bs_64-20251230_133042",
+"resnet38-cifar100-trial_0-epochs_240-bs_64-20251230_131420",
 "resnet38-cifar100-trial_0-epochs_240-bs_64-20251226_205340",
     ],
     "Vanilla KD": [
+"S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251230_125202",
+
 "S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_225634",
 "S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_223340",
 "S_resnet38-T_resnet38x2-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251229_181129",

@@ -79,30 +79,35 @@ def register_hooks_conv(
         hooks (list): list of (idx, layer_name, hook_handle)
         feature_hook (FeatureHook): hook object storing features
     """
-
-    hooks = []
+    EXCLUDED_LAYERS = {"layer1.0.downsample.1"}
     feature_hook = FeatureHook()
+    hooks = []
 
-    # 除外したい層（必要に応じて追加）
-    EXCLUDED_LAYERS = {
-        "layer1.0.downsample.1",
-    }
+    # 候補層を選ぶ
+    if "vgg" in model_name.lower():
+        conv_layers = [(idx, name, module)
+                       for idx, (name, module) in enumerate(model.named_modules())
+                       if isinstance(module, nn.Conv2d)]
+    elif "resnet" in model_name.lower():
+        conv_layers = [(idx, name, module)
+                       for idx, (name, module) in enumerate(model.named_modules())
+                       if isinstance(module, nn.Conv2d) and "downsample" not in name and name not in EXCLUDED_LAYERS]
+    else:
+        conv_layers = [(idx, name, module)
+                       for idx, (name, module) in enumerate(model.named_modules())
+                       if isinstance(module, nn.Conv2d)]
 
-    for idx, (name, module) in enumerate(model.named_modules()):
-        print(f"Checking layer: {name}")
+    if len(conv_layers) == 0:
+        raise RuntimeError("No Conv2d layers found.")
 
-        # 除外
-        if name in EXCLUDED_LAYERS:
-            continue
+    # 中間層を選ぶ
+    mid_idx = len(conv_layers) // 2
+    idx, name, module = conv_layers[mid_idx]
+    print(f"Hook target: {name} at index {idx}")
 
-        # Conv2d のみ hook
-        if isinstance(module, nn.Conv2d):
-            print(f"[HOOK CONV] {name}")
-            handle = module.register_forward_hook(feature_hook)
-            hooks.append((idx, name, handle))
-
-    if len(hooks) == 0:
-        raise RuntimeError(f"No Conv2d layers were hooked in model {model_name}")
+    # その層だけ hook
+    handle = module.register_forward_hook(feature_hook)
+    hooks.append((idx, name, handle))
 
     return hooks, feature_hook
 

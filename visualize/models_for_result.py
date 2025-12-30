@@ -125,9 +125,14 @@ files = {
 "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251229_113347",  
     ],
     r"Str-KD ($\lambda_{\mathrm{CKA}}=200$)": [
-
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251230_172531",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251230_164859",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_200.0-20251230_161049",
     ],
     r"Str-KD ($\lambda_{\mathrm{CKA}}=300$)": [
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251230_192043",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251230_184136",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_300.0-20251230_180318",
 
     ]
 }

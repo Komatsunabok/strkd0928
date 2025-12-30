@@ -1,34 +1,11 @@
-#!/bin/bash
-# set -e  # ← 途中でエラーが出たら止める（安全）
 
-# how to use:
+python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 10 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill ckad --layer_usage all --group_num 6 --log_cka
 
-# # train teacher
-# echo "=== Start ==="
-# python train_teacher.py --dataset cifar100 --epochs 240 --trial 0 --model vgg16_bn_half
-# echo "=== Done ==="
-# sleep 5  # GPUメモリ開放のため5秒待機（任意）
+python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 10 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill ckad --layer_usage all --group_num 6  
 
-# # train student
-# echo "=== Start ==="
-# python train_student.py --dataset cifar100 --model vgg16_bn_half --model_t vgg16_bn -c 1 -d 1 -b 100 --beta_method fixed \
-#   --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 \
-#   --distill hint --log_cka
-# echo "=== Done ==="
-# sleep 5  # GPUメモリ開放のため5秒待機（任意）
+python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 50 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill ckad --layer_usage all --group_num 6 --log_cka
 
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 1 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill hint --log_cka
-echo "=== Done ==="
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 1 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill hint 
-echo "=== Done ==="
+python train_student.py --dataset cifar100 --model vgg16_bn_half  -c 1 -d 1 -b 50 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill ckad --layer_usage all --group_num 6  
 
 
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg8_bn  -c 1 -d 1 -b 1 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill hint --log_cka
-echo "=== Done ==="
-echo "=== Start ==="
-python train_student.py --dataset cifar100 --model vgg8_bn  -c 1 -d 1 -b 1 --model_t vgg16_bn --model_name_t vgg16_bn-cifar100-trial_0-epochs_240-bs_64-20251014_162623 --distill hint 
-echo "=== Done ==="
 

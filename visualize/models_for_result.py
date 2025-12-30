@@ -13,7 +13,11 @@ files = {
 "vgg16_bn_half-cifar100-trial_0-epochs_240-bs_64-20251114_111323",
     ],
     "Vanilla KD": [
-
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_104931",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_103512",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_102048",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_100621",
+"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_095126",
 # # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251030_221622",  
 # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_10.0-20251030_154459",  
 # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251031_140555",  
@@ -23,11 +27,11 @@ files = {
 # # "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_1.0-20251229_184716",
     ],
     "FitNets": [
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311", 
-"S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548", 
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_005537", 
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_014810", 
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_024046", 
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_033311", 
+# "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_042548", 
     ],
     "Str-KD": [
 "S_vgg16_bn_half-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_015648",
@@ -54,6 +58,11 @@ files = {
 "vgg8_bn-cifar100-trial_0-epochs_240-bs_64-20251121_135131",
     ],
     "Vanilla KD": [
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_115458",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_114256",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_113054",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_111851",
+"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251230_110614",
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_142505", 
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_144737", 
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_151205", 
@@ -61,11 +70,11 @@ files = {
 # "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-kd-cls_1.0-div_1.0-beta_100.0-20251118_161134", 
     ],
     "FitNets": [
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407", 
-"S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_051840", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_060359", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_064901", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_073407", 
+# "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-hint-cls_1.0-div_1.0-beta_1.0-20251120_081906", 
     ],
     "Str-KD": [
 "S_vgg8_bn-T_vgg16_bn-cifar100-trial_0-epochs_240-bs_64-ckad-cls_1.0-div_1.0-beta_100.0-20251230_035404",
